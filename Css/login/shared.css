@@ -1,0 +1,156 @@
+body , html{
+    min-height: 100vh;
+    height: 100vh;
+    background-color: #fafafa;
+    font-family: 'Roboto';
+    margin: 0;
+}
+main{
+    height: 100%;
+}
+main .container{
+    height: 100%;
+}
+.row{
+    min-height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-container .img-fluid{
+    max-width: 180px;
+    content: url('../../Assests/logoBlack\ \(1\).png');
+}
+form.card{
+    background-color: white;
+    border-radius: 10px;
+    padding: .5rem;
+}
+.icon-container{
+    height: 100%;
+    width: 40px;
+}
+.or{
+    color: #ffffffb3;
+    font-size: 13px;
+}
+.or hr{
+    margin: 0px;
+    border-width: 0px 0px thin;
+    border-style: solid;
+    border-color: #ffffff1f;
+    flex: 1 1 0%;
+}
+
+.form-floating>label{
+    background-color: white;
+    z-index: 1;
+    color: black;
+    display: inline-block;
+    height: auto;
+    font-size: 1rem;
+    left: 0.375rem;
+    opacity: 1 !important;
+    align-self: center;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: auto;
+    transform-origin: top left;
+    transition: all .2s ease-in-out;
+}
+.input-group .form-control{
+    font-size: 1rem;
+    height: auto;
+    height: 45px;
+    line-height: normal;
+    border-color: #c4c4c4;
+    border-width: 1.5px;
+    color: black;
+}
+.input-group .form-control:hover{
+    border-color: black;
+
+    
+}
+.form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~label , .country-select+label , .iti+label{
+    transform: scale(0.75) translateY(-.9rem) translateX(.4rem);
+    top: 0;
+    color: #60e6c4 !important;
+}
+.form-floating>.form-control:focus, .form-floating>.form-control:not(:placeholder-shown), .form-floating>.form-select , .country-select .form-control , .iti .form-control{
+    border-color: #60e6c4;
+    color: black ;
+}
+
+.form-link{
+    text-decoration: none;
+}
+.form-link:hover{
+    text-decoration: underline;
+}
+.main-font{
+    font-size: 14px;
+}
+.not-valid{
+    border-color: #ef9a9a !important;
+    color: #ef9a9a !important;
+}
+.not-valid + label{
+    color: #ef9a9a !important;
+}
+.error-p{
+    color: #ef9a9a;
+}
+.text-white-dark{
+    color: black;
+}
+#submit:hover{
+    background-color: #49b99d !important;
+}
+
+@font-face {
+    font-family: 'Roboto'; ;
+    src: url('../../Assests/Roboto-Regular.ttf');
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+/* Dark theme  */
+
+body.dark{
+    background-color: #121212;
+}
+body.dark form.card{
+    background-color: #222222;
+}
+body.dark .form-control{
+    color: #60e6c4;
+}
+body.dark .form-floating>label{
+    background-color: #222222;
+    color: white;   
+}
+body.dark .input-group .form-control:hover{
+    border-color: white;
+}
+body.dark .text-white-dark{
+    color: white;
+}
+body.dark .logo-container .img-fluid{
+    content: url('../../Assests/logoWhite\ \(1\).png');
+}
+body.dark .form-floating>.form-control:focus,body.dark .form-floating>.form-control:not(:placeholder-shown),body.dark .form-floating>.form-select{
+    color: #60e6c4 ;
+}
+
+body.dark input:-webkit-autofill,
+body.dark input:-webkit-autofill:hover, 
+body.dark input:-webkit-autofill:focus, 
+body.dark input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #222222 inset !important;
+    -webkit-text-fill-color: #60e6c4 !important;
+}

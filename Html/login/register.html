@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../Assests/Screenshot 2023-11-05 203303.png">
+    <title>Register</title>
+    <link rel="stylesheet" href="../../Css/Shared/bootstrap.min.css">
+    <link rel="stylesheet" href="../../Css/Shared/ripple.css">
+    <link rel="stylesheet" href="../../Css/Shared/flatpicker.css">
+    <link rel="stylesheet" href="../../Js/Shared/build/css/countrySelect.min.css">
+    <link rel="stylesheet" href="../../Js/Shared/build1/css/intlTelInput.min.css">
+    <link rel="stylesheet" href="../../Css/login/shared.css">
+    <link rel="stylesheet" href="../../Css/login/register.css">
+</head>
+
+<body class="">
+    <main>
+        <div class="container">
+            <div class="row mx-0">
+                <div class="col-12">
+                    <div class="logo-container text-center mb-3">
+                        <img src="../../Assests/logoWhite (1).png" alt="" class="img-fluid w-100">
+                    </div>
+                    <form class="card border-0 shadow">
+                        <div class="card-body">
+                            <h4 class="card-title text-white-dark fw-bold mb-5">Sign up</h4>
+                            <div class="status-message d-none text-white w-100 text-center rounded-2 p-2 mb-4">
+                                Invalid Email or Password
+                            </div>
+                            <!-- <div class="or d-flex align-items-center my-4">
+                        <hr>
+                        <span class="mx-3 fw-bold">OR</span>
+                        <hr>
+                    </div> -->
+                            <div class="row mx-0 align-items-baseline">
+                                <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="input-group position-relative  mb-3">
+                                        <div class="form-floating w-100">
+                                            <input type="name" name=""
+                                                class="form-control rounded-3 shadow-none  w-100 bg-transparent py-2 border-2"
+                                                id="name" placeholder="Full Name">
+                                            <label for="name" class=" px-2 py-0">Full Name</label>
+                                        </div>
+                                        <p class="error-p main-font mt-1 mb-0 d-none">Not Valid</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="input-group position-relative  mb-3">
+                                        <div class="form-floating w-100">
+                                            <input type="email" name=""
+                                                class="form-control rounded-3 shadow-none  w-100 bg-transparent py-2 border-2 "
+                                                id="email" placeholder="Email">
+                                            <label for="email" class=" px-2 py-0">Email</label>
+                                        </div>
+                                        <p class="error-p main-font mt-1 mb-0 d-none">Not Valid</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="input-group position-relative  mb-3">
+                                        <div class="form-floating w-100">
+                                            <input type="text" name=""
+                                                class="form-control rounded-3 shadow-none  w-100 bg-transparent py-2 border-2 "
+                                                id="dateOfBirth" placeholder="DD/MM/YYYY">
+                                            <label for="dateOfBirth" class=" px-2 py-0">Date of Birth</label>
+                                        </div>
+                                        <p class="error-p main-font mt-1 mb-0 d-none">Not Valid</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="input-group position-relative  mb-3">
+                                        <div class="form-floating w-100">
+                                            <input type="text" name="" readonly
+                                                class="form-control rounded-3 shadow-none  w-100 bg-transparent py-2 border-2 "
+                                                id="Nationality" placeholder="Nationality">
+                                            <label for="Nationality" class=" px-2 py-0">Nationality</label>
+                                        </div>
+                                        <p class="error-p main-font mt-1 mb-0 d-none">Not Valid</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="input-group position-relative  mb-3">
+                                        <div class="form-floating w-100">
+                                            <input type="tel" name="" pattern= "[0-9]"
+                                                class="form-control rounded-3 shadow-none  w-100 bg-transparent py-2 border-2 "
+                                                id="phoneNumber" placeholder="">
+                                            <label for="phoneNumber" class=" px-2 py-0">Phone number</label>
+                                        </div>
+                                        <p class="error-p main-font mt-1 mb-0 d-none">Not Valid</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="input-group position-relative  mb-3">
+                                        <div class="form-floating customSelect-container position-relative w-100">
+                                                <input type="text" name="" placeholder="Role type" id="roleType" readonly class="form-control shadow-none disabled bg-transparent  customSelect ">
+                                                <select name="" id="roleTypeSelect" class="d-none main-font">
+                                                    <option value="student">Student</option>
+                                                    <option value="teacher">Teacher</option>
+                                                    <option value="center">Center</option>
+                                                </select>
+                                                <ul class="position-absolute bg-white w-100 list-unstyled shadow rounded-2">
+                                                   
+                                                </ul>
+                                            <label for="roleType" class=" px-2 py-0">Role type</label>
+                                        </div>
+                                        <p class="error-p main-font mt-1 mb-0 d-none">Not Valid</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="input-group position-relative  mb-3">
+                                        <div class="form-floating customSelect-container position-relative w-100">
+                                                <input type="text" name="" placeholder="Role type" id="gender" readonly class="form-control shadow-none disabled bg-transparent  customSelect ">
+                                                <select name="" id="genderSelect" class="d-none main-font">
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                                <ul class="position-absolute bg-white w-100 list-unstyled shadow rounded-2">
+                                                   
+                                                </ul>
+                                            <label for="gender" class=" px-2 py-0">Gender</label>
+                                        </div>
+                                        <p class="error-p main-font mt-1 mb-0 d-none">Not Valid</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="input-group position-relative mb-3">
+                                        <div class="form-floating w-100">
+                                            <input type="password" name=""
+                                                class="form-control rounded-3 shadow-none  w-100 bg-transparent py-2 border-2"
+                                                id="password" placeholder="Password">
+                                            <label for="password" class=" px-2 py-0">Password</label>
+                                        </div>
+                                        <p class="error-p main-font mt-1 mb-0 d-none">Not Valid</p>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-12 col-md-6 col-lg-6">
+                                    <div class="input-group position-relative mb-3">
+                                        <div class="form-floating w-100">
+                                            <input type="password" name=""
+                                                class="form-control rounded-3 shadow-none  w-100 bg-transparent py-2 border-2"
+                                                id="confirmpassword" placeholder="Confirm password">
+                                            <label for="confirmpassword" class=" px-2 py-0">Confirm password</label>
+                                        </div>
+                                        <p class="error-p main-font mt-1 mb-0 d-none">Not Valid</p>
+                                    </div>
+                                </div> -->
+                            </div>
+
+
+                            <button id="submit" type="button"
+                                class="w-100 btn rounded-3 shadow-none rpl rpl-dark fw-bold text-dark mt-3 mb-3 py-2"
+                                style="background-color: #60e6c4;">SIGN UP</button>
+
+                            <p class="float-end text-white-dark main-font mb-0">Already have an account? <a href="#"
+                                    style="color: #60e6c4;">Sign In</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <script src="../../Js/Shared/jquery-3.6.0.min.js"></script>
+    <script src="../../Js/Shared/bootstrap.min.js"></script>
+    <script src="../../Js/Shared/flatpicker.js"></script>
+    <script src="../../Js/Shared/build/js/countrySelect.min.js"></script>
+    <script src="../../Js/Shared/build1/js/intlTelInput-jquery.min.js"></script>
+    <script src="../../Js/Shared/ripple.js"></script>
+    <script src="../../Js/login/register.js"></script>
+</body>
+</html>
+
+
+
+
+

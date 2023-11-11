@@ -1,0 +1,510 @@
+@font-face {
+    font-family: 'Rocko';
+    src: url('../../Assests/Traffolight.otf');
+}
+body{
+    font-family: 'Rocko';
+}
+aside{
+    width: 70px;
+    height: 100%;
+    position: fixed;
+    background-color: #08060e;
+    padding-top: 70px !important;
+    z-index: 1000;
+}
+aside .logo-container{
+    color: white;
+    font-size: 30px;
+    font-weight: bold ;
+    position: absolute;
+    left: 0;
+    right: auto;
+    margin: auto;
+    width: 100%;
+    top: 0;
+}
+aside .main-link{
+    text-align: center;
+    font-size: 25px;
+    color: #797581;
+    transition: all .2s ease-in-out;
+
+}
+aside .main-link:hover , aside .main-link.active {
+    color: white;
+}
+.mCustomScrollbar1{
+    height: 100%;
+}
+.mCSB_inside>.mCSB_container{
+    margin-right: 0px;
+}
+
+.mCSB_scrollTools{
+    z-index: 10000;
+    width: 5px;
+}
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+    width: 2px;
+}
+.sub-list{
+    top: 0;
+    background-color: #171127;
+    width: 0px;
+    overflow: hidden;
+    left: 70px;
+    height: 100%;
+    padding: 1rem 0rem !important ;
+    z-index: 999;
+    position: fixed;
+    transition: all .2s ease-in-out;
+}
+.sub-list svg{
+    font-size: 20px;
+    margin-right: 10px;
+}
+.sub-list .menu-title{
+    display: flex;
+    font-size: 13px;
+    align-items: end;
+    margin-bottom: 10px;
+
+}
+.sub-list .main-link{
+    font-size: 16px;
+    text-decoration: none;
+    text-align: left;
+    position: relative;
+    padding-left: 25px;
+}
+.sub-list .main-link:hover{
+    background-color: #08060e;
+    border-radius: 10px;
+}
+.sub-list .main-link::before{
+    content: '';
+    width: 7px;
+    height: 7px;
+    z-index: 1000;
+    border-radius: 50%;
+    background-color: #797581;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    transition: all .2s ease-in-out;
+}
+.sub-list .main-link:hover:before{
+    background-color: white;
+}
+.sub-list.open{
+    width: 250px;
+    padding: 1rem !important;
+    left: 70px;
+}
+header.open{
+    left: 320px;
+
+}
+header{
+    display: flex;
+    position: fixed;
+    right: 0;
+    left: 70px;
+    z-index: 999;
+    padding: .8rem 1rem;
+    height: 70px;
+    background-color: white;
+    transition: all .3s ease-in-out;
+    box-shadow:0 3px 3px rgba(56,65,74,0.1)
+}
+header .nav{
+    float: right;
+    margin-inline-start: auto;
+}
+header .input-group{
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    max-width: 250px;
+    overflow: hidden;
+    border-radius: 5px !important;
+}
+header .input-group input{
+    height: 100%;
+    width: 100%;
+    border: 0px;
+    font-size: 13px;
+    outline: none !important;
+    font-weight: 600;
+    color: #878a99;
+}
+header .input-group i{
+    left: 0;
+    width: 50px;
+    text-align: center;
+    font-size: 23px;
+    color: #878a99;
+}
+header .nav-item{
+    height: 100%;
+    width: 54px;
+    padding: 0px 5px;
+    
+}
+header .nav-link{
+    border-radius: 50%;
+    padding: 7px !important;
+    height: 100%;
+    display: flex;
+    font-size: 20px;
+    font-weight: 600;
+    color: black !important;
+    align-items: center;
+    justify-content: center;
+}
+header .nav-link:hover , header .notification .noti-link.active  , header .lang .lang-link.active , header .search .search-link.active{
+    background-color: rgba(53, 119, 241, 0.1);
+    color: #08060e !important;
+}
+header .nav-link svg{
+    font-size: 25px;
+    text-align: center;
+}
+header .nav-link span{
+    border-radius: 5px !important;
+}
+header .noti-num{
+    top: 11px;
+    right: 13px;
+    background-color: red;
+    font-size: 0px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    font-weight: bold;
+} 
+header .lang .dropdown-menu{
+    position: absolute !important;
+    right: 130px;
+    top: 3.5rem;
+    display: block;
+    z-index: -1;
+    visibility: hidden;
+    opacity: 0;
+    top: 5rem;
+    transition: all .1s ease-in-out;
+}
+header .lang .dropdown-menu.show{
+    visibility: visible;
+    z-index: 2;
+    top: 4rem;
+    opacity: 1;
+}
+header .lang .dropdown-menu .nav-link{
+    border-radius: 0px;
+    font-size: 15px;
+    display: flex;
+    justify-content: start;
+    width: 100%;
+}
+header .dropdown-menu .nav-link:hover{
+    background-color: #f3f6f9;
+    cursor: pointer;
+    color: black !important;
+}
+header .dropdown-menu .fi{
+    width: 17px;
+    height: 17px;
+}
+header .noti-container{
+    position: absolute;
+    right: 200px;
+    width: 100%;
+    max-width: 350px;
+    top: 5rem;
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: -1;
+    visibility: hidden;
+    opacity: 0;
+    top: 5rem;
+    transition: all .1s ease-in-out;
+    box-shadow: 0 5px 10px rgb(30 32 37 / 12%);
+}
+header .noti-container.show{
+    visibility: visible;
+    z-index: 2;
+    top: 4rem;
+    opacity: 1;
+}
+header .noti-container .card-header{
+    color: white;
+    background-color: #08060e ;
+    border-bottom: 0px;
+}
+header .noti-container .card-header {
+    padding-bottom: 0px;
+}
+header .noti-container .card-header h6{
+    display: flex;
+    justify-content: space-between;
+}
+header .noti-container .nav-tabs{
+    float: left;
+    border-bottom: 0px;
+}
+header .noti-container .nav-tabs .nav-item{
+    padding: 0px;
+    width: auto;
+}
+header .nav-tabs .nav-item .nav-link{
+    margin-bottom: 0px;
+    background: 0 0;
+    font-size: 13px;
+    font-weight: bold;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    border: 0px solid transparent;
+    border-radius: 0px;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    color: rgba(255,255,255,.6) !important;
+}
+header .nav-tabs .nav-item .nav-link.active {
+    color: #495057;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+    color: rgb(75,56,179) !important;
+}
+.message-container{
+    display: flex;
+    align-items: flex-start;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 15px;
+}
+.message-container:hover{
+    background-color: #f3f3f9;
+}
+.message-container .message-img{
+    border-radius: 50%;
+    padding: 7px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    background-color: rgba(53, 119, 241, 0.1);
+    color: #3577f1;
+    margin-right: 1rem;
+}
+.message-container .message-title{
+    margin-bottom: 5px;
+    color:black ;
+}
+.message-container .message-content{
+    color: #878a99;
+    margin-bottom: 10px;
+}
+.message-container .message-date{
+    color: #878a99;
+    font-size: 11px;
+}
+header .card-body{
+    max-height: 350px ;
+    position: relative;
+}
+header .profile .dropdown-menu{
+    position: absolute !important;
+    right: 30px;
+    top: 3.5rem;
+    display: block;
+    z-index: -1;
+    visibility: hidden;
+    opacity: 0;
+    top: 5rem;
+    transition: all .1s ease-in-out;
+}
+header .profile .dropdown-menu.show{
+    visibility: visible;
+    z-index: 2;
+    top: 4rem;
+    opacity: 1;
+}
+header .profile .dropdown-menu .nav-link{
+    border-radius: 0px;
+    font-size: 13px;
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    color: #212529 !important;
+}
+header .profile{
+    border-left: 2px solid #c2c4cd;
+    width: auto;
+}
+header .profile:hover .nav-link{
+    background-color: transparent;
+}
+header .profile .dropdown-menu .nav-link:hover{
+    cursor: pointer;
+}
+header .profile .profile-pic{
+    border-radius: 50%;
+    background-color: #08060e;
+    color: white;
+    padding: 7px 9px;
+}
+header .profile .profile-info{
+    padding: .5rem;
+}
+header .profile .profile-info p:nth-child(1){
+    font-size: 11px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    color: #797581;
+}
+header .profile .profile-info p:nth-child(2){
+    font-size: 13px;
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+.toggle{
+    height: 100%;
+    width: 30px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    display: none;
+}
+.toggle span{
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    border-radius: 3px;
+    right: 0;
+    transition: all .3s ease-in-out;
+    margin: auto;
+    background-color: #08060e;
+}
+.toggle span:nth-child(1){
+    top: 10px;
+    width: 70%;
+    
+    right: 20%;
+}
+.toggle span:nth-child(2){
+    top: 20px;
+}
+.toggle span:nth-child(3){
+    top: 30px;
+    width: 50%;
+    
+    right: 40%;
+}
+
+main{
+    width: 100%;
+    padding-left: 70px;
+    transition: all .3s ease-in-out;
+    padding-top: 70px;
+}
+main.open{
+    padding-left: 320px;
+}
+
+@media all and (max-width : 600px){
+    header{
+        left: 0;
+    }
+    aside{
+        left: -50px;
+        transition: all .3s ease-in-out;
+        width: 50px;
+    }
+    aside .logo-container{
+        font-size: 25px;
+    }
+    header .profile-info {
+        display: none;
+    }
+    .toggle{
+        display: block;
+    }
+    header .input-group{
+        width: auto;
+    }
+    .sub-list{
+        left: 0px;
+    }
+    header.open{
+        left: 0;
+    }
+    .sub-list.open{
+        left: 0;
+    }
+    main.open{
+        padding-left: 0px;
+    }
+    main.uncollapsed{
+        padding-left: 50px;
+    }
+    aside.uncollapsed{
+        left: 0px;
+        right: auto;
+    }
+    header.uncollapsed{
+        left: 50px;
+    }
+    .bg-overlay{
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        background-color: rgba(135, 138, 153,.5);
+        z-index: 1000;
+        display: none;
+    }
+    .bg-overlay.show{
+        display: block;
+    }
+    header .input-group{
+        display: none;
+    }
+    .toggle.collapsed span:nth-child(1){
+        top: 16px;
+        width: 50%;
+        
+        right: 0;
+        transform: rotate(30deg);
+    }
+    .toggle.collapsed span:nth-child(2){
+        top: 20px;
+    }
+    .toggle.collapsed span:nth-child(3){
+        top: 24px;
+        width: 50%;
+        
+        right: 0;
+        transform: rotate(-30deg);
+    }
+    header .noti-container{
+        right: 0;
+        max-width: 100%;
+    }
+    header .profile .dropdown-menu , header .lang .dropdown-menu{
+        width: 99%;
+        right: 0;
+        left: 0;
+    }
+}

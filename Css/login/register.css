@@ -1,0 +1,130 @@
+.col-12{
+    max-width: 730px !important;
+}
+.country-select , .flag-dropdown ,.selected-flag{
+    width: 100% !important;
+}
+.country-select input , .country-select .selected-flag{
+    cursor: pointer;
+}
+.country-select .selected-flag .arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -2px;
+    right: 6px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 7px solid #555;
+}
+.country-select .selected-flag .arrow.up {
+    border-top: none;
+    border-bottom: 5px solid #555;
+}
+.iti{
+    width: 100%;
+}
+.form-floating>.form-control:focus, .form-floating>.form-control:not(:placeholder-shown) {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+.form-floating.customSelect-container::after{
+        content: "▼";
+        padding-left: 0.5em;
+        position: absolute;
+        right: 8px;
+        color: #555;
+        font-size: 10px;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+    
+}
+.iti--separate-dial-code .iti__selected-flag ,.iti--separate-dial-code .iti__selected-flag:hover ,.iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag{
+    background-color: transparent;
+}
+body.dark .iti--separate-dial-code.iti--show-flags .iti__selected-dial-code{
+    color: white;
+}
+body.dark .flatpickr-calendar{
+    background-color: #121212;
+}
+body.dark .flatpickr-day{
+    color: white;
+}
+ .flatpickr-day.selected ,.flatpickr-day:hover{
+    color: black !important;
+    border: 1px solid transparent !important;
+     background-color: #60e6c4 !important;
+    background-image: none;
+    color: #121212;
+}
+body.dark .flatpickr-day.flatpickr-disabled, .flatpickr-day.flatpickr-disabled:hover, .flatpickr-day.prevMonthDay, .flatpickr-day.nextMonthDay, .flatpickr-day.notAllowed, .flatpickr-day.notAllowed.prevMonthDay, .flatpickr-day.notAllowed.nextMonthDay{
+    color: #9c9b9b;
+}
+body.dark .flatpickr-current-month .flatpickr-monthDropdown-months{
+    color: white;
+}
+body.dark span.flatpickr-weekday{
+    color: white;
+}
+body.dark .flatpickr-current-month input.cur-year , .numInputWrapper span:after{
+    color: white;
+}
+
+body.dark .numInputWrapper span.arrowUp:after {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid white;
+    top: 26%;
+}
+body.dark .flatpickr-current-month .numInputWrapper span.arrowUp:after {
+    border-bottom-color: white;
+}
+body.dark .flatpickr-current-month .numInputWrapper span.arrowDown:after {
+    border-top-color:white;
+}
+body.dark .numInputWrapper span.arrowDown:after {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid white;
+}
+body.dark .flatpickr-months .flatpickr-prev-month,body.dark  .flatpickr-months .flatpickr-next-month{
+    color: white;
+    fill: white;
+}
+ .flatpickr-months .flatpickr-prev-month:hover svg, .flatpickr-months .flatpickr-next-month:hover svg{
+    color: #60e6c4;
+    fill: #60e6c4;
+}
+body.dark .flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month{
+    color: #121212;
+}
+body.dark .flatpickr-calendar.arrowTop:after {
+    border-bottom-color: #121212;
+}
+
+
+.customSelect{
+    cursor: pointer !important;
+}
+.customSelect-container ul{
+    top:150% ;
+    opacity: 0;
+    display: block;
+    visibility: hidden;
+    z-index: -10000;
+    transition: all 0.2s ease-in-out;
+}
+.customSelect-container ul.show{
+    top: 105%;
+    opacity: 1;
+    visibility: visible;
+    z-index: 10000;
+}
+.customSelect-container ul a:hover{
+    background-color: #ced4da;
+    transition: all .1s ease-in-out;
+}

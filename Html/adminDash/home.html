@@ -1,0 +1,326 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../../Css/Shared/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.min.css">
+
+    <link rel="stylesheet" href="../../Css/adminDash/shared.css">
+</head>
+
+<body>
+    <div class="bg-overlay "></div>
+
+    <!-- 
+        // Aside // 
+     -->
+    <aside class=" pb-3 d-flex flex-column">
+        <div class="logo-container text-center py-1">
+            <p>MT</p>
+        </div>
+            <ul style="max-height: 80%;" class="list-unstyled nav flex-column position-relative mt-3">
+                <div class="mCustomScrollbar1" data-mcs-theme="light">
+
+                <li class="nav-item fw-bold text-white">
+                    <a class="menu-link main-link d-block py-3 active" href="home.html">
+                        <svg class="main-icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                            viewBox="0 0 24 24">
+                            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M17 21H7a4 4 0 0 1-4-4v-6.292a4 4 0 0 1 1.927-3.421l5-3.03a4 4 0 0 1 4.146 0l5 3.03A4 4 0 0 1 21 10.707V17a4 4 0 0 1-4 4Zm-8-4h6" />
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item fw-bold text-white">
+                    <a class="menu-link main-link d-block py-3" href="javascript:void(0);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+                            <path fill="currentColor"
+                                d="M8 5.5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0ZM11.5 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm-1 2.594V10.5A2.49 2.49 0 0 0 10 9h3.273c.676 0 1.225.548 1.225 1.225c0 0 0 2.275-3 2.275c-.598 0-1.077-.09-1.46-.235a3.86 3.86 0 0 0 .447-1.413c.006-.062.01-.115.012-.159l.003-.1Zm-1-.094A1.5 1.5 0 0 0 8 9H3a1.5 1.5 0 0 0-1.5 1.5v.075s0 2.925 4 2.925c3.812 0 3.991-2.656 4-2.906V10.5Z" />
+                        </svg>
+                    </a>
+                    <ul class="list-unstyled nav flex-column  sub-list p-3">
+                        <li class="menu-title  fw-bold text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+                                <path fill="currentColor"
+                                    d="M8 5.5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0ZM11.5 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm-1 2.594V10.5A2.49 2.49 0 0 0 10 9h3.273c.676 0 1.225.548 1.225 1.225c0 0 0 2.275-3 2.275c-.598 0-1.077-.09-1.46-.235a3.86 3.86 0 0 0 .447-1.413c.006-.062.01-.115.012-.159l.003-.1Zm-1-.094A1.5 1.5 0 0 0 8 9H3a1.5 1.5 0 0 0-1.5 1.5v.075s0 2.925 4 2.925c3.812 0 3.991-2.656 4-2.906V10.5Z" />
+                            </svg>
+                            <span>Students</span>
+                        </li>
+                        <li class="nav-item fw-bold text-white">
+                            <a class="menu-link main-link d-block py-3" href="users.html">
+                                Invidual
+                            </a>    
+                        </li>
+                        <hr>
+                        <li class="menu-title  fw-bold text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+                                <path fill="currentColor"
+                                    d="M8 5.5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0ZM11.5 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm-1 2.594V10.5A2.49 2.49 0 0 0 10 9h3.273c.676 0 1.225.548 1.225 1.225c0 0 0 2.275-3 2.275c-.598 0-1.077-.09-1.46-.235a3.86 3.86 0 0 0 .447-1.413c.006-.062.01-.115.012-.159l.003-.1Zm-1-.094A1.5 1.5 0 0 0 8 9H3a1.5 1.5 0 0 0-1.5 1.5v.075s0 2.925 4 2.925c3.812 0 3.991-2.656 4-2.906V10.5Z" />
+                            </svg>
+                            <span>Students</span>
+                        </li>
+                        <li class="nav-item fw-bold text-white">
+                            <a class="menu-link main-link d-block py-3" href="users.html">
+                                Invidual
+                            </a>    
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item fw-bold text-white">
+                    <a class="menu-link main-link d-block py-3" href="javascript:void(0);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+                            <path fill="currentColor"
+                                d="M8 5.5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0ZM11.5 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm-1 2.594V10.5A2.49 2.49 0 0 0 10 9h3.273c.676 0 1.225.548 1.225 1.225c0 0 0 2.275-3 2.275c-.598 0-1.077-.09-1.46-.235a3.86 3.86 0 0 0 .447-1.413c.006-.062.01-.115.012-.159l.003-.1Zm-1-.094A1.5 1.5 0 0 0 8 9H3a1.5 1.5 0 0 0-1.5 1.5v.075s0 2.925 4 2.925c3.812 0 3.991-2.656 4-2.906V10.5Z" />
+                        </svg>
+                    </a>
+                    <ul class="list-unstyled nav flex-column  sub-list p-3">
+                        <li class="menu-title  fw-bold text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+                                <path fill="currentColor"
+                                    d="M8 5.5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0ZM11.5 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm-1 2.594V10.5A2.49 2.49 0 0 0 10 9h3.273c.676 0 1.225.548 1.225 1.225c0 0 0 2.275-3 2.275c-.598 0-1.077-.09-1.46-.235a3.86 3.86 0 0 0 .447-1.413c.006-.062.01-.115.012-.159l.003-.1Zm-1-.094A1.5 1.5 0 0 0 8 9H3a1.5 1.5 0 0 0-1.5 1.5v.075s0 2.925 4 2.925c3.812 0 3.991-2.656 4-2.906V10.5Z" />
+                            </svg>
+                            <span>Students</span>
+                        </li>
+                        <li class="nav-item fw-bold text-white">
+                            <a class="menu-link main-link d-block py-3" href="users.html">
+                                Invidual
+                            </a>    
+                        </li>
+                        <hr>
+                        <li class="menu-title  fw-bold text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+                                <path fill="currentColor"
+                                    d="M8 5.5a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0ZM11.5 8a2 2 0 1 0 0-4a2 2 0 0 0 0 4Zm-1 2.594V10.5A2.49 2.49 0 0 0 10 9h3.273c.676 0 1.225.548 1.225 1.225c0 0 0 2.275-3 2.275c-.598 0-1.077-.09-1.46-.235a3.86 3.86 0 0 0 .447-1.413c.006-.062.01-.115.012-.159l.003-.1Zm-1-.094A1.5 1.5 0 0 0 8 9H3a1.5 1.5 0 0 0-1.5 1.5v.075s0 2.925 4 2.925c3.812 0 3.991-2.656 4-2.906V10.5Z" />
+                            </svg>
+                            <span>Students</span>
+                        </li>
+                        <li class="nav-item fw-bold text-white">
+                            <a class="menu-link main-link d-block py-3" href="users.html">
+                                Invidual
+                            </a>    
+                        </li>
+                    </ul>
+                </li>
+                
+            </div>
+
+            </ul>
+        <ul class="list-unstyled flex-wrap nav flex-column mt-auto">
+            <a class="menu-link main-link d-block py-3" href="">
+                <svg xmlns="http://www.w3.org/2000/svg" style="transform: rotateZ(180deg);" width="1em" height="1em"
+                    viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M16 17v-3H9v-4h7V7l5 5l-5 5M14 2a2 2 0 0 1 2 2v2h-2V4H5v16h9v-2h2v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9Z" />
+                </svg> 
+            </a>
+        </ul>
+    </aside>
+
+    <!-- 
+        // Header //
+     -->
+     <header class="">
+        <div class="aside-toggle ">
+            <div class="toggle ">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+        </div>
+        <div class="input-group">
+            <i><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024"><path fill="currentColor" d="m795.904 750.72l124.992 124.928a32 32 0 0 1-45.248 45.248L750.656 795.904a416 416 0 1 1 45.248-45.248zM480 832a352 352 0 1 0 0-704a352 352 0 0 0 0 704z"/></svg></i>
+            <input type="text" placeholder="Search...">
+        </div>
+        <ul class="nav navbar-nav nav-right flex-row">
+            
+          
+            <li class="nav-item notification">
+                <a href="#" class="nav-link position-relative noti-link">
+                    <div class="text-white position-absolute noti-num">
+                        2
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="currentColor" d="M172 228a12 12 0 0 1-12 12H96a12 12 0 0 1 0-24h64a12 12 0 0 1 12 12Zm52.3-38a19.9 19.9 0 0 1-17.3 10H49a20.1 20.1 0 0 1-17.3-30.1c5.7-9.8 12.5-28.5 12.5-61.9v-4A83.8 83.8 0 0 1 128 20h.6c45.9.3 83.2 38.4 83.2 84.9v3.1c0 33.4 6.8 52.1 12.5 61.9a20.1 20.1 0 0 1 0 20.1Zm-23.9-14c-10.3-21.6-12.6-48.5-12.6-68v-3.1c0-33.4-26.6-60.7-59.3-60.9h-.5a59.7 59.7 0 0 0-59.8 60v4c0 19.5-2.3 46.4-12.6 68Z"/></svg>
+                </a>
+                <div class="card noti-container">
+                    <div class="card-header">
+                        <h6> <span>Notification</span> <p class="badge badge-soft-light fs-13" style="background-color: rgba(243,246,249,.1);"><span>4</span> New</p> </h6>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" role="presentation" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">
+                                    All  4 
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link " role="presentation" id="Messages-tab" data-bs-toggle="tab" data-bs-target="#Messages" type="button" role="tab" aria-controls="Messages" aria-selected="false">
+                                    Messages
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link " role="presentation" id="Alerts-tab" data-bs-toggle="tab" data-bs-target="#Alerts" type="button" role="tab" aria-controls="Alerts" aria-selected="false">
+                                    Alerts
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body mCustomScrollbar1" data-mcs-theme="dark">
+                        <div class="tab-content"  id="myTabContent">
+                            <div class="tab-pane fade show active"  id="all" role="tabpanel" aria-labelledby="all-tab">
+                                <a href="" class="message-container">
+                                    <div class="message-img">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div >
+                                        <p class="message-title">Message Title</p>
+                                        <p class="message-content">Message Content , Message Content</p>
+                                        <p class="message-date"><i class="fa fa-clock"></i> JUST 30 SEC AGO</p>
+                                    </div>
+                                    
+                                </a>
+                                <a href="" class="message-container">
+                                    <div class="message-img">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div >
+                                        <p class="message-title">Message Title</p>
+                                        <p class="message-content">Message Content , Message Content</p>
+                                        <p class="message-date"><i class="fa fa-clock"></i> JUST 30 SEC AGO</p>
+                                    </div>
+                                    
+                                </a>
+                                <a href="" class="message-container">
+                                    <div class="message-img">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div >
+                                        <p class="message-title">Message Title</p>
+                                        <p class="message-content">Message Content , Message Content</p>
+                                        <p class="message-date"><i class="fa fa-clock"></i> JUST 30 SEC AGO</p>
+                                    </div>
+                                    
+                                </a>
+                                <a href="" class="message-container">
+                                    <div class="message-img">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div >
+                                        <p class="message-title">Message Title</p>
+                                        <p class="message-content">Message Content , Message Content</p>
+                                        <p class="message-date"><i class="fa fa-clock"></i> JUST 30 SEC AGO</p>
+                                    </div>
+                                    
+                                </a>
+                            </div>
+                            <div class="tab-pane fade" id="Messages" role="tabpanel" aria-labelledby="Messages-tab">  <a href="" class="message-container">
+                                <div class="message-img">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div >
+                                    <p class="message-title">Message Title</p>
+                                    <p class="message-content">Message Content , Message Content</p>
+                                    <p class="message-date"><i class="fa fa-clock"></i> JUST 30 SEC AGO</p>
+                                </div>
+                                
+                            </a>
+                            <a href="" class="message-container">
+                                <div class="message-img">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div >
+                                    <p class="message-title">Message Title</p>
+                                    <p class="message-content">Message Content , Message Content</p>
+                                    <p class="message-date"><i class="fa fa-clock"></i> JUST 30 SEC AGO</p>
+                                </div>
+                                
+                            </a>
+                            <a href="" class="message-container">
+                                <div class="message-img">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div >
+                                    <p class="message-title">Message Title</p>
+                                    <p class="message-content">Message Content , Message Content</p>
+                                    <p class="message-date"><i class="fa fa-clock"></i> JUST 30 SEC AGO</p>
+                                </div>
+                                
+                            </a></div>
+                            <div class="tab-pane fade" id="Alerts" role="tabpanel" aria-labelledby="Alerts-tab">..sadad.</div>
+                          </div>
+                    
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item profile">
+                <a href="javascript:void(0)" class="nav-link prof-link d-flex">
+                    <div class="profile-pic">
+                        AH
+                    </div>
+                    <div class="profile-info">
+                        <p>Admin</p>
+                        <p>Ahmed Hamed <i class="fa fa-chevron-down"></i></p>
+                    </div>
+                </a>
+                <ul class="dropdown-menu " >
+                    <li> <p class="p-2 mb-0 fw-bolder" style="font-size: 12px; padding-left: .8rem !important;">Welcom User !</p> </li>
+                    <li>
+                        
+                        <a href="" class="nav-link text-center">
+                            <i class="fa fa-user-circle me-2"></i>
+                            Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="nav-link text-center">
+                            <i class="fa fa-message me-2"></i>
+                            Message
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="nav-link text-center">
+                            <i class="fa fa-life-ring me-2"></i>
+                            Help
+                        </a>
+                    </li>
+                    <hr>
+                    <li>
+                        <a href="" class="nav-link text-center">
+                            <i class="fa fa-wallet me-2"></i>
+                            Balance : <span style="color: black;">$12312</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="nav-link text-center">
+                            <i class="fa fa-cog me-2"></i>
+                            Settings
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" class="nav-link text-center">
+                            <i class="fa fa-sign-out me-2"></i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <!-- 
+        // Main // 
+     -->
+     <main>
+        
+     </main>
+    <script src="../../Js/Shared/jquery-3.6.0.min.js"></script>
+    <script src="../../Js/Shared/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.0/jquery-migrate.min.js" integrity="sha512-QDsjSX1mStBIAnNXx31dyvw4wVdHjonOwrkaIhpiIlzqGUCdsI62MwQtHpJF+Npy2SmSlGSROoNWQCOFpqbsOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="//cdn.jsdelivr.net/jquery.mcustomscrollbar/3.0.6/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script src="../../Js/adminDash/shared.js"></script>
+</body>
+
+</html>

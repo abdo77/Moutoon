@@ -1,0 +1,41 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<div>
+
+</div>
+
+
+
+
+
+
+    <script src="../../Js/Shared/jquery-3.6.0.min.js"></script>
+    <script>
+        jQuery(document).ready(async function ($) {
+            basicURl = 'https://smiling-gray-xerus.cyclic.app'
+        const userToken = localStorage.getItem('userToken');
+        const data = await $.ajax({
+            async: true,
+            type: 'Get',
+            url:basicURl+'/users/chains',
+           
+            content: 'application/json;charset=utf-8',
+            processData: true,
+            beforeSend: function(xhr) {
+                   xhr.setRequestHeader('Authorization', userToken);
+             },
+
+        })
+
+        console.log(data);
+    })
+    </script>
+</body>
+</html>
