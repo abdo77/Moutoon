@@ -19,7 +19,7 @@ main .container{
 
 .logo-container .img-fluid{
     max-width: 180px;
-    content: url('../../Assests/logoBlack\ \(1\).png');
+    content: url('../../Assests/finalLogoBlack.png');
 }
 form.card{
     background-color: white;
@@ -105,7 +105,7 @@ form.card{
     color: black;
 }
 #submit:hover{
-    background-color: #49b99d !important;
+    background-color: #2b856f !important;
 }
 
 @font-face {
@@ -141,7 +141,7 @@ body.dark .text-white-dark{
     color: white;
 }
 body.dark .logo-container .img-fluid{
-    content: url('../../Assests/logoWhite\ \(1\).png');
+    content: url('../../Assests/finalLogo.png');
 }
 body.dark .form-floating>.form-control:focus,body.dark .form-floating>.form-control:not(:placeholder-shown),body.dark .form-floating>.form-select{
     color: #60e6c4 ;
