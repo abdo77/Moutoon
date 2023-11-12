@@ -60,7 +60,7 @@ jQuery(document).ready(function () {
 
     regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
-    basicURl = 'https://smiling-gray-xerus.cyclic.app'
+    basicURl = 'http://localhost:3000'
 
 
     $('#submit').click(async function () {
@@ -109,14 +109,14 @@ jQuery(document).ready(function () {
                 country : $('#Nationality').val(),
                 countryCode : $('.iti__selected-flag').find('.iti__flag').prop('class').split('__')[$('.iti__selected-flag').find('.iti__flag').prop('class').split('__').length -1] ,
                 gender : $('#gender').val(),
-                role : $('#role').val(),
-                birthDate : $('#birthDate').val(),
+                role : $('#roleType').val(),
+                birthDate : $('#dateOfBirth').val(),
                })
                console.log(register);
             if(register.success == false){
                 $('.status-message').removeClass('d-none') ;
                 $('.status-message').addClass('bg-danger') ;
-                $('.status-message').text(register.msg)
+                $('.status-message').text(register.message)
                 setTimeout(() => {
                     $('.status-message').addClass('d-none') ;
                     $('.status-message').removeClass('bg-danger') ;
@@ -126,8 +126,11 @@ jQuery(document).ready(function () {
                 $('.status-message').removeClass('d-none') ;
                 $('.status-message').addClass('bg-success') ;
                 $('.status-message').text(register.data.message+"...") ;
-               await localStorage.setItem('userToken' , `Bearer ${register.data.token}`)
-                location.replace('../../Html/users/chains.html')
+                localStorage.setItem('userToken' , `Bearer ${register.data.token}`)
+                setTimeout(() => {
+                    location.replace('../../Html/users/chains.html')
+                }, 1500);
+                
             }
         }
     })
