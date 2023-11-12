@@ -1,6 +1,6 @@
 jQuery(document).ready(function(){
 
-    basicURl = 'https://smiling-gray-xerus.cyclic.app'
+    basicURl = 'http://localhost:3000'
 
     $('.form-control').on('keypress',function(){
         $(this).removeClass('not-valid')
@@ -34,27 +34,55 @@ jQuery(document).ready(function(){
             }
         })
         if(valid){
-            const login =  await $.post(basicURl+'/login' ,{
-                email: $('#email').val(),
-                password:$('#password').val(),
-               })
-               console.log(login.token);
-            if(login.data.message == 'Invalid Email Or Password'){
+
+            try{
+
+                let login =  await $.post(basicURl+'/login' ,{
+                    email: $('#email').val(),
+                    password:$('#password').val(),
+                   })
+                   
+                   
+                   
+                   console.log(login)
+                   if(login.success === true){
+
+
+                    $('.status-message').removeClass('d-none') ;
+                    $('.status-message').addClass('bg-success') ;
+                    $('.status-message').text(login.data.message+"...") ;
+                    localStorage.setItem('userToken' , `Bearer ${login.token}`)
+                    location.replace('../../Html/users/chains.html')
+                    
+                   }
+    
+                else{
+                    $('.status-message').removeClass('d-none') ;
+                    $('.status-message').addClass('bg-danger') ;
+                    $('.status-message').text(login.data.message)
+                    setTimeout(() => {
+                        $('.status-message').addClass('d-none') ;
+                        $('.status-message').removeClass('bg-danger') ;
+                    }, 10000);
+                }
+    
+                   
+            }catch(error){
+                console.log(error)
+
+                if(error.statusText == 'Too Many Requests')
+
                 $('.status-message').removeClass('d-none') ;
                 $('.status-message').addClass('bg-danger') ;
-                $('.status-message').text(login.data.message)
+                $('.status-message').text(error.statusText + ' try again later')
                 setTimeout(() => {
                     $('.status-message').addClass('d-none') ;
                     $('.status-message').removeClass('bg-danger') ;
                 }, 10000);
+
+
             }
-            else{
-                $('.status-message').removeClass('d-none') ;
-                $('.status-message').addClass('bg-success') ;
-                $('.status-message').text(login.data.message+"...") ;
-               await localStorage.setItem('userToken' , `Bearer ${login.token}`)
-                location.replace('../../Html/users/chains.html')
-            }
+
         }
     })
 })
