@@ -1,0 +1,38 @@
+[33mcommit f342a3ec039bf643bb1bd171ab4531098310eb8d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Abdo <abdonabil713@gmail.com>
+Date:   Sun Nov 12 13:58:22 2023 +0200
+
+    hisadsad
+
+[33mcommit 30d22fcc4143b550da150b036c93635afbeb15b1[m
+Merge: 3588cda f9d674c
+Author: abdo77 <43589604+abdo77@users.noreply.github.com>
+Date:   Sun Nov 12 13:08:50 2023 +0200
+
+    Merge pull request #1 from hossiney/master
+    
+    Add BackEnd Validation and fix some Jquery
+
+[33mcommit f9d674c450bcdc98d069b06fd5d26ee69e0cac72[m
+Author: ahmed <rootkiller67@gmail.com>
+Date:   Sun Nov 12 12:33:20 2023 +0200
+
+    Your commit message
+
+[33mcommit 3588cda9e0bb699f44b808be161ffb25389dfc4d[m
+Author: Abdo <abdonabil713@gmail.com>
+Date:   Sat Nov 11 22:45:17 2023 +0200
+
+    adding Logo Images
+
+[33mcommit c3ba3a54959d65d5f725e2be5adbfbca7ef62ff1[m
+Author: Abdo <abdonabil713@gmail.com>
+Date:   Sat Nov 11 10:11:04 2023 +0200
+
+    barmi el msa
+
+[33mcommit 2562a23149265a335e0dc4be204cbc1010251eee[m
+Author: Abdo <abdonabil713@gmail.com>
+Date:   Sat Nov 11 10:02:42 2023 +0200
+
+    Login/Signup

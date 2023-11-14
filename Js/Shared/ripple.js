@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-    $(".rpl").on("pointerdown", function(e) {
+    $("body").on("pointerdown",'.rpl', function(e) {
         let rect = this.getBoundingClientRect();
         let radius = findFurthestPoint(e.clientX, this.offsetWidth, rect.left, e.clientY, this.offsetHeight, rect.top);
     
@@ -13,7 +13,7 @@ jQuery(document).ready(function($) {
         $(this).append(circle);
     });
     
-    $(".rpl").on("pointerup mouseleave dragleave touchmove touchend touchcancel", function() {
+    $("body").on("pointerup mouseleave dragleave touchmove touchend touchcancel",'.rpl', function() {
         let ripple = $(this).find(".ripple");
         if (ripple.lenght != 0) {
             ripple.css("opacity", "0");

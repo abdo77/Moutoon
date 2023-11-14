@@ -1,6 +1,6 @@
 jQuery(document).ready(function(){
 
-    basicURl = 'http://localhost:3000'
+    basicURl = 'https://smiling-gray-xerus.cyclic.app'
 
     $('.form-control').on('keypress',function(){
         $(this).removeClass('not-valid')
