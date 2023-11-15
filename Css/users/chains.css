@@ -1,0 +1,69 @@
+
+main .card-header{
+    background-color: none !important;
+}
+main .nav-link {
+    border-radius: 20px !important;
+    font-weight: bold;
+    display: flex;
+    align-items: center;    
+}
+main .nav-link , main .nav-link:hover{
+    background-color: transparent !important;
+    color: black;
+}
+main .nav-link.active{
+    color: #31947b !important;
+}
+.link-container-div{
+    background-color: #49b99d36;
+    color: #49b99d;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    transition: all .1s ease-in-out;
+    border-radius: 20px;
+}
+main .nav-link .num{
+    height: 20px;
+    width: 20px;
+    font-size: 0.825rem;
+    justify-content: center;
+    align-items: center;
+    background-color: white !important;
+}
+main .nav-link.active .num{
+    background-color: #31947b !important;
+    color: white;
+}
+main .tab-content>.active{
+    display: flex;
+}
+
+main .description{
+    text-wrap: wrap;
+    overflow: hidden;
+    max-height: 40px;
+}
+.series-container{
+    max-width: 900px;
+}
+
+.rate-container{
+    color: #31947b;
+}
+.main-font2{
+    font-size: 0.825rem;
+}
+.series-container .btn{
+    border: 2px solid #31947b;
+    background-color: #31947b;
+    color: white;
+  
+}
+.series-container .btn:hover{
+    transition: all .2s ease-in-out;
+    background-color: #18755d;
+    border-color: #18755d;
+    color: white;
+}

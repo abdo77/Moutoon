@@ -9,20 +9,43 @@
     <link rel="stylesheet" href="../../Css/Shared/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../Css/Shared/ripple.css">
+    <link rel="stylesheet" href="../../Css/Shared/gridJs.css">
     <link rel="stylesheet" href="../../Css/users/shared.css">
+    <link rel="stylesheet" href="../../Css/users/chains.css">
 </head>
 <body>
     
     <header class="">
     </header>
 
-<aside class="shadow">
+<aside class="">
 
 </aside>
 
 <main>
     <div class="container-fluid">
-        
+        <h3 class="page-title fw-bold my-5">
+            Series 
+        </h3>
+        <div class="card border-0 bg-transparent ">
+            <div class="card-header bg-transparent position-relative p-0 mb-3 pb-2">
+                <nav >
+                     <div class="nav nav-tabs  border-0" id="nav-tab" role="tablist">
+                       <button class="nav-link  border-0   rounded-0 active" id="nav-readed-tab" data-bs-toggle="tab" data-bs-target="#nav-readed" type="button" role="tab" aria-controls="nav-inbox" aria-selected="true">Readed <span class="num d-flex rounded-circle ms-2">2</span></button>
+                       <button class="nav-link  border-0   rounded-0" id="nav-recorded-tab" data-bs-toggle="tab" data-bs-target="#nav-recorded" type="button" role="tab" aria-controls="nav-archieve" aria-selected="false">Recorded <span class="num d-flex rounded-circle ms-2">2</span></button>
+                     </div>
+                   </nav>
+                   <div class="link-container-div"></div>
+           </div>
+            <div class="card-body bg-transparent border-0 rounded-3 px-0 ">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane row mx-0 fade show active" id="nav-readed" role="tabpanel" aria-labelledby="nav-inbox-tab" tabindex="0">
+                    
+                    </div>
+                    <div class="tab-pane fade" id="nav-recorded" role="tabpanel" aria-labelledby="nav-recorded-tab" tabindex="0"></div>
+                  </div>   
+            </div>
+        </div>
     </div>
 </main>
 
@@ -34,26 +57,10 @@
     <script src="../../Js/Shared/jquery-3.6.0.min.js"></script>
     <script src="../../Js/Shared/bootstrap.min.js"></script>
     <script src="../../Js/Shared/ripple.js"></script>
+    <script src="../../Js/Shared/gridJs.js"></script>
     <script src="../../Js/users/shared.js"></script>
-    <script>
-        jQuery(document).ready(async function ($) {
-            basicURl = 'https://smiling-gray-xerus.cyclic.app'
-        const userToken = localStorage.getItem('userToken');
-        const data = await $.ajax({
-            async: true,
-            type: 'Get',
-            url:basicURl+'/users/chains',
-           
-            content: 'application/json;charset=utf-8',
-            processData: true,
-            beforeSend: function(xhr) {
-                   xhr.setRequestHeader('Authorization', userToken);
-             },
+    <script src="../../Js/users/chains.js"></script>
+    
 
-        })
-
-        console.log(data);
-    })
-    </script>
 </body>
 </html>

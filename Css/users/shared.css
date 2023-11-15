@@ -29,6 +29,7 @@ header{
     align-items: center;
     padding:8px 1rem ;
     transition: all .3s ease-in-out;
+    z-index: 3;
 }
 
 header .menu-btn{
@@ -66,7 +67,7 @@ header .menu-btn span:nth-child(3){
     bottom: 12px;
 }
 
-header .mode-switch{
+header .mode-switch ,  .header-balance{
     width: 60px;
     border-radius: 20px;
     height: 30px;
@@ -74,12 +75,31 @@ header .mode-switch{
     padding: 2.5px;
     cursor: pointer;
 }
-header .mode-switch .switch-circle{
+.header-balance{
+    display: flex;
+    align-items: center;
+    padding-right: 5px !important;
+    color: black;
+    width: 70px !important;
+    font-weight: bold;
+    font-size: 12px;
+    justify-content: center !important;
+}
+.header-balance i{
+    color: black !important;
+    font-size: 15px;
+}
+header .mode-switch .switch-circle , .balance-circle{
     height: 100%;
     width: 25px;
     background-color: white;
     position: relative;
     transition: all .3s ease-in-out;
+}
+.balance-circle{
+    right: auto;
+    left: 0;
+    margin-right: auto;
 }
 .switch-circle-move{
     margin-left: 30px !important;
@@ -119,7 +139,7 @@ header .card-header{
     background-color: white !important;
     border-bottom: 0px;
 }
-.nav-tabs .nav-link{
+header .nav-tabs .nav-link{
     background: none;
     background-color: white !important;
     color: #868686;
@@ -142,6 +162,7 @@ aside{
     height: 100%;
     width: 250px;
     left: 0;
+    z-index: 4;
     background-color: white;
     transition: all .3s;
     overflow: auto;
