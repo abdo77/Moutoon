@@ -5,12 +5,38 @@
         <span class="rounded"></span>
    </div>
 
-     <div class="mode-switch float-end ms-auto">
+
+   <div class="lang  fw-bold ms-auto  px-2 d-flex align-items-center justify-content-center">
+     <div class="selected-lang main-font2">
+          <i class="fa-solid fa-language"></i>
+          <span>ُEnglish</span>
+     </div>     
+     <div class="card lang-container position-absolute custom-dropdown">
+          <ul class="card-body list-unstyled px-0 py-3 shadow rounded-3 mb-0">
+               <li class="nav-item">
+                    <a href="#" style="color: inherit;" data-lang="ar" class="d-block w-100 fw-bold main-font2 text-decoration-none text-center fw-lighter p-2 px-3 rpl rpl-dark">
+                        Arabic
+                    </a>
+                </li>
+               <li class="nav-item">
+                    <a href="#" style="color: inherit;" data-lang="en" class="d-block w-100 fw-bold main-font2 text-decoration-none text-center fw-lighter p-2 px-3 rpl rpl-dark">
+                        English
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" style="color: inherit;" data-lang="fr" class="d-block w-100 fw-bold main-font2 text-decoration-none text-center fw-lighter p-2 px-3 rpl rpl-dark">
+                        French
+                    </a>
+                </li>
+          </ul>
+     </div>
+</div>
+     <div class="mode-switch float-end ms-2">
             <div class="switch-circle rounded-circle d-flex align-items-center justify-content-center ">
                <i class="fa fa-sun"></i>
             </div>
      </div>
-     <div class="header-balance float-end ms-2">
+     <div class="header-balance float-end ms-2" dir="ltr">
           <a href="" class="balance-circle rounded-circle d-flex align-items-center justify-content-center text-decoration-none">
                <i class="fa fa-add "></i>
           </a>
@@ -21,20 +47,9 @@
                <i class="fa-regular fa-bell"></i>
           </div>
           <div class="card noti-container position-absolute custom-dropdown">
-               <div class="card-header position-relative p-0">
-                    <nav >
-                         <div class="nav nav-tabs row mx-0 border-0" id="nav-tab" role="tablist">
-                           <button class="nav-link col-6 border-0  rpl rpl-dark rounded-0 active" id="nav-inbox-tab" data-bs-toggle="tab" data-bs-target="#nav-inbox" type="button" role="tab" aria-controls="nav-inbox" aria-selected="true">Inbox</button>
-                           <button class="nav-link col-6 border-0  rpl rpl-dark rounded-0" id="nav-archieve-tab" data-bs-toggle="tab" data-bs-target="#nav-archieve" type="button" role="tab" aria-controls="nav-archieve" aria-selected="false">Archieved</button>
-                         </div>
-                       </nav>
-                       <div class="border-div"></div>
-               </div>
                <div class="card-body shadow rounded-3">
-                       <div class="tab-content" id="nav-tabContent">
-                         <div class="tab-pane fade show active" id="nav-inbox" role="tabpanel" aria-labelledby="nav-inbox-tab" tabindex="0">...</div>
-                         <div class="tab-pane fade" id="nav-archieve" role="tabpanel" aria-labelledby="nav-archieve-tab" tabindex="0">...</div>
-                       </div>         
+                                
                </div>
           </div>
      </div>
+     

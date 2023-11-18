@@ -154,6 +154,21 @@ header .border-div{
     height: 2px;
     background-color: #49b99d;
 }
+header .lang{
+    background-color: #e2e2e2;
+    height: 30px;
+    border-radius: 20px;
+}
+header .lang-container{
+    width: 100%;
+    top: 100%;
+    right:210px;
+    width: 170px;
+   
+}
+header .lang .custom-dropdown li:hover{
+    background-color: #c2c2c221;
+}
 /* Aside Section */
 
 aside{
@@ -167,6 +182,9 @@ aside{
     transition: all .3s;
     overflow: auto;
     transition: all .3s ease-in-out;
+    border-right: 1px solid rgba(32, 32, 32, 0.12);
+    border-left: 1px solid rgba(32, 32, 32, 0.12);
+
 }
 aside .logo-container{
     background-image: url('../../Assests/finalLogoBlack.png');
@@ -241,4 +259,132 @@ body.collapsed main{
 }
 body.collapsed .menu-btn{
     display: flex;
+}
+
+/* Dark theme */
+
+body.dark{
+    background-color:#121212;
+}
+body.dark aside .logo-container{
+    background-image: url('../../Assests/finalLogo.png');
+}
+body.dark header{
+    background-color: #1e1e1e;
+}
+body.dark header .mode-switch,body.dark header .header-balance{
+    background-color: #121212;
+}
+body.dark header .header-balance{
+    color: white;
+}
+body.dark header .lang .custom-dropdown{
+    color: white;
+}
+body.dark header .lang{
+    color: white;
+    background-color: #121212;
+}
+body.dark header .noti-icon-container{
+    color: white;
+}
+body.dark .page-title{
+    color: white;
+}
+body.dark aside{
+    background-color: #121212;
+}
+body.dark aside .menu-link{
+    color: white !important;
+}
+body.dark .aside-header{
+    color: white;
+}
+body.dark .close-aside-btn{
+    color: #868686;
+}
+body.dark .custom-dropdown{
+    background-color: #2f2f2f;
+}
+body.dark aside .custom-dropdown .nav-item{
+    color: white !important;
+}
+body.dark aside .nav-item:not(.settings) .menu-link:hover,body.dark aside .nav-item.selected .menu-link {
+    background-color: #49b99d1c;
+    color: white !important;
+}
+
+
+/* Right to Left */
+
+
+html[dir="rtl"] .switch-circle-move {
+    margin-right: 30px !important;
+    margin-left: 0px !important;
+}
+html[dir="rtl"] aside{
+    right: 0px;
+}
+html[dir="rtl"] body.collapsed aside{
+    right: -250px;
+}
+html[dir="rtl"] body header{
+    right: 250px;
+    left: 0;
+}
+html[dir="rtl"] main{
+    margin-right: 250px;
+    margin-left: 0px;
+}
+html[dir="rtl"] body.collapsed main{
+    
+    margin-right: 0px;
+}
+html[dir="rtl"] body.collapsed header{
+    right: 0;
+}
+html[dir="rtl"] .custom-dropdown{
+    transform-origin: left top;
+}
+html[dir="rtl"] .noti-container{
+    left: 20px;
+    right: auto;
+}
+html[dir="rtl"] .lang-container{
+    left: 210px;
+    right: auto;
+}
+
+
+@media screen and (max-width : 450px){
+    body header{
+        right: 0px !important;
+        left: 0px !important;
+    }
+    main {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+    .shadow-bg{
+        background-color: rgba(32, 32, 32, 0.12);
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 3;
+    }
+    body.collapsed .shadow-bg{
+        display: none;
+    }
+   header .lang-container{
+        left: 0 !important;
+        right: 0 !important;
+        width: 100%;
+    }
+    header .noti-container{
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
 }

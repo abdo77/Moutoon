@@ -5,9 +5,15 @@ jQuery(document).ready(async function ($) {
     $('main .link-container-div').css('height', $('main .nav-link.active').css('height'))
     $('body').on('click','main .nav-link',function() {
         var position = $(this).position().left
+        var position1 = $(this).position().top
+        console.log(position);
         $('main .link-container-div').css('left', position)
-        $('main .link-container-div').css('width', $($(this   )).css('width'))
+        $('main .link-container-div').css('top', position1)
+        $('main .link-container-div').css('width', $($(this)).css('width'))
     })
+    
+    
+    
     
 
     basicURl = 'https://smiling-gray-xerus.cyclic.app'
@@ -26,13 +32,16 @@ const data = await $.ajax({
 })
 
 console.log(data);
+
+var readedCounter =0 ; var recordedCounter = 0
 var readed , recorded = false ;
 if(data.success){
     for (let i = 0; i < data.chains.length; i++) {
         if(data.chains[i].type=='Readed'){
+            readedCounter++
             readed = true ;
             $('#nav-readed').append(`
-            <div class="card col-12 mb-3 series-container shadow rounded-3 border-0 mx-auto px-0">
+            <div class="card col-12 mb-3 series-container rouned shadow rounded-3 border-0 mx-auto px-0">
             <div class="card-body row mx-0 bg-white rounded-3">
                 <img src="../../Assests/cover.jpg" alt="" class="img-fluid col-12 col-md-3 col-lg-3">
                 <div class="col-12 col-md-6 col-lg-6 d-flex flex-column">
@@ -66,6 +75,7 @@ if(data.success){
             `)
         }
         else if(data.chains[i].type=='Recorded'){
+            recordedCounter++
             recorded = true;
             $('#nav-recorded').append(`
             <div class="card col-12 mb-3 series-container shadow rounded-3 border-0 mx-auto px-0">
@@ -105,10 +115,13 @@ if(data.success){
     }
 }
 
+$('#nav-readed-tab span').text(readedCounter)
+$('#nav-recorded-tab span').text(recordedCounter)
+
 if(!readed){
     $('#nav-readed').append(`
 
-        <div class="card shadow rounded-3">
+        <div class="card shadow rounded-3 w-100">
             <div class='card-body text-center main-font fw-bold'>
                 No results found 
             </div> 
@@ -116,10 +129,10 @@ if(!readed){
 
     `)
 }
-else if(!recorded){
+ if(!recorded){
     $('#nav-recorded').append(`
 
-        <div class="card shadow rounded-3">
+        <div class="card shadow rounded-3 w-100">
             <div class='card-body text-center main-font fw-bold'>
                 No results found 
             </div> 

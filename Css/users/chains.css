@@ -14,6 +14,8 @@ main .nav-link , main .nav-link:hover{
 }
 main .nav-link.active{
     color: #31947b !important;
+    background-color: #49b99d36 !important;
+
 }
 .link-container-div{
     background-color: #49b99d36;
@@ -23,6 +25,13 @@ main .nav-link.active{
     z-index: -1;
     transition: all .1s ease-in-out;
     border-radius: 20px;
+}
+.link-container-div.show{
+    opacity: 1;
+}
+main .nav.nav-tabs {
+    width: fit-content !important;
+    position: relative;
 }
 main .nav-link .num{
     height: 20px;
@@ -65,5 +74,23 @@ main .description{
     transition: all .2s ease-in-out;
     background-color: #18755d;
     border-color: #18755d;
+    color: white;
+}
+
+/* dark Theme */
+body.dark main .card-header .nav-tabs .nav-link{
+    color: white;
+}
+body.dark main .card-header .nav-tabs .nav-link .num{
+    color: #1e1e1e;
+}
+body.dark main .card-header .nav-tabs .nav-link.active .num{
+    color: white;
+}
+body.dark main .tab-pane .card{
+    background-color: #1e1e1e;
+}
+body.dark main .tab-pane .card-body{
+    background-color: #1e1e1e !important;
     color: white;
 }
