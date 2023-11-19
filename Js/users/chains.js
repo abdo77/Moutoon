@@ -51,7 +51,7 @@ if(data.success){
             readedCounter++
             readed = true ;
             $('#nav-readed').append(`
-            <div class="card col-12 mb-3 series-container rouned shadow rounded-3 border-0 mx-auto px-0">
+            <div class="card col-12 mb-3 series-container rouned shadow rounded-3 border-0 me-auto ms-0 px-0">
             <div class="card-body row mx-0 bg-white rounded-3">
                 <img src="../../Assests/cover.jpg" alt="" class="img-fluid col-12 col-md-3 col-lg-3">
                 <div class="col-12 col-md-6 col-lg-6 d-flex flex-column">
@@ -88,7 +88,7 @@ if(data.success){
             recordedCounter++
             recorded = true;
             $('#nav-recorded').append(`
-            <div class="card col-12 mb-3 series-container shadow rounded-3 border-0 mx-auto px-0">
+            <div class="card col-12 mb-3 series-container shadow rounded-3 border-0 me-auto ms-0 px-0">
             <div class="card-body row mx-0 bg-white rounded-3">
                 <img src="../../Assests/cover.jpg" alt="" class="img-fluid col-12 col-md-3 col-lg-3">
                 <div class="col-12 col-md-6 col-lg-6 d-flex flex-column">
