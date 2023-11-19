@@ -30,7 +30,6 @@ main .nav-link.active{
     opacity: 1;
 }
 main .nav.nav-tabs {
-    width: fit-content !important;
     position: relative;
 }
 main .nav-link .num{

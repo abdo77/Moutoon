@@ -1,6 +1,7 @@
 jQuery(document).ready(async function ($) {
 
-    $('main .link-container-div').css('left', $('main .nav-link.active').position().left)
+    setTimeout(() => {
+        $('main .link-container-div').css('left', $('main .nav-link.active').position().left)
     $('main .link-container-div').css('width', $('main .nav-link.active').css('width'))
     $('main .link-container-div').css('height', $('main .nav-link.active').css('height'))
     $('body').on('click','main .nav-link',function() {
@@ -11,9 +12,18 @@ jQuery(document).ready(async function ($) {
         $('main .link-container-div').css('top', position1)
         $('main .link-container-div').css('width', $($(this)).css('width'))
     })
+    }, 100);
     
     
-    
+    $('main .nav.nav-tabs').width(function(){
+        var width=0 ;        
+        $(this).find('.nav-link').each(function(){
+            width = $(this).outerWidth() + width ;
+            console.log(width);
+            return width ;
+        })
+        return Math.ceil(width);
+    })
     
 
     basicURl = 'https://smiling-gray-xerus.cyclic.app'
