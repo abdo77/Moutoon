@@ -381,10 +381,13 @@ html[dir="rtl"] .lang-container{
         left: 0 !important;
         right: 0 !important;
         width: 100%;
+
     }
     header .noti-container{
-        left: 0;
-        right: 0;
+        left: 0 !important;
+        right: 0 !important;
         width: 100%;
+        margin-left: auto !important;
+  margin-right: auto !important;
     }
 }

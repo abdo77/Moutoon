@@ -12,9 +12,6 @@ jQuery(document).ready(async function ($) {
         $('main .link-container-div').css('top', position1)
         $('main .link-container-div').css('width', $($(this)).css('width'))
     })
-    }, 100);
-    
-    
     $('main .nav.nav-tabs').width(function(){
         var width=0 ;        
         $(this).find('.nav-link').each(function(){
@@ -25,6 +22,10 @@ jQuery(document).ready(async function ($) {
         return Math.ceil(width);
     })
     
+    }, 100);
+    
+    
+  
 
     basicURl = 'https://smiling-gray-xerus.cyclic.app'
 const userToken = localStorage.getItem('userToken');
@@ -51,47 +52,47 @@ if(data.success){
             readedCounter++
             readed = true ;
             $('#nav-readed').append(`
-            <div class="card col-12 mb-3 series-container rouned shadow rounded-3 border-0 me-auto ms-0 px-0">
-            <div class="card-body row mx-0 bg-white rounded-3">
-                <img src="../../Assests/cover.jpg" alt="" class="img-fluid col-12 col-md-3 col-lg-3">
-                <div class="col-12 col-md-6 col-lg-6 d-flex flex-column">
-                    <h3 class="seriesName mb-1">${data.chains[i].name}</h3>
-                    <div class="rate-container">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-stroke"></i>
-                    </div>
-                    <div class="confirmStatus main-font2 fw-bold mt-2">
-                        Requires Confirmation 
-                        ${data.chains[i].need_confirmation ? '<i class="fa-regular fa-check-circle text-success"></i>':'<i class="fa-regular fa-times-circle text-danger"></i>'}
-                    </div>
-                    <div class="confirmTeacheer main-font2 fw-bold ">
-                        Requires Teacher 
-                        ${data.chains[i].need_teacher ? '<i class="fa-regular fa-check-circle text-success"></i>':'<i class="fa-regular fa-times-circle text-danger"></i>'}
-                    </div>
-                    <p class="levels-num fw-bold main-font2 mb-2">Levels: ${data.chains[i].levels.length}</p>
-                    <p class="description mb-0 main-font fw-bold mt-auto">
-                        ${data.chains[i].levels.length > 0 ? data.chains[i].levels[0].level.description : 0}
-                    </p>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3 d-flex flex-column">
-                   
-                    <a href="" class="btn shadow rounded-3 rpl rpl-dark  fw-bold w-100 mt-auto" id="${data.chains[i]._id}">Details</a>
-                </div>
-            </div>
-        </div>
+            <div class="card col-12 col-md-12 col-lg-10 mb-3 series-container shadow rounded-3 border-0 me-auto ms-0 px-0">
+                            <div class="card-body row mx-0 bg-white rounded-3">
+                                <img src="../../Assests/cover.jpg" alt="" class="img-fluid col-12 col-md-3 col-lg-3 mx-auto">
+                                <div class="col-12 col-md-6 col-lg-6 d-flex flex-column py-3 flex-grow-1 flex-shrink-1 flex-fill">
+                                    <h3 class="seriesName mb-1">${data.chains[i].name}</h3>
+                                    <div class="rate-container">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-stroke"></i>
+                                    </div>
+                                    <div class="confirmStatus main-font2 fw-bold mt-2">
+                                        Requires Confirmation 
+                                        ${data.chains[i].need_confirmation ? '<i class="fa-regular fa-check-circle text-success"></i>':'<i class="fa-regular fa-times-circle text-danger"></i>'}
+                                    </div>
+                                    <div class="confirmTeacheer main-font2 fw-bold ">
+                                        Requires Teacher 
+                                        ${data.chains[i].need_teacher ? '<i class="fa-regular fa-check-circle text-success"></i>':'<i class="fa-regular fa-times-circle text-danger"></i>'}
+                                    </div>
+                                    <p class="levels-num fw-bold main-font2 mb-2">Levels: ${data.chains[i].levels.length}</p>
+                                    <p class="description mb-0 main-font fw-bold mt-auto">
+                                        ${data.chains[i].levels.length > 0 ? data.chains[i].levels[0].level.description : 0}
+                                    </p>
+                                </div>
+                                <div class="col-12 col-md-3 py-3 col-lg-2 d-flex flex-column">
+                                   
+                                    <a href="" class="btn shadow rounded-3 rpl rpl-dark  fw-bold w-100 mt-auto" id="${data.chains[i]._id}">Details</a>
+                                </div>
+                            </div>
+                        </div>
             `)
         }
         else if(data.chains[i].type=='Recorded'){
             recordedCounter++
             recorded = true;
             $('#nav-recorded').append(`
-            <div class="card col-12 mb-3 series-container shadow rounded-3 border-0 me-auto ms-0 px-0">
+            <div class="card col-12 col-md-12 col-lg-10 mb-3 series-container shadow rounded-3 border-0 me-auto ms-0 px-0">
             <div class="card-body row mx-0 bg-white rounded-3">
-                <img src="../../Assests/cover.jpg" alt="" class="img-fluid col-12 col-md-3 col-lg-3">
-                <div class="col-12 col-md-6 col-lg-6 d-flex flex-column">
+                <img src="../../Assests/cover.jpg" alt="" class="img-fluid col-12 col-md-3 col-lg-3 mx-auto">
+                <div class="col-12 col-md-6 col-lg-6 d-flex flex-column py-3 flex-grow-1 flex-shrink-1 flex-fill">
                     <h3 class="seriesName mb-1">${data.chains[i].name}</h3>
                     <div class="rate-container">
                         <i class="fa fa-star"></i>
@@ -113,7 +114,7 @@ if(data.success){
                         ${data.chains[i].levels.length > 0 ? data.chains[i].levels[0].level.description : 0}
                     </p>
                 </div>
-                <div class="col-12 col-md-3 col-lg-3 d-flex flex-column">
+                <div class="col-12 col-md-3 py-3 col-lg-2 d-flex flex-column">
                    
                     <a href="" class="btn shadow rounded-3 rpl rpl-dark  fw-bold w-100 mt-auto" id="${data.chains[i]._id}">Details</a>
                 </div>

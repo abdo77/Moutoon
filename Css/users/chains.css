@@ -53,8 +53,9 @@ main .description{
     overflow: hidden;
     max-height: 40px;
 }
-.series-container{
-    max-width: 900px;
+.series-container .img-fluid{
+    max-width: 250px;
+   max-height: 250px;
 }
 
 .rate-container{
