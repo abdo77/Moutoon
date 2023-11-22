@@ -17,6 +17,9 @@ body{
 .main-font{
     font-size: 0.925rem;
 }
+.main-font2{
+    font-size: 0.825rem;
+}
 /* Header Section */
 header{
     height: 66px ;
