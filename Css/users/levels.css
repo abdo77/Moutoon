@@ -2,6 +2,23 @@
     border-radius: 10px;
     overflow: hidden;
 }
+.intro-div{
+    position: relative;
+    overflow: hidden;
+    background-color: #1e293b;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+}
+.intro-div svg{
+    position: absolute;
+    left: 0;
+    right: 0 ;
+    top: 0;
+}
+.text-gray-700 {
+    opacity: 1 !important;
+    color: rgb(51 ,65 ,85 );
+}
 .level-container .level{
     background-color: #49b99d4a;
     color: #298570 !important;
