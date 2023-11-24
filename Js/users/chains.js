@@ -1,5 +1,13 @@
 jQuery(document).ready(async function ($) {
-
+    $('main .nav.nav-tabs').width(function(){
+        var width=0 ;        
+        $(this).find('.nav-link').each(function(){
+            width = $(this).outerWidth() + width ;
+            console.log(width);
+            return width ;
+        })
+        return Math.ceil(width);
+    })
     setTimeout(() => {
         $('main .link-container-div').css('left', $('main .nav-link.active').position().left)
     $('main .link-container-div').css('width', $('main .nav-link.active').css('width'))

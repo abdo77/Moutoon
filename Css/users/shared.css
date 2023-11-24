@@ -20,6 +20,9 @@ body{
 .main-font2{
     font-size: 0.825rem;
 }
+.main-font3{
+    font-size: 0.725rem;
+}
 /* Header Section */
 header{
     height: 66px ;
