@@ -1,0 +1,204 @@
+
+
+
+main{
+    padding-right: 200px;
+}
+.exercise-aside{
+    margin-top: 66px;
+    height: 100%;
+    right: 0px;
+    bottom: 0;
+    top: 0;
+    background-color: white;
+    width: 200px;
+}
+
+.exercise-aside .nav-item{
+    color: #a1a5aa;
+}
+.exercise-aside .nav-item .Qstatus{
+    position: absolute;
+    bottom:4px ;
+    width: 13px;
+    height: 13px;
+    left: -7px;
+    z-index: 2;
+    border: 1px solid transparent;
+    background-color: #cfd0d1;
+}
+.exercise-aside .nav-item.current .Qstatus{
+    border: 3px solid #31947b;
+    background-color: white;
+    color: white !important;
+}
+.exercise-aside .nav-item.current {
+    color: black !important;
+}
+.exercise-aside .nav-item.doneCorrect .Qstatus{
+    border: 3px solid #31947b;
+    background-color: #31947b;
+    color: white;
+}
+.exercise-aside .nav-item.doneCorrect .Qstatus .fa-check{
+    display: block !important;
+    font-size: 8px !important;
+}
+.exercise-aside .nav-item.nav-item.doneCorrect {
+    color: #31947b;
+}
+.exercise-aside .nav-item.doneWrong .Qstatus{
+    border: 3px solid #dc3545;
+    background-color: #dc3545;
+    color: white;
+}
+.exercise-aside .nav-item.doneWrong .Qstatus .fa-times{
+    display: block !important;
+    font-size: 8px !important;
+}
+.exercise-aside .nav-item.nav-item.doneWrong {
+    color: #dc3545;
+}
+.exercise-aside .nav-item::after{
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 2px;
+    background-color: #cfd0d1;
+    right: 100%;
+    top: 0;
+
+}
+.exercise-aside .nav-item:last-child:after{
+    
+    height: 80%;
+
+}
+
+/* main */
+.card-header{
+    background-color: white;
+}
+
+.check{
+    width: 17px;
+    height: 17px;
+    border: 2px solid #cfd0d1
+}
+.choice{
+    border:1px solid #00000020 ;
+    cursor: pointer;
+}
+.choice .check{
+    padding: 2px;
+}
+.choice i {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.choose-Question .choice.correctChoice .check{
+    border:2px solid #31947b; 
+}
+.choose-Question  .choice.correctChoice .check div .fa-check{
+    display: block !important; 
+    color: #31947b;
+
+}
+.choose-Question .choice.correctChoice{
+    border: 2px solid #31947b;
+}
+.choose-Question .choice.wrongChoice .check{
+    border:2px solid #dc3545; 
+}
+.choose-Question  .choice.wrongChoice .check div .fa-times{
+    display: block !important; 
+    color: #dc3545;
+
+}
+.choose-Question .choice.wrongChoice{
+    border: 2px solid #dc3545;
+}
+
+
+.next-question-btn{
+    background-color: #31947b;
+    outline: none;
+}
+
+
+
+
+
+
+
+
+
+/* right to left  */
+html[dir="rtl"]  .exercise-aside .nav-item .Qstatus{
+
+    right: -7px;
+    left: auto;
+}
+html[dir="rtl"] .exercise-aside .nav-item::after{
+    left: 100%;
+    right: auto;
+}
+html[dir="rtl"] main {
+    padding-right: 0px ;
+    padding-left: 200px;
+}
+
+html[dir="rtl"] .exercise-aside {
+    left: 0 !important;
+    right: auto !important;
+}
+
+
+
+/* dark Mode  */
+
+body.dark .exerciseName{
+    color: white;
+}
+body.dark aside .nav-item{
+    color: #cfd0d1;   
+}
+body.dark .exercise-aside .nav-item.current .Qstatus{
+    border: 3px solid #31947b;
+    background-color: #1e1e1e;
+}
+body.dark .exercise-aside .nav-item.current {
+    color: white !important;
+}
+body.dark .exercise-aside{
+    background-color: #1e1e1e;
+}
+body.dark main  .card{
+    background-color: #1e1e1e;
+}
+body.dark main .card .card-header{
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #00000020 !important;
+}
+body.dark main .card-body{
+    background-color: #1e1e1e !important;
+    color: white;
+}
+
+@media screen and (max-width : 600px){
+    main{
+        padding-right: 60px;
+    }
+    .exercise-aside{
+        width: 60px;
+    }
+    .exercise-aside .nav-item span{
+        display: none;
+    }
+    html[dir="rtl"] main {
+        padding-right: 0px ;
+        padding-left: 60px;
+    }
+}

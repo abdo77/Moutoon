@@ -1,6 +1,6 @@
 jQuery(document).ready(function() {
-    $('header').load('header.html');
-    $('aside').load('aside.html');
+    $('header:not(.specialHeader)').load('header.html');
+    $('aside:not(.specialAside)').load('aside.html');
     $('body').on('click','.menu-btn',function() {
         $('body').removeClass('collapsed')
     })

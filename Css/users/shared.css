@@ -362,7 +362,7 @@ html[dir="rtl"] .lang-container{
 }
 
 
-@media screen and (max-width : 450px){
+@media screen and (max-width : 600px){
     body header{
         right: 0px !important;
         left: 0px !important;
@@ -395,5 +395,15 @@ html[dir="rtl"] .lang-container{
         width: 100%;
         margin-left: auto !important;
   margin-right: auto !important;
+    }
+    header .selected-lang span{
+        display: none;
+    }
+    header .mode-switch{
+        width: 30px;
+    }
+    header .switch-circle-move{
+        transform: none;
+        margin: 0px !important;
     }
 }
