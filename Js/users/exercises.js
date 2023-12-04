@@ -64,6 +64,7 @@ jQuery(document).ready(function() {
                                       </div>
                                   </div>
                                   <p class="my-0 ms-3 main-font fw-bold">${exercise[0].choices[i]} </p>
+                                  <p class="my-0 ms-auto me-0 main-font fw-bold AnswerState"> </p>
                               </div>
                           </label>
                 
@@ -83,10 +84,18 @@ jQuery(document).ready(function() {
       if($(this).val() == exercise[counter].rightChoice){
         $(this).closest('label').find('.choice').addClass('correctChoice')
         $(this).closest('.questionType').addClass('answeredRight')
+        $(this).closest('label').find('.choice .AnswerState').addClass('text-success').text('Your answer is correct!')
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', '../../Assests/mixkit-correct-answer-tone-2870.wav');
+        audioElement.play()
       }
       else{
         $(this).closest('label').find('.choice').addClass('wrongChoice')
         $(this).closest('questionType').addClass('answeredWrong')
+        $(this).closest('label').find('.choice .AnswerState').addClass('text-danger').text('Your answer is wrong!')
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', '../../Assests/mixkit-game-show-wrong-answer-buzz-950.wav');
+        audioElement.play()
       }
   })
     appendQuestion(counter)

@@ -405,5 +405,13 @@ html[dir="rtl"] .lang-container{
     header .switch-circle-move{
         transform: none;
         margin: 0px !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+    }
+    html[dir="rtl"] header .switch-circle-move{
+        transform: none;
+        margin: 0px !important;
+        margin-right: 0px !important;
+        margin-left: 0px !important;
     }
 }

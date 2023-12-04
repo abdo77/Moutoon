@@ -121,9 +121,30 @@ main{
 }
 
 
+.btns-container button{
+    font-size: 14px;
+    padding-top:7px ;
+    padding-bottom:7px ;
+    font-weight: bold;
+}
+
 .next-question-btn{
     background-color: #31947b;
     outline: none;
+}
+.next-question-btn:hover{
+    background-color: #1d735d;
+}
+.see-why-btn{
+    border-color: #31947b;
+    border-width: 2px;
+    color: #31947b !important;
+    font-weight: bold;
+    background-color: transparent;
+}
+.see-why-btn:hover{
+    background-color: #31947b;
+    color: white !important;
 }
 
 
