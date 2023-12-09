@@ -128,11 +128,11 @@ main{
     font-weight: bold;
 }
 
-.next-question-btn{
+.next-question-btn , .done-btn{
     background-color: #31947b;
     outline: none;
 }
-.next-question-btn:hover{
+.next-question-btn:hover,.done-btn:hover{
     background-color: #1d735d;
 }
 .see-why-btn{

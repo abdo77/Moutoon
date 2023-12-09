@@ -8,7 +8,8 @@ jQuery(document).ready(function() {
         choices:[
           'choice 1' ,'choice 2' ,'choice 3' , 
         ],
-        rightChoice: 'choice 2'
+        rightChoice: 'choice 2' , 
+        explain : 'Explaination of the question'
       } ,
       {
         questionType:'choose' , 
@@ -16,7 +17,8 @@ jQuery(document).ready(function() {
         choices:[
           'choice 1' ,'choice 2' ,'choice 3' , 
         ],
-        rightChoice: 'choice 3'
+        rightChoice: 'choice 3',
+        explain : 'Explaination of the question'
       }
     ]
     for (let i = 0; i < exercise.length; i++) {
@@ -77,7 +79,23 @@ jQuery(document).ready(function() {
   
     }
 
-
+    $('.explain-btn').click(function(){
+      $('.explaination-container').removeClass('d-none').append(`
+      <div class="card-header p-0  p-3 border-0" style="border:0px solid !important">
+                    <div class="">
+                        <div class="question-position text-muted main-font2 fw-bold mb-3">
+                            Question ${(counter+1)}
+                        </div>
+                        <h4 class="">
+                            Explaination of ${exercise[counter].questionHeader}
+                        </h4>
+                    </div>
+                </div>
+                <div class="card-body text-muted">
+                      ${exercise[counter].explain}
+                </div>
+      `)
+    })
 
     $('body').on('change', 'label input', function(){
       $('label input').attr('disabled', 'disabled')
@@ -103,6 +121,7 @@ jQuery(document).ready(function() {
     var correctAnswers = 0 ;
     var answersPercents = 0 ;
     $('.next-question-btn').click(function(){
+      $('.explaination-container').addClass('d-none').empty();
       if($('.questionType').hasClass('answeredRight')){
         $('.QNumbers').find(`.nav-item:nth-child(${(counter+1)})`).removeClass('current').addClass('doneCorrect')
         correctAnswers++ ;
@@ -115,7 +134,7 @@ jQuery(document).ready(function() {
         appendQuestion(counter)
       }
       
-      counter = counter + 1 < exercise.length ? counter+1 : $(this).unbind('click').addClass('disabled') && $('.question-container').append('<div class="card"><div class="card-body text-center">Done</div></div>') ;
+      counter = counter + 1 < exercise.length ? counter+1 : $(this).unbind('click').addClass(['disabled','d-none']) && $('.question-container').append('<div class="card"><div class="card-body text-center"><lord-icon src="https://cdn.lordicon.com/wzaldqbv.json" colors="primary:'+(dark?"#ffffff":"#000000")+'" trigger="loop" style="width:100%;height:350px"></lord-icon></div></div>') && $('.explain-btn').remove() && $('.explaination-container').remove() && $('.done-btn').removeClass('d-none') ;
       if(counter+1 <= exercise.length){
         $('.QNumbers').find(`.nav-item:nth-child(${(counter+1)})`).addClass('current')
       }
@@ -195,8 +214,16 @@ jQuery(document).ready(function() {
       chart.render();
       
       
-
-
+      $('body').on('click','.mode-switch',function() {
+        dark = !dark
+        localStorage.setItem('dark',dark)
+        if(dark){
+           $('lord-icon').attr('colors','primary:#fff')
+        }
+        else{
+          $('lord-icon').attr('colors','primary:#000')
+        }
+    })
       
 })
 

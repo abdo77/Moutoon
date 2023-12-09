@@ -84,7 +84,7 @@
     <div class="shadow-bg">
 
     </div>
-    <main >
+    <main class="pb-2">
         <div class="exercise-aside position-fixed d-flex flex-column align-items-center shadow bottom-0">
             <div id="apexChart"></div>
             <ul class="nav QNumbers flex-column p-3 mt-4 justify-content-center">
@@ -97,12 +97,18 @@
                 
             </div>
             <div class="btns-container w-100 d-flex justify-content-end">
-                <button class="btn shadow rounded-2 rpl rpl-dark px-4   my-2 see-why-btn me-2 float-end">
+                <button class="btn shadow rounded-2 rpl rpl-dark px-4   my-2 see-why-btn me-2 float-end explain-btn">
                     View explanation
                 </button>
                 <button class="btn shadow rounded-2 rpl rpl-dark px-4  text-white my-2 next-question-btn float-end">
                     Next Question
                 </button>
+                <button class="btn shadow rounded-2 rpl rpl-dark px-4  text-white my-2 d-none done-btn mx-auto">
+                    Done
+                </button>
+            </div>
+            <div class="explaination-container card my-2  shadow rounded-2 p-4 fw-bold  main-font d-none">
+                
             </div>
         </div>
         
@@ -117,6 +123,7 @@
     <script src="../../Js/Shared/bootstrap.min.js"></script>
     <script src="../../Js/Shared/ripple.js"></script>
     <script src="../../Js/Shared/apexCharts.js"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script src="../../Js/users/shared.js"></script>
     <script src="../../Js/users/exercises.js"></script>
 
