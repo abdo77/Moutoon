@@ -80,7 +80,7 @@ jQuery(document).ready(function() {
     }
 
     $('.explain-btn').click(function(){
-      $('.explaination-container').removeClass('d-none').append(`
+      $('.explaination-container').empty().removeClass('d-none').append(`
       <div class="card-header p-0  p-3 border-0" style="border:0px solid !important">
                     <div class="">
                         <div class="question-position text-muted main-font2 fw-bold mb-3">

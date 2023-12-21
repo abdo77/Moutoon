@@ -1,0 +1,77 @@
+header{
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+}
+
+main {
+    width: 100% !important;
+    margin: 0 !important;
+    padding-top: 0;
+    font-family: "General Sans-Semibold", Helvetica;
+}
+.next-question-btn, .done-btn {
+    background-color: #31947b;
+    outline: none;
+}
+
+/* choice Question */
+.choice{
+    cursor: pointer;
+}
+.choiceLetter , .checkContainer{
+    width: 50px;
+    height: 50px;
+    background-color: #fafafa;
+}
+
+.choice.correctChoice{
+    background-color: #31947b !important;
+    color: #fafafa !important;
+}
+.choice.correctChoice span{
+    display: none !important;
+}
+.choice.correctChoice .fa-check , .checkContainer .fa-check , .checkContainer .fa-money-bill-1-wave{
+    display: block !important;
+    color: #31947b !important;
+}
+
+.progress-bar{
+    background-color: #31947b;
+}
+.choice.wrongChoice{
+    background-color: #dc3545 !important;
+    color: #fafafa !important;
+}
+.choice.wrongChoice span{
+    display: none !important;
+}
+.choice.wrongChoice .fa-times{
+    display: block !important;
+    color: #dc3545 !important;
+}
+
+body.dark .QHeader {
+    color: white !important;
+}
+body.dark .exerciseName {
+    color: white;
+}
+body.dark .card{
+    background-color: #1e1e1e;
+    color: white;
+}
+body.dark .choiceLetter , .checkContainer , .checkContainer {
+    color: white;
+    background-color: #121212;
+}
+
+@media all and (max-width : 450px){
+    .exam-header .card-body .fs-4{
+        font-size: 18px !important;
+    }
+    .exerciseName {
+        font-size: 20px;
+    }
+}
