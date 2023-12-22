@@ -62,7 +62,7 @@ body.dark .card{
     background-color: #1e1e1e;
     color: white;
 }
-body.dark .choiceLetter , .checkContainer , .checkContainer {
+body.dark .choiceLetter ,body.dark .checkContainer ,body.dark .checkContainer {
     color: white;
     background-color: #121212;
 }
