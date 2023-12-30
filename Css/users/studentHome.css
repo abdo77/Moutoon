@@ -1,0 +1,154 @@
+main{
+    font-family: Roboto,-apple-system,system-ui,BlinkMacSystemFont,segoe ui,helvetica neue,Arial,sans-serif;
+}
+.bg-success{
+    background-color: #3ba187 !important;
+}
+ .carousel-indicators button{
+    width: 7px !important;
+    height: 7px !important;
+    background-color:#C4CADA !important;
+    border: 0px !important;
+    transition: all .3s ease-in-out !important;
+    transform-origin: center;
+    border-radius: 10px !important;
+}
+.courses .carousel-indicators button.active{
+    background-color:#67b8a4 !important;
+    width: 20px !important;
+
+}
+.events .carousel-indicators button.active{
+    background-color:#3860d9 !important;
+    width: 20px !important;
+
+}
+.bg-primary {
+    background-color:#3860d9 !important;
+
+}
+.fs-8{
+    font-size: 8px
+}
+.markers i{
+ width: 12px;
+ height: 12px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 6px;
+ background-color:#dcdfe3 ;
+}
+.text-muted-sp-1{
+    color: #a8a9ae;
+}
+/* #C4CADA */
+.icon-circle{
+    width: 80px;
+    height: 80px;
+}
+.icon-circle.red{
+    color: #F8285A;
+    background-color: #f8285942;
+}
+.icon-circle.red{
+    color: #F8285A;
+    background-color: #f8285942;
+}
+.icon-circle.blue{
+    color: #1e49ca;
+    background-color: #1e49ca35;
+}
+.icon-circle.green{
+    color:#3ba187;
+    background-color: #3ba1873a;
+}
+
+.pic-container {
+    width: 45px;
+    height: 45px;
+    background-color: #C4CADA;
+}
+
+.post-attach{
+    background-color: #f5f5f5;
+}
+.thumbnail-img{
+    overflow: hidden;
+}
+.thumbnail-img div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #00000035;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+}
+.thumbnail-img i{
+    font-size: 30px;
+    background-color: #3ba187;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+}
+.reacts-container .fa-users{
+    color: #3ba187;
+    font-size: 1rem;
+}
+
+.reacts-btns{
+    top: -40px;
+}
+.reacts-btns button{
+    border: 0;
+    background-color: #3ba187;
+    color: white;
+    width: 43px;
+    height: 43px;
+}
+.like-btn{
+    background-color: white !important;
+    color: red !important;  
+    overflow: hidden;
+}
+.like-btn i{
+    z-index: 2;
+    position: relative;
+    inset: 0;
+    margin: auto;
+}
+.like-btn::after{
+    content: '';
+    width: 1px;
+    height: 1px;
+    background-color: red;
+    transition: all .3s ease-in-out;    
+    display: block;
+    position: absolute;
+    margin: auto;
+    border-radius: 50%;
+    inset: 0;
+    z-index: 1;
+}
+.like-btn.liked{
+    color: white !important;
+}
+.like-btn.liked::after{
+    width: 100%;
+    height: 100%;
+}
+.img-container{
+    text-align: center;
+}
+.img-container img{
+    max-width: 100%;
+    max-height: 300px;
+    
+}

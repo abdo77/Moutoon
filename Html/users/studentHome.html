@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../Assests/Screenshot 2023-11-05 203303.png" type="image/x-icon">
+    <title>Series</title>
+    <link rel="stylesheet" href="../../Css/Shared/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../Css/Shared/ripple.css">
+    <link rel="stylesheet" href="../../Css/users/shared.css">
+    <link rel="stylesheet" href="../../Css/users/studentHome.css">
+</head>
+
+<body class="">
+
+    <header class="">
+    </header>
+
+    <aside class="">
+
+    </aside>
+
+    <div class="shadow-bg">
+
+    </div>
+    <main>
+        <div class="container-fluid">
+            <div class="row mx-0">
+                <div class="col-12 col-md-12 col-lg-4 col-xl-4 mb-2">
+                    <div class="card shadow rounded-4 border-0 help-center my-0 h-100">
+                        <div class="card-body row mx-0 align-items-end">
+                            <div class="col-8 p-0 h-100 d-flex flex-column">
+                                <h5 class="">Welcome Back Ahmed!🎉</h5>
+                                <p class="text-muted  main-font mb-3">
+                                    We are here to help you with anything you need,
+                                </p>
+                                <button style="max-width: 150px;"
+                                    class="btn rpl rpl-dark bg-success text-white shadow main-font px-4 mt-auto">
+                                    Help Center
+                                </button>
+                            </div>
+                            <div class="col-4 pe-0">
+                                <img src="../../Assests/congo-illustration-d94260b0.png" class="w-100"
+                                    style="max-width: 140px;" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Today's Course -->
+                <div class="col-12 col-md-12 col-lg-4 col-xl-4 mb-2 courses">
+                    <div class="card shadow rounded-4 border-0 todayEvent my-0  h-100">
+
+                        <div class="card-body">
+                            <div id="todayEvent" class="carousel slide" data-bs-ride="carousel">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <h5 class="mb-0 fw-bold">Today's Course</h5>
+                                        <p class="mb-0 main-font2 text-muted fw-bold">4 Lessons, 3 hours 45 minuts</p>
+                                    </div>
+
+                                    <div class="carousel-indicators ms-auto position-static me-0 my-0">
+                                        <button type="button" data-bs-target="#todayEvent" data-bs-slide-to="0"
+                                            class="active bg-danger" aria-current="true" aria-label="Slide 1"></button>
+                                        <button type="button" data-bs-target="#todayEvent" data-bs-slide-to="1"
+                                            class="bg-dark" aria-label="Slide 2"></button>
+                                        <button type="button" data-bs-target="#todayEvent" data-bs-slide-to="2"
+                                            class="bg-dark" aria-label="Slide 3"></button>
+                                    </div>
+                                </div>
+                                <div class="carousel-inner">
+                                    <div class=" carousel-item  active">
+                                        <!-- Single Course -->
+                                        <div class="singleCourse d-flex flex-wrap align-items-center w-100">
+                                            <div class="px-0 flex-shrink-0" style="width: 85px;">
+                                                <div id="apexChart"></div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <p class="fw-bold main-font mb-1">
+                                                    Course Name
+                                                </p>
+                                                <div class="d-flex mx-0 gap-3 main-font2 text-muted fw-bold">
+                                                    <div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">3 Topics</span>
+                                                        </div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">50 Min</span>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">1 Speakers</span>
+                                                        </div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">72 students</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-shrink-0 flex-grow w-100">
+                                                <button
+                                                    class="btn rpl rpl-dark  btn-light me-2 ms-2 shadow-none main-font mt-2 mb-0">Skip
+                                                    This</button>
+                                                <button
+                                                    class="btn border-0  bg-success shadow-none text-white rpl rpl-dark main-font mt-2 px-4 mb-0">
+                                                    Continue
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Today's Event -->
+                <div class="col-12 col-md-12 col-lg-4 col-xl-4 mb-2 events">
+                    <div class="card shadow rounded-4 border-0 h-100">
+                        <div class="card-body">
+                            <div id="todayEvent" class="carousel slide" data-bs-ride="carousel">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <h5 class="mb-0 fw-bold">Today's Event</h5>
+                                        <p class="mb-0 main-font2 text-muted fw-bold">4 Lessons, 3 hours 45 minuts</p>
+                                    </div>
+
+                                    <div class="carousel-indicators ms-auto position-static me-0 my-0">
+                                        <button type="button" data-bs-target="#todayEvent" data-bs-slide-to="0"
+                                            class="active bg-danger" aria-current="true" aria-label="Slide 1"></button>
+                                        <button type="button" data-bs-target="#todayEvent" data-bs-slide-to="1"
+                                            class="bg-dark" aria-label="Slide 2"></button>
+                                        <button type="button" data-bs-target="#todayEvent" data-bs-slide-to="2"
+                                            class="bg-dark" aria-label="Slide 3"></button>
+                                    </div>
+                                </div>
+                                <div class="carousel-inner mt-3">
+                                    <div class=" carousel-item  active">
+                                        <!-- Single Course -->
+                                        <div class="singleEvent d-flex flex-wrap align-items-center w-100">
+                                            <div class="px-0 flex-shrink-0 d-flex align-items-center"
+                                                style="width: 85px;">
+                                                <div
+                                                    class="rounded-circle icon-circle d-flex align-items-center green mx-auto">
+                                                    <i class="fab fa-python mx-auto fs-3"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <p class="fw-bold main-font mb-1">
+                                                    Event Name
+                                                </p>
+                                                <div class="d-flex mx-0 gap-3 main-font2 text-muted fw-bold">
+                                                    <div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">3 Topics</span>
+                                                        </div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">50 Min</span>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">1 Speakers</span>
+                                                        </div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">72 students</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-shrink-0 flex-grow w-100 mt-4 d-flex ">
+                                                <button
+                                                    class="btn rpl rpl-dark  btn-light me-2 ms-2 shadow-none main-font mt-2 mb-0 ">Details</button>
+                                                <button
+                                                    class="btn border-0  bg-primary shadow-none text-white rpl rpl-dark main-font px-4 mt-2 mb-0 ">
+                                                    Join Event
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- posts -->
+                <div class="col-12 col-md-6 col-lg-8 mb-0 posts mt-3 mb-2">
+                    <div class="card shadow rounded-4 border-0 my-2 post-container">
+                        <div class="card-body position-relative">
+                            <div class="d-flex align-items-center">
+                                <div class="pic-container rounded-circle me-2 d-flex align-items-center">
+                                    <i class="fa fa-user mx-auto text-white fs-5"></i>
+                                </div>
+                                <div style="line-height: 1.1;">
+                                    <p class="mb-0 fw-bold main-font">Ahmed el Hosseny</p>
+                                    <span class="text-muted main-font3 fw-bold">July 26 2018, 01:03pm</span>
+                                </div>
+                            </div>
+                            <div class="post mt-4">
+                                <div class="post-text text-muted main-font">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure id, illum enim voluptates, officia numquam quisquam dolore reprehenderit explicabo nihil atque similique vel reiciendis, accusantium iste labore tenetur placeat aut.
+                                </div>
+                                <a href="https::www.google.com" target="_blank" class="post-attach text-decoration-none rounded-4 p-2 row mx-0 my-3 p-3 border">
+                                    <div class="thumbnail-img position-relative rounded-4 col-12 col-md-3 col-lg-3 px-0">
+                                        <img src="../../Assests/cover.jpg" class="w-100" alt="">
+                                        <div>
+                                            <i class="fa fa-play"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-9 col-lg-9 mt-3">
+                                        <div class="link-content">
+                                            <h4>
+                                                <p class="text-dark">What's new in Bootstrap 4 ?</p>
+                                            </h4>
+                                            <p class="text-muted">
+                                                Before I create the new Bootstrap 4 crash course I want to go over
+                                                some of the changes from Bootstrap 3.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="reacts-container d-flex align-items-center p-1 pt-2 position-relative">
+                                <div>
+                                        <i class="fa fa-users"></i>
+                                        <span class="text-muted main-font2 fw-bold ms-2 ">21 Liked this post.</span>
+                                </div>
+                                <div class="me-0 ms-auto d-flex align-items-center text-muted">
+                                    <div class="likes me-3">
+                                        <i class="far fa-heart"></i>
+                                        <span>21</span>
+                                    </div>
+                                    <div class="comments">
+                                        <i class="far fa-comment"></i>
+                                        <span>0</span>
+                                    </div>
+                                </div>
+                                <div class="reacts-btns position-absolute me-0 end-0">
+                                    <button class="comment-btn rounded-circle shadow me-2"><i class="far fa-comment"></i></button>
+                                    <button class="like-btn liked position-relative rounded-circle shadow"><i class="fa fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card shadow rounded-4 border-0 my-2 post-container">
+                        <div class="card-body position-relative">
+                            <div class="d-flex align-items-center">
+                                <div class="pic-container rounded-circle me-2 d-flex align-items-center">
+                                    <i class="fa fa-user mx-auto text-white fs-5"></i>
+                                </div>
+                                <div style="line-height: 1.1;">
+                                    <p class="mb-0 fw-bold main-font">Ahmed el Hosseny</p>
+                                    <span class="text-muted main-font3 fw-bold">July 26 2018, 01:03pm</span>
+                                </div>
+                            </div>
+                            <div class="post mt-4">
+                                <div class="post-text text-muted main-font">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure id, illum enim voluptates, officia numquam quisquam dolore reprehenderit explicabo nihil atque similique vel reiciendis, accusantium iste labore tenetur placeat aut.
+                                </div>
+                                <div class="img-container my-3 border rounded-4 w-100 overflow-hidden mx-auto">
+                                    <img src="../../Assests/cover.jpg" class="" alt="">
+                                </div>
+                            </div>
+                            <div class="reacts-container d-flex align-items-center p-1 pt-2 position-relative">
+                                <div>
+                                        <i class="fa fa-users"></i>
+                                        <span class="text-muted main-font2 fw-bold ms-2 ">21 Liked this post.</span>
+                                </div>
+                                <div class="me-0 ms-auto d-flex align-items-center text-muted">
+                                    <div class="likes me-3">
+                                        <i class="far fa-heart"></i>
+                                        <span>21</span>
+                                    </div>
+                                    <div class="comments">
+                                        <i class="far fa-comment"></i>
+                                        <span>0</span>
+                                    </div>
+                                </div>
+                                <div class="reacts-btns position-absolute me-0 end-0">
+                                    <button class="comment-btn rounded-circle shadow me-2"><i class="far fa-comment"></i></button>
+                                    <button class="like-btn  position-relative rounded-circle shadow"><i class="fa fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+    <script src="../../Js/Shared/jquery-3.6.0.min.js"></script>
+    <script src="../../Js/Shared/bootstrap.min.js"></script>
+    <script src="../../Js/Shared/ripple.js"></script>
+    <script src="../../Js/Shared/apexCharts.js"></script>
+    <script src="../../Js/users/shared.js"></script>
+    <script src="../../Js/users/studentHome.js"></script>
+
+
+</body>
+
+</html>
