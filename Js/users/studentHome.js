@@ -2,74 +2,187 @@ jQuery(document).ready(function() {
 
    
 
+    arrayLength = 3 ; 
+    randomdChartValues = [20 , 80 ,90]
+    
+    for (let i = 0; i < arrayLength; i++) {
+
+        $('.events #todayEvent .carousel-inner').append(`
+        <div class=" carousel-item ">
+                                        <!-- Single Course -->
+                                        <div class="singleEvent d-flex flex-wrap align-items-center w-100">
+                                            <div class="px-0 flex-shrink-0  d-flex align-items-center"
+                                                style="width: 85px;height:120px">
+                                                <div
+                                                    class="rounded-circle icon-circle d-flex align-items-center green mx-auto">
+                                                    <i class="fab fa-python mx-auto fs-3"></i>
+                                                </div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <p class="fw-bold main-font mb-1">
+                                                    Event Name
+                                                </p>
+                                                <div class="d-flex mx-0 gap-3 main-font2 text-muted fw-bold">
+                                                    <div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">3 Topics</span>
+                                                        </div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">50 Min</span>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">1 Speakers</span>
+                                                        </div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">72 students</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-shrink-0 flex-grow w-100  d-flex ">
+                                                <button
+                                                    class="btn rpl rpl-dark  btn-light me-2 ms-2 shadow-none main-font mt-2 mb-0 ">Details</button>
+                                                <button
+                                                    class="btn border-0  bg-primary shadow-none text-white rpl rpl-dark main-font px-4 mt-2 mb-0 ">
+                                                    Join Event
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+        `)
+
+
+
+        $('.courses #todayCourse .carousel-inner').append(`
+        <div class=" carousel-item ">
+                                        <!-- Single Course -->
+                                        <div class="singleCourse d-flex flex-wrap align-items-center w-100">
+                                            <div class="px-0 flex-shrink-0" style="width: 85px;height:120px;overflow:hidden">
+                                                <div class="chart" id="apexChart${i}"></div>
+                                            </div>
+                                            <div class="ms-2">
+                                                <p class="fw-bold main-font mb-1">
+                                                    Course Name
+                                                </p>
+                                                <div class="d-flex mx-0 gap-3 main-font2 text-muted fw-bold">
+                                                    <div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">3 Topics</span>
+                                                        </div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">50 Min</span>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">1 Speakers</span>
+                                                        </div>
+                                                        <div class="px-0 d-flex align-items-center markers">
+                                                            <i class="fa fa-chevron-right   rounded-2 me-2"></i>
+                                                            <span class="text-muted-sp-1">72 students</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="flex-shrink-0 flex-grow w-100">
+                                                <button
+                                                    class="btn rpl rpl-dark  btn-light me-2 ms-2 shadow-none main-font mt-2 mb-0">Skip
+                                                    This</button>
+                                                <button
+                                                    class="btn border-0  bg-success shadow-none text-white rpl rpl-dark main-font mt-2 px-4 mb-0">
+                                                    Continue
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+        `)
+        var options = {
+            chart: {
+              height: 140,
+              width:'100%' ,
+              type: "radialBar" ,
+              
+            },
+            responsive: [{
+              breakpoint: 600,
+              options: {
+                chart :{
+                  height : 100,
+                }
+              },
+          }] ,
+            fill: {
+                colors: ['#31947b']
+              },
+            series: [randomdChartValues[i]],
+            
+            plotOptions: {
+              radialBar: {
+                hollow: {
+                  margin: 0,
+                  size: "50%"
+                },
+                track: {
+                    background: 'transparent',
+                  },
+                dataLabels: {
+                  showOn: "always",
+                  name: {
+                    offsetY: -10,
+                    show: false,
+                    color: "#888",
+                    fontSize: "13px"
+                  },
+                  value: {
+                    color: "#111",
+                    fontSize: "12px",
+                    show: false ,
+                    offsetY : 4,
+                    fontWeight :'1000',
+                    color :dark? '#ffffff' : "#31947b"
+                  }
+                },
+                track: {
+                    background: '#d2e8e2',
+                    strokeWidth: "100%"
+                }
+              },
+              
+            },
+            stroke: {
+                lineCap: "round"
+            },
+            
+            labels: [""]
+          };
+          
+          var chart = new ApexCharts(document.querySelector("#apexChart"+i+""), options);
+          
+          chart.render();
+              
+        $('.courses #todayCourse .carousel-indicators').append(`<button type="button" data-bs-target="#todayCourse" data-bs-slide-to="${i}"
+        class=" bg-danger" aria-current="true" aria-label="Slide ${(i+1)}"></button>`)
+        $('.events #todayEvent .carousel-indicators').append(`<button type="button" data-bs-target="#todayEvent" data-bs-slide-to="${i}"
+        class=" bg-danger" aria-current="true" aria-label="Slide ${(i+1)}"></button>`)
+    $('.carousel-indicators button:first-child').addClass('active')
+    $(' .carousel-item:first-child').addClass('active')    
+    }
+
+
+
+
+
     console.log(localStorage.getItem('dark'));
     var dark = ( localStorage.getItem('dark') == 'false' || localStorage.getItem('dark')==null  ) ? false : true  ;
 
-    var options = {
-        chart: {
-          height: 140,
-          width:'100%' ,
-          type: "radialBar" ,
-          
-        },
-        responsive: [{
-          breakpoint: 600,
-          options: {
-            chart :{
-              height : 100,
-            }
-          },
-      }] ,
-        fill: {
-            colors: ['#31947b']
-          },
-        series: [70],
-        
-        plotOptions: {
-          radialBar: {
-            hollow: {
-              margin: 0,
-              size: "50%"
-            },
-            track: {
-                background: 'transparent',
-              },
-            dataLabels: {
-              showOn: "always",
-              name: {
-                offsetY: -10,
-                show: false,
-                color: "#888",
-                fontSize: "13px"
-              },
-              value: {
-                color: "#111",
-                fontSize: "12px",
-                show: false ,
-                offsetY : 4,
-                fontWeight :'1000',
-                color :dark? '#ffffff' : "#31947b"
-              }
-            },
-            track: {
-                background: '#d2e8e2',
-                strokeWidth: "100%"
-            }
-          },
-          
-        },
-        stroke: {
-            lineCap: "round"
-        },
-        
-        labels: [""]
-      };
-      
-      var chart = new ApexCharts(document.querySelector("#apexChart"), options);
-      
-      chart.render();
-
-      var chart1 = new ApexCharts(document.querySelector("#eventChart1"), options);
-      
-      chart1.render();
+ 
 })
