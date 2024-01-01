@@ -153,3 +153,12 @@ main{
     
 }
 
+.bg-success-light{
+    background-color: #31947b31;
+}
+
+
+body.dark .card{
+    background-color: #1e1e1e;
+    color: white;
+}

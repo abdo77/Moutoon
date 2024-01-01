@@ -185,4 +185,9 @@ jQuery(document).ready(function() {
     var dark = ( localStorage.getItem('dark') == 'false' || localStorage.getItem('dark')==null  ) ? false : true  ;
 
  
+    $('body').on('click','.like-btn', function() {
+        $(this).toggleClass('liked')
+    })
+
+
 })

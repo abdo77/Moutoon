@@ -141,10 +141,10 @@ header .mode-switch .switch-circle , .balance-circle{
     opacity: 1;
     visibility: visible;
 }
-header .card-header{
+/* header .card-header{
     background-color: white !important;
     border-bottom: 0px;
-}
+} */
 header .nav-tabs .nav-link{
     background: none;
     background-color: white !important;
@@ -414,4 +414,54 @@ html[dir="rtl"] .lang-container{
         margin-right: 0px !important;
         margin-left: 0px !important;
     }
+}
+
+
+
+.message-container {
+    display: flex;
+    align-items: flex-start;
+    text-decoration: none;
+    transition: all .3s ease-in-out;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+.message-container .message-img {
+    border-radius: 50%;
+    padding: 7px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    background-color: rgba(53, 119, 241, 0.1);
+    color: #49b99d;
+    margin-right: 1rem;
+}
+
+.message-container .message-title {
+    margin-bottom: 5px;
+    color: black;
+}
+body.dark .message-container .message-title {
+    margin-bottom: 5px;
+    color: white;
+}
+.message-container .message-content {
+    color: #878a99;
+    margin-bottom: 10px;
+}
+.message-container .message-date {
+    color: #878a99;
+    font-size: 11px;
+}
+.message-container:hover {
+    background-color: #f3f3f9;
+}
+body.dark .message-container:hover{
+    background-color: rgba(0, 0, 0, 0.21);
 }

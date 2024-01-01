@@ -103,7 +103,7 @@
 
                 <!-- posts -->
                 <div class="col-12 col-md-6 col-lg-8 mb-0 posts mt-3 mb-2">
-                    <div class="card shadow rounded-4 border-0 my-2 post-container">
+                    <div class="card shadow rounded-4 border-0 my-2 post-container position-relative">
                         <div class="card-body position-relative">
                             <div class="d-flex align-items-center">
                                 <div class="pic-container rounded-circle me-2 d-flex align-items-center">
@@ -159,6 +159,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="comments-container d-none position-absolute top-0 start-0 w-100 h-100">
+                            <i class="fa fa-times float-end"></i>
+                        </div>
                     </div>
 
                     <div class="card shadow rounded-4 border-0 my-2 post-container">
@@ -206,7 +209,50 @@
 
 
 
-                    
+                    <button class="btn shadow-none border-0 fw-bold bold text-muted w-100 my-2 load-more-btn">
+                        Load More <i class="fa fa-refresh"></i>
+                    </button>
+                </div>
+                <!-- upcoming events -->
+                <div class="col-12 col-md-6 col-lg-4 mb-0 upcomingEvents mt-3 mb-2">
+                    <div class="card shadow rounded-4 border-0 my-2 comingEvent-container">
+                        <div class="card-body">
+                            <div class="event-pic border p-1 rounded-4 bg-light text-center mb-3 overflow-hidden" style="max-height: 150px;">
+                                <img src="../../Assests/congo-illustration-d94260b0.png" alt="" class="img-container">
+                            </div>
+                            <h4 class="fw-bold">Upcoming Webinar</h4>
+                            <p class="main-font text-muted-sp-1 fw-bold">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum ipsam ut, optio 
+                            </p>
+                            <div class="row mx-0">
+                                <div class="col-6 ps-0 d-flex align-items-center">
+                                    <div style="width: 40px;height: 40px;" class="me-2 rounded-3 bg-success-light d-flex align-items-center">
+                                        <i class="far fa-calendar fs-5 mx-auto text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-0">17 NOV 23</h6>
+                                        <p class="main-font mb-0 text-muted-sp-1 fw-bold">
+                                            Date
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-6 pe-0 d-flex justify-content-end align-items-center">
+                                    <div style="width: 40px;height: 40px;" class="me-2 rounded-3 bg-success-light d-flex align-items-center">
+                                        <i class="far fa-clock fs-5 mx-auto text-success"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="fw-bold mb-0">17 Minutes</h6>
+                                        <p class="main-font mb-0 text-muted-sp-1 fw-bold">
+                                            Duration
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn text-white fw-bold mt-3 shadow w-100 bg-success rpl rpl-dark">
+                                Joint The Event
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
