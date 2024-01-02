@@ -156,9 +156,32 @@ main{
 .bg-success-light{
     background-color: #31947b31;
 }
-
+.post-container{
+    overflow: hidden;
+    min-height: 400px;
+}
 
 body.dark .card{
     background-color: #1e1e1e;
     color: white;
+}
+.comments-container{
+    background-color: white;
+    z-index: 20;
+}
+body.dark .comments-container{
+    background-color: #1e1e1e;
+    z-index: 20;
+}
+body.dark .comments-container textarea{
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.post-btn{
+    right: 10px;
+    bottom: 10px;
+}
+.post-container .fa-times{
+    cursor: pointer;
 }

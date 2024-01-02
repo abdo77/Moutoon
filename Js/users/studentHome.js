@@ -188,6 +188,41 @@ jQuery(document).ready(function() {
     $('body').on('click','.like-btn', function() {
         $(this).toggleClass('liked')
     })
+    $('body').on('click','.comment-btn', function() {
+        $(this).closest('.post-container').find('.post-parent').addClass('d-none')
+        $(this).closest('.post-container').find('.comments-container').removeClass('d-none')
+    })
+    $('body').on('click','.comments-container .fa-times', function() {
+        $(this).closest('.post-container').find('.post-parent').removeClass('d-none')
+        $(this).closest('.post-container').find('.comments-container').addClass('d-none')
+    })
 
+    
+
+    $('body').on('click','.post-btn', function() {
+        if($(this).closest('.comments-container').find('textarea').val()!=0){
+            $(this).closest('.comments-container').find('.clearfix').append(`
+        <div class="comment rounedd-2 border-bottom pb-4 py-3">
+                                    <div class="d-flex align-items-center comment-pic">
+                                        <div class="pic-container rounded-circle bg-success-light me-2 d-flex align-items-center">
+                                            <i class="fa fa-user mx-auto text-success fs-5"></i>
+                                        </div>
+                                        <div>
+                                            <p class="mb-0 main-font2" style="line-height: 1;">Ahmed ELhosseny</p>
+                                            <span class="text-muted-sp-1 main-font3">10 hours ago</span>
+                                        </div>
+                                    </div>
+                                
+                                <div class="comment-text main-font2 text-muted-sp-1 ms-5 mt-2 ps-1">
+                                        ${$(this).closest('.comments-container').find('textarea').val()}
+                                </div>
+                            </div>
+        
+        `)
+        $(this).closest('.comments-container').find('textarea').val(null)
+        $(this).closest('.comments-container').find('.clearfix').scrollTop($(this).closest('.comments-container').find('.clearfix')[0].scrollHeight);
+        
+        }
+    })
 
 })
