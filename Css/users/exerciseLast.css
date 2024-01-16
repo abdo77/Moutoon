@@ -1,0 +1,108 @@
+header{
+    width: 100% !important;
+    left: 0;
+}
+main{
+    margin-left: 0px;
+    padding-top: 100px;
+}
+.next-btn, .done-btn {
+    background-color: #31947b;
+    outline: none;
+}
+
+.next-question-btn, .done-btn {
+    background-color: #31947b;
+    outline: none;
+}
+
+.Submit-match{
+    color: #31947b !important;
+    background-color: white;
+    border: 2px solid #31947b;
+}
+body.dark .Submit-match{
+    background-color: #121212;
+
+}
+.question-container{
+    
+}
+/* choice Question */
+.choice , .firstRow .card ,.secondRow .card{
+    cursor: pointer;
+}
+.choiceLetter , .checkContainer{
+    width: 50px;
+    height: 50px;
+    background-color: #fafafa;
+}
+
+.choice.correctChoice{
+    background-color: #31947b !important;
+    color: #fafafa !important;
+}
+.correctChoice{
+    background-color: #31947b !important;
+    color: #fafafa !important;
+}
+.correctChoice span:not(.match-text){
+    display: none !important;
+}
+.correctChoice .fa-check , .checkContainer .fa-check , .checkContainer .fa-money-bill-1-wave{
+    display: block !important;
+    color: #31947b !important;
+}
+
+.progress-bar{
+    background-color: #31947b;
+}
+.wrongChoice{
+    background-color: #dc3545 !important;
+    color: #fafafa !important;
+}
+.wrongChoice span:not(.match-text){
+    display: none !important;
+}
+.wrongChoice .fa-times{
+    display: block !important;
+    color: #dc3545 !important;
+}
+
+body.dark .QHeader {
+    color: white !important;
+}
+body.dark .exerciseName , body.dark .exam-title , body.dark .progress-container span {
+    color: white;
+}
+body.dark .card{
+    background-color: #1e1e1e;
+    color: white;
+}
+body.dark .choiceLetter ,body.dark .checkContainer ,body.dark .checkContainer {
+    color: white;
+    background-color: #121212;
+}
+
+.leader-line{
+    z-index: -3;
+}
+.match-element{
+    cursor: pointer;
+}
+.match-element.Selected .card{
+    border: 2px solid #31947b !important;
+}
+.match-element.binded{
+    border: 0px;
+}
+
+@media all and (max-width : 450px){
+    .exam-header .card-body .fs-4{
+        font-size: 18px !important;
+    }
+    .exerciseName {
+        font-size: 20px;
+    }
+}
+
