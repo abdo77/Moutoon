@@ -5,6 +5,12 @@ jQuery(document).ready(function() {
     examName = 'test 1'
      exercise = [
       {
+        questionType: 'Complete',
+        questionHeader:' Complete the following paragraph',
+        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
+        answers :['test','information']
+      },
+      {
         questionType:'Match' , 
         firstRow :['frow1','frow2','frow3'],
         secondRow :['srow1','srow2'],
@@ -65,7 +71,6 @@ jQuery(document).ready(function() {
  
  
     var  appendQuestion = function(counter){
-      console.log('counters: ', counter);
          if(exercise[counter].questionType == 'choose'){
            $('.question-container').append(`
            <div class="questionType choose-Question">
@@ -189,9 +194,9 @@ jQuery(document).ready(function() {
               Match The Following
           </h4>
           <div class="matchContainer position-relative row mx-0"  >
-            <div class="firstRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col text-center" ></div>
+            <div class="firstRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col-6 text-center" ></div>
 
-            <div class="secondRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col" ></div>
+            <div class="secondRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col-6" ></div>
 
             <div class="col-12">
             <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white my-2 Submit-match mx-auto disabled" style="width: 200px;">
@@ -236,7 +241,26 @@ jQuery(document).ready(function() {
           }
           
         }
-        
+        else if(exercise[counter].questionType == 'Complete'){
+          $('.question-container').append(`
+           <div class="questionType choose-Question text-center">
+           <h4 class="QHeader fw-bold text-center">
+                ${exercise[counter].questionHeader}
+           </h4>
+           <div class="paragraphContainer border-0 card shadow rounded-3 mt-5">
+               <div class="card-body ">
+                  <p class="text-center fw-bold">${exercise[counter].paragraph}</p>
+               </div>
+           </div>
+           <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white mt-4 my-2 Submit-complete mx-auto disabled" style="width: 200px;">
+           Submit Complete
+       </button>
+       </div>
+         `)
+         for (let i = 0; i < exercise[counter].answers.length; i++) {
+          $('.paragraphContainer p').html($('.paragraphContainer p').html().replace(exercise[counter].answers[i] , '<span style="min-width:100px !important ; outline:none" contenteditable="true" class="px-1 d-inline-block ">_______</span>'));
+         }
+        }
      
        }
      appendQuestion(counter)
@@ -279,15 +303,11 @@ jQuery(document).ready(function() {
        else{
        }
        $('.question-container').empty()
-       console.log('length' , Lines);
        for (const key in Lines) {
-        console.log('lines===' +Lines);
         Lines[key].remove()
         delete Lines[key]
        }
-       console.log('lines' + Lines);
-       console.log('counter == ' , counter);
-       console.log('counter == ' , exercise.length);
+       
        $('.leader-line').remove()
        if(counter + 1 < exercise.length){
          appendQuestion(counter+1)
@@ -345,17 +365,13 @@ jQuery(document).ready(function() {
        }
        counter = counter + 1 < exercise.length ? counter+1 : $(this).unbind('click').addClass(['disabled','d-none']) &&  $('.done-btn').removeClass(['d-none','disabled']) && $('.done-btn').attr('disabled', false) && $('.question-container').remove() ;
      
-       console.log('counter2 == ' , counter);
        
      //    answersPercents = ((correctAnswers/exercise.length)*100);
         
      })
      // Match Function
-     console.log('lines = ' , Lines);
      $('body').on('click',` .firstRow .match-element`, function(){
-      console.log($(this).closest('.questionType').hasClass('answered'));  
       if($(this).closest('.questionType').hasClass('answered')==false){
-          console.log('counter' + counter);
           if($(this).hasClass('Selected')){
             //$('.Selected').removeClass('Selected');
           $(this).removeClass('Selected')
@@ -370,7 +386,6 @@ jQuery(document).ready(function() {
      
     
      $('body').on('click',' .secondRow .match-element', function(){
-      console.log('this' , $('.firstRow .match-element.Selected')[0]);
       if(!$(this).hasClass('binded')&&$('.firstRow .match-element').hasClass('Selected')){
         $(this).addClass('binded')
         Lines[$(this).find('.match-text').text()] = new LeaderLine(
@@ -381,7 +396,6 @@ jQuery(document).ready(function() {
               color:'#31947b'
             }
         )
-        console.log(Lines);
         var name = $(this).find('.match-text').text()
         Lines[name].size =3 ; 
         Lines[name].setOptions({startSocket: 'right', endSocket: 'left'});
@@ -415,7 +429,6 @@ jQuery(document).ready(function() {
         $(this).removeClass('binded')
         var name = $(this).find('.match-text').text()
 
-        console.log('hio');
         Lines[name].hide('draw')
         var firstlength = 0
         var secondlength = 0
@@ -440,7 +453,6 @@ jQuery(document).ready(function() {
         $('.firstRow .match-element.Selected').attr('value','')
         
       }
-      console.log($(this).find('.match-text').text());
    })
 
    $('body').on('click','.Submit-match' , function(){
@@ -462,7 +474,6 @@ jQuery(document).ready(function() {
     $(' .match-element').each(function(){
       var correct = 0
       var empty = true
-      console.log($(this).attr('value'));
       for (let i = 0; i < exercise[counter].answers.length; i++) {
         if($(this).attr('value')!=null  && $(this).attr('value')!='' && $(this).attr('value')!=undefined){
             empty = false ;
@@ -481,8 +492,64 @@ jQuery(document).ready(function() {
           $(this).find('.card').addClass('wrongChoice')
         }
       }
-      console.log(correct);
     })
    })
- })
+
+
+     // Complete Function
+     $('body').on('focus','.paragraphContainer p span', function(){
+      var regex = '_';
+      if($(this).text().match(regex)){
+        $(this).text('') ;
+      }
+     })
+     $('body').on('focusout','.paragraphContainer p span', function(){
+      var regex = '_'
+      var missing = 0
+      if($(this).text().match(regex)|| $(this).text()==0){
+        $(this).removeClass('text-success')
+        $(this).text('_______') ;
+      }
+      $('.paragraphContainer p span').each(function(){
+        if($(this).text().match(regex)){
+          missing++;
+        }
+      })
+      if(missing == 0){
+        setTimeout(() => {
+          $('.Submit-complete').removeClass('disabled')
+        $('.Submit-complete').attr('disabled',false)
+        }, 1000);
+      }
+      else{
+        $('.Submit-complete').addClass('disabled')
+        $('.Submit-complete').attr('disabled',true)
+      }
+     })
+     $('body').on('keydown','.paragraphContainer p span', function(e){
+      var regex = '_'
+      $(this).addClass('text-success')
+      $('.Submit-complete').addClass('disabled')
+        $('.Submit-complete').attr('disabled',true)
+        return e.which != 13;
+     })
+     
+     $('body').on('click','.Submit-complete' , function(){
+      $('.paragraphContainer p span').removeAttr('contenteditable')
+      $('.paragraphContainer p span').addClass('disabled')
+      var word = 0
+      $('.paragraphContainer p span').each(function(){
+        if(!$(this).text().match(exercise[counter].answers[word])){
+          $(this).addClass('text-danger')
+        }
+        word++;
+      })
+      $(this).addClass('disabled')
+      $(this).attr('disabled',true)
+      $(this).off('click')
+      $('.next-btn').removeAttr('disabled')
+      $('.next-btn').removeClass('disabled')
+    })
+  
+  })
 
