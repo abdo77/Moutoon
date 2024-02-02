@@ -1,6 +1,7 @@
+
 jQuery(document).ready(function() {
 
-    var counter = 0
+    counter =0;
     examName = 'test 1'
      exercise = [
       {
@@ -8,6 +9,13 @@ jQuery(document).ready(function() {
         firstRow :['frow1','frow2','frow3'],
         secondRow :['srow1','srow2'],
         answers:["frow1:srow2","frow2:srow1"]
+
+      },  
+      {
+        questionType:'Match' , 
+        firstRow :['frow3','frow1','frow2'],
+        secondRow :['srow1','srow2'],
+        answers:["frow1:srow1","frow2:srow3"]
 
       },  
 
@@ -176,22 +184,24 @@ jQuery(document).ready(function() {
         }
         else if (exercise[counter].questionType == 'Match') {
           $('.question-container').append(`
-          <div class="questionType Match-Question text-center">
+          <div class="questionType Match-Question text-center" >
           <h4 class="QHeader my-3 mt-5 fw-bold text-center">
               Match The Following
           </h4>
-          <div class="matchContainer position-relative">
-            <div class="firstRow d-flex flex-wrap justify-content-center my-4 " ></div>
+          <div class="matchContainer position-relative row mx-0"  >
+            <div class="firstRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col text-center" ></div>
 
-            <hr>
-            <div class="secondRow d-flex flex-wrap justify-content-center my-4" ></div>
+            <div class="secondRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col" ></div>
 
-            <button class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white my-2 Submit-match mx-auto disabled" style="width: 200px;">
+            <div class="col-12">
+            <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white my-2 Submit-match mx-auto disabled" style="width: 200px;">
                     Submit Match
                 </button>
+            </div>
           </div>
           </div>
           `)
+          $('.questionType').prop('id',counter)
           for (let i = 0; i < exercise[counter].firstRow.length; i++) {
             $('.firstRow').append(`
                 <div class="d-flex align-items-center fw-bold px-2 match-element my-2"  id="sleader${i}">
@@ -210,7 +220,7 @@ jQuery(document).ready(function() {
           }
           for (let i = 0; i < exercise[counter].secondRow.length; i++) {
             $('.secondRow').append(`
-                <div class="d-flex align-items-center fw-bold px-2 match-element"  id="eleader${i}">
+                <div class="d-flex align-items-center fw-bold px-2 match-element my-2"  id="eleader${i}">
                   <div class="card border-0 rounded-4 shadow">
                         <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
                         <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
@@ -256,7 +266,8 @@ jQuery(document).ready(function() {
          }
      })
  
- 
+      var Lines ={} ;
+     
      var correctAnswers = 0 ;
      var answersPercents = 0 ;
      $('.next-btn').click(function(){
@@ -268,7 +279,13 @@ jQuery(document).ready(function() {
        else{
        }
        $('.question-container').empty()
-       Lines={}
+       for (const key in Lines) {
+        console.log('lines===' +Lines[key]);
+        Lines[key].remove()
+        delete Lines[key]
+        $('script[src="../../Js/Shared/leader-line.min.js"]').attr('src','')
+       }
+       console.log('lines' + Lines);
        console.log('counter == ' , counter);
        console.log('counter == ' , exercise.length);
        $('.leader-line').remove()
@@ -328,27 +345,32 @@ jQuery(document).ready(function() {
        }
        counter = counter + 1 < exercise.length ? counter+1 : $(this).unbind('click').addClass(['disabled','d-none']) &&  $('.done-btn').removeClass(['d-none','disabled']) && $('.done-btn').attr('disabled', false) && $('.question-container').remove() ;
      
-       
+       console.log('counter2 == ' , counter);
        
      //    answersPercents = ((correctAnswers/exercise.length)*100);
         
      })
      // Match Function
-     var Lines ={} ;
-     $('body').on('click','.firstRow .match-element', function(){
+     console.log('lines = ' , Lines);
+     $('body').on('click',` .firstRow .match-element`, function(){
+      console.log($(this).closest('.questionType').hasClass('answered'));  
+      if($(this).closest('.questionType').hasClass('answered')==false){
+          console.log('counter' + counter);
           if($(this).hasClass('Selected')){
-            $('.Selected').removeClass('Selected');
+            //$('.Selected').removeClass('Selected');
           $(this).removeClass('Selected')
           }
           else{
             $('.Selected').removeClass('Selected');
           $(this).addClass('Selected')
           }
+        }
         
      })
+     
     
-     $('body').on('click','.secondRow .match-element', function(){
-      
+     $('body').on('click',' .secondRow .match-element', function(){
+      console.log('this' , $('.firstRow .match-element.Selected')[0]);
       if(!$(this).hasClass('binded')&&$('.firstRow .match-element').hasClass('Selected')){
         $(this).addClass('binded')
         Lines[$(this).find('.match-text').text()] = new LeaderLine(
@@ -362,8 +384,8 @@ jQuery(document).ready(function() {
         console.log(Lines);
         var name = $(this).find('.match-text').text()
         Lines[name].size =3 ; 
-        Lines[name].setOptions({startSocket: 'bottom', endSocket: 'top'});
-        
+        Lines[name].setOptions({startSocket: 'right', endSocket: 'left'});
+        Lines[name].position()
         
         $('.firstRow .match-element.Selected').addClass('binded')
         $('.firstRow .match-element.Selected').addClass($(this).find('.match-text').text())
@@ -425,14 +447,14 @@ jQuery(document).ready(function() {
     $('.match-element').addClass('disabled')
     Lines ={}
     $(this).unbind('click')
+    $(this).closest('.questionType').addClass('answered') ;
     $(this).addClass('disabled')
-    $('.match-element').attr('disabled', 'disabled')
-    $('.match-element').addClass('disabled')
-    $('body').off('','.Submit-match')
+   
+ 
+    
+   
     $('.next-btn').removeClass('disabled')
     $('.next-btn').attr('disabled', false)
-    $('body').off('','.firstRow .match-element');
-    $('body').off('','.secondRow .match-element');
     // for (let i = 0; i < exercise[counter].answers.length; i++) {
     //   console.log('answer: ');
     //   $(this).closest('.Match-Question').find(`.binded[value="${exercise[counter].answers[i]}"] .card`).addClass('correctChoice')
