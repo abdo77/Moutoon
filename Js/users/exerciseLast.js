@@ -279,11 +279,11 @@ jQuery(document).ready(function() {
        else{
        }
        $('.question-container').empty()
+       console.log('length' , Lines);
        for (const key in Lines) {
-        console.log('lines===' +Lines[key]);
+        console.log('lines===' +Lines);
         Lines[key].remove()
         delete Lines[key]
-        $('script[src="../../Js/Shared/leader-line.min.js"]').attr('src','')
        }
        console.log('lines' + Lines);
        console.log('counter == ' , counter);
@@ -445,7 +445,6 @@ jQuery(document).ready(function() {
 
    $('body').on('click','.Submit-match' , function(){
     $('.match-element').addClass('disabled')
-    Lines ={}
     $(this).unbind('click')
     $(this).closest('.questionType').addClass('answered') ;
     $(this).addClass('disabled')
