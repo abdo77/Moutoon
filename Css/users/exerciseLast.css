@@ -97,6 +97,13 @@ body.dark .choiceLetter ,body.dark .checkContainer ,body.dark .checkContainer {
     border: 0px;
 }
 
+.extraction-card ,.extraction-card-answer{
+    border: 4px solid white; 
+    transition: all .3s ease-in-out;
+}
+body.dark .extraction-card ,body.dark .extraction-card-answer{
+    border: 4px solid #1e1e1e;
+}
 @media all and (max-width : 450px){
     .exam-header .card-body .fs-4{
         font-size: 18px !important;
