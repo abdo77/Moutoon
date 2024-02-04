@@ -327,7 +327,7 @@ jQuery(document).ready(function() {
             <div class="row mx-0 align-items-center extractionsContainer">
               
             </div>
-           <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white mt-4 my-2 Submit-complete mx-auto disabled" style="width: 200px;">
+           <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white mt-4 my-2 Submit-extract mx-auto disabled" style="width: 200px;">
            Submit Complete
        </button>
        </div>
@@ -605,7 +605,7 @@ jQuery(document).ready(function() {
      })
      $('body').on('focusout','.paragraphContainer p span', function(){
       var regex = '_'
-      var missing = 0
+      var missing = 0 ;
       if($(this).text().match(regex)|| $(this).text()==0){
         $(this).removeClass('text-success')
         $(this).text('_______') ;
@@ -637,9 +637,9 @@ jQuery(document).ready(function() {
      $('body').on('click','.Submit-complete' , function(){
       $('.paragraphContainer p span').removeAttr('contenteditable')
       $('.paragraphContainer p span').addClass('disabled')
-      var word = 0
+      var word = 0 ;
       $('.paragraphContainer p span').each(function(){
-        if(!$(this).text().match(exercise[counter].answers[word])){
+        if($(this).text() != (exercise[counter].answers[word])){
           $(this).addClass('text-danger')
         }
         word++;
@@ -682,8 +682,8 @@ jQuery(document).ready(function() {
       })
       if(missing==0){
         setTimeout(() => {
-          $('.Submit-complete').removeClass('disabled')
-        $('.Submit-complete').attr('disabled',false)
+          $('.Submit-extract').removeClass('disabled')
+        $('.Submit-extract').attr('disabled',false)
         }, 1000);
       } 
      })
@@ -691,13 +691,13 @@ jQuery(document).ready(function() {
 
      $('body').on('keydown','.extractAnswer', function(e){
       $(this).addClass('text-success')
-      $('.Submit-complete').addClass('disabled')
-        $('.Submit-complete').attr('disabled',true)
+      $('.Submit-extract').addClass('disabled')
+        $('.Submit-extract').attr('disabled',true)
         
         return e.which != 13;
      })
 
-     $('body').on('click','.Submit-complete' , function(){
+     $('body').on('click','.Submit-extract' , function(){
       $('.extractAnswer').removeAttr('contenteditable')
       $('.extractAnswer').addClass('disabled')
       var word = 0
