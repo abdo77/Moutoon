@@ -5,6 +5,13 @@ jQuery(document).ready(function() {
     examName = 'test 1'
      exercise = [
       {
+        questionType: 'e3raab',
+        questionHeader:' Find the expression position of underlined words',
+        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
+        words :['test','info'],
+        answers :['Name','added to it']
+      },
+      {
         questionType: 'Extract',
         questionHeader:' Extract the needed words',
         paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
@@ -268,6 +275,44 @@ jQuery(document).ready(function() {
           $('.paragraphContainer p').html($('.paragraphContainer p').html().replace(exercise[counter].answers[i] , '<span style="min-width:100px !important ; outline:none" contenteditable="true" class="px-1 d-inline-block ">_______</span>'));
          }
         }
+        else if(exercise[counter].questionType == 'e3raab'){
+          $('.question-container').append(`
+           <div class="questionType e3raab-Question text-center">
+           <h4 class="QHeader fw-bold text-center">
+                ${exercise[counter].questionHeader}
+           </h4>
+           <div class="paragraphContainer border-0 card shadow rounded-3 mt-5">
+               <div class="card-body ">
+                  <p class="text-center fw-bold">${exercise[counter].paragraph}</p>
+               </div>
+           </div>
+           <div class="row mx-0 align-items-center e3raabContainer">
+              
+            </div>
+           <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white mt-4 my-2 Submit-e3raab mx-auto disabled" style="width: 200px;">
+           Submit Complete
+       </button>
+       </div>
+         `)
+         for (let i = 0; i < exercise[counter].words.length; i++) {
+          $('.paragraphContainer p').html($('.paragraphContainer p').html().replace(exercise[counter].words[i] , `<span style=" outline:none" class="text-success text-decoration-underline px-1 d-inline-block "> ${exercise[counter].words[i]}</span>`));
+         }
+
+         for (let i = 0; i < exercise[counter].words.length; i++) {
+          $('.e3raabContainer').append(`
+            <div class="col-lg-6 col-md-6 col-12 my-3" >
+              <div class="card border-0 shadow rounded-4">
+                <div class="card-body d-flex aling-align-items-end flex-wrap">
+                  <div class="rounded-2 fw-bold text-success d-block me-2">
+                    ${exercise[counter].words[i]} :
+                  </div>
+                  <input type="text" style="outline:none;" class="text-center fw-bold flex-grow-1 bg-transparent border-0 text-success" placeholder="Write your answer here">
+                </div>
+              </div>
+            </div>
+          `)
+         }
+        }
         else if(exercise[counter].questionType == 'Extract'){
           $('.question-container').append(`
            <div class="questionType extract-Question text-center">
@@ -290,21 +335,21 @@ jQuery(document).ready(function() {
 
          for (let i = 0; i < exercise[counter].words.length; i++) {
           $('.extractionsContainer').append(`
-          <div class="col-lg-5 col-md-5 col-12 px-0 my-2">
+          <div class="col-lg-5 col-md-5 col-12 px-0 my-3">
           <div class="card extraction-card border-3 rounded-3  shadow">
           <div class="card-body ">
               ${exercise[counter].words[i]}
           </div>
           </div>
         </div>
-        <div class="col-lg-1 col-md-1 col-2 mx-auto">
+        <div class="col-lg-1 col-md-1 col-1  mx-auto my-1">
         <div class="card rounded-3 border-0 shadow">
         <div class="card-body px-0 fw-bold">
             :
         </div>
         </div>
         </div>
-        <div class="col-lg-5 col-md-5 col-12 px-0 my-2">
+        <div class="col-lg-5 col-md-5 col-12 px-0 my-3">
         <div class="card extraction-card-answer bg-transparent rounded-3 border-3  ">
         <div class="card-body p-0">
             <div contenteditable="true" class="card-body fw-bold text-muted extractAnswer" style="outline:none ">Write your answer here</div>
@@ -657,7 +702,7 @@ jQuery(document).ready(function() {
       $('.extractAnswer').addClass('disabled')
       var word = 0
       $('.extractAnswer').each(function(){
-        if(!$(this).text().match(exercise[counter].answers[word])){
+        if($(this).text() != exercise[counter].answers[word]){
           $(this).addClass('text-danger')
           $(this).removeClass('text-muted')
           $(this).closest('.extraction-card-answer').addClass('border-danger')
@@ -670,6 +715,41 @@ jQuery(document).ready(function() {
       $('.next-btn').removeAttr('disabled')
       $('.next-btn').removeClass('disabled')
     })
+
+    //e3raab Functional
+
+    $('body').on('focusout','.e3raabContainer input', function(){
+      missing = 0 ;
+      $('.e3raabContainer input').each(function(){
+        if($(this).val() ==0){
+          missing++
+        }
+      })
+      if(missing==0){
+        $('.Submit-e3raab').removeAttr('disabled')
+        $('.Submit-e3raab').removeClass('disabled')
+      }
+    })
+
+    $('body').on('click','.Submit-e3raab', function(){
+      $('.e3raabContainer input').addClass('disabled') ;
+      $('.e3raabContainer input').attr('disabled',true) ;
+      $('.e3raabContainer input').attr('readonly',true) ;
+      var answer = 0
+      $('.e3raabContainer input').each(function(){
+        if($(this).val()!=exercise[counter].answers[answer]){
+          $(this).addClass('text-danger')
+          $(this).addClass('text-danger')
+        }
+        else{
+
+        }
+        answer++;
+      })
+      $('.next-btn').removeAttr('disabled')
+      $('.next-btn').removeClass('disabled')
+    })
+
 
   })
 
