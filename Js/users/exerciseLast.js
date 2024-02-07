@@ -5,6 +5,13 @@ jQuery(document).ready(function() {
     examName = 'test 1'
      exercise = [
       {
+        questionType: 'read',
+        questionHeader:' Read',
+        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
+        answers :['test','info'],
+        questions :['What is the answer of name ?','what is the answer of added to']
+      },
+      {
         questionType: 'e3raab',
         questionHeader:' Find the expression position of underlined words',
         paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
@@ -16,7 +23,7 @@ jQuery(document).ready(function() {
         questionHeader:' Extract the needed words',
         paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
         words :['added to','Name'],
-        answers :['test','info']
+        answers :['test','information']
       },
       {
         questionType: 'Complete',
@@ -360,6 +367,39 @@ jQuery(document).ready(function() {
           
          }
          
+        }
+        else if(exercise[counter].questionType == 'read'){
+          $('.question-container').append(`
+           <div class="questionType read-Question text-center">
+           <h4 class="QHeader fw-bold text-center">
+                ${exercise[counter].questionHeader} then answer
+           </h4>
+           <div class="paragraphContainer border-0 card shadow rounded-3 mt-5">
+               <div class="card-body ">
+                  <p class="text-center fw-bold">${exercise[counter].paragraph}</p>
+               </div>
+           </div>
+           <p class="fw-bold text-start my-3 answerThefollowing">Answer the following questions:</p>
+           <div class="row mx-0 align-items-center readContainer">
+              
+            </div>
+           <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white mt-4 my-2 Submit-read mx-auto disabled" style="width: 200px;">
+           Submit Answers
+       </button>
+       </div>
+         `)
+
+         for (let i = 0; i < exercise[counter].questions.length; i++) {
+          $('.readContainer').append(`
+          <div class="shadow rounded-3 border-0 card my-2">
+              <div class="card-body py-1">
+              <p class="fw-bold text-start my-3 ">${i+1}- ${exercise[counter].questions[i]}</p>
+              <textarea style="border-color:#c2c2c2;outline:none;min-height:100px" class="bg-transparent p-1 border-2 w-100 rounded-3"></textarea>
+              </div>
+              </div>
+          `)
+          
+         }
         }
      
        }
@@ -730,7 +770,13 @@ jQuery(document).ready(function() {
         $('.Submit-e3raab').removeClass('disabled')
       }
     })
-
+    $('body').on('keydown','.e3raabContainer input', function(e){
+      $(this).addClass('text-success')
+      $('.Submit-e3raab').addClass('disabled')
+        $('.Submit-e3raab').attr('disabled',true)
+        
+        return e.which != 13;
+     })
     $('body').on('click','.Submit-e3raab', function(){
       $('.e3raabContainer input').addClass('disabled') ;
       $('.e3raabContainer input').attr('disabled',true) ;
@@ -750,6 +796,52 @@ jQuery(document).ready(function() {
       $('.next-btn').removeClass('disabled')
     })
 
+    // read function
 
+    $('body').on('focusout','.readContainer textarea', function(){
+      $(this).removeClass('border-success')
+      missing = 0 ;
+      $('.readContainer textarea').each(function(){
+        if($(this).val() ==0){
+          missing++
+        }
+      })
+      if(missing==0){
+        $('.Submit-read').removeAttr('disabled')
+        $('.Submit-read').removeClass('disabled')
+      }
+    })
+
+    $('body').on('focusin','.readContainer textarea', function(){
+      $(this).addClass('border-success')
+    })
+
+    $('body').on('keydown','.readContainer textarea', function(e){
+      
+      $('.Submit-read').addClass('disabled')
+        $('.Submit-read').attr('disabled',true)
+        
+        return e.which != 13;
+     })
+    $('body').on('click','.Submit-read', function(){
+      $('.readContainer textarea').addClass('disabled') ;
+      $('.readContainer textarea').attr('disabled',true) ;
+      $('.readContainer textarea').attr('readonly',true) ;
+      var answer = 0
+      $('.readContainer textarea').each(function(){
+        if($(this).val()!=exercise[counter].answers[answer]){
+          $(this).addClass('text-danger')
+          $(this).addClass('border-danger')
+        }
+        else{
+          
+          $(this).addClass('text-success')
+          $(this).addClass('border-success')
+        }
+        answer++;
+      })
+      $('.next-btn').removeAttr('disabled')
+      $('.next-btn').removeClass('disabled')
+    })
   })
 
