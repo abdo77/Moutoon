@@ -5,6 +5,12 @@ jQuery(document).ready(function() {
     examName = 'test 1'
      exercise = [
       {
+        questionType: 'trueFalse',
+        questionHeader:'True Or False',
+        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it ?',
+        answers :'false' ,
+      },
+      {
         questionType: 'read',
         questionHeader:' Read',
         paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
@@ -401,13 +407,58 @@ jQuery(document).ready(function() {
           
          }
         }
-     
+        else if(exercise[counter].questionType == 'trueFalse'){
+          $('.question-container').append(`
+          <div class="questionType trueFalse-Question text-center">
+          <h4 class="QHeader fw-bold text-center">
+               ${exercise[counter].questionHeader} 
+          </h4>
+          <div class="paragraphContainer border-0 card shadow rounded-3 mt-5">
+              <div class="card-body ">
+                 <p class="text-center fw-bold">${exercise[counter].paragraph}</p>
+              </div>
+          </div>
+          <p class="fw-bold text-start my-3 answerThefollowing">Answer the following questions:</p>
+          <div class="row mx-0 align-items-center trueOrFalse">
+              <label for="true" class="choice card rounded-4 shadow border-0 my-4">
+                                     <input type="radio"  id="true" class="d-none" name="trueFalse" value="true">
+                                     <div class="card-body p-4 px-4 d-flex align-items-center">
+                                         <div class="choiceLetter position-absolute d-flex align-items-center justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                             <span>A</span>
+                                             <i class="fa fa-check d-none"></i>
+                                             <i class="fa fa-times d-none"></i>
+                                         </div>
+                                         <p class="fs-5 m-0 fw-bold mx-auto">
+                                         True
+                                         </p>
+                                     </div>
+                                 </label>
+
+                                 <label for="false" class="choice card rounded-4 shadow border-0 my-4">
+                                 <input type="radio" id="false" class="d-none" name="trueFalse" value="false">
+                                 <div class="card-body p-4 px-4 d-flex align-items-center">
+                                     <div class="choiceLetter position-absolute d-flex align-items-center justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                         <span>B</span>
+                                         <i class="fa fa-check d-none"></i>
+                                         <i class="fa fa-times d-none"></i>
+                                     </div>
+                                     <p class="fs-5 m-0 fw-bold mx-auto">
+                                     false
+                                     </p>
+                                 </div>
+                             </label>                                
+           </div>
+           
+          
+      </div>
+        `)
+        }
        }
      appendQuestion(counter)
  
      $('.progress-container span').text(counter+'/'+exercise.length )
        
-     $('body').on('change', 'label input', function(){
+     $('body').on('change', '.choose-Question label input', function(){
          $('label input').attr('disabled', 'disabled')
          if($(this).val() == exercise[counter].rightChoice){
            $(this).closest('.choice').addClass('correctChoice')
@@ -843,5 +894,31 @@ jQuery(document).ready(function() {
       $('.next-btn').removeAttr('disabled')
       $('.next-btn').removeClass('disabled')
     })
+
+    // true or false
+
+    $('body').on('change', '.trueFalse-Question label input', function(){
+      $('label input').attr('disabled', 'disabled')
+      console.log('hi');
+      if($(this).val() == exercise[counter].answers){
+        $(this).closest('.choice').addClass('correctChoice')
+        $(this).closest('.questionType').addClass('answeredRight')
+        $('.next-btn').removeClass('disabled')
+        $('.next-btn').attr('disabled', false)
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', '../../Assests/mixkit-correct-answer-tone-2870.wav');
+        audioElement.play()
+      }
+      else{
+        $(this).closest('.choice').addClass('wrongChoice')
+        $(this).closest('questionType').addClass('answeredWrong')
+        $('.explaination-container').removeClass('d-none');
+        $('.next-btn').removeClass('disabled')
+        $('.next-btn').attr('disabled', false)
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', '../../Assests/mixkit-game-show-wrong-answer-buzz-950.wav');
+        audioElement.play()
+      }
+  })
   })
 
