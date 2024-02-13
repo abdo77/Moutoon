@@ -1,0 +1,54 @@
+.customSelect{
+    cursor: pointer !important;
+}
+.customSelect-container ul{
+    top:150% ;
+    opacity: 0;
+    display: block;
+    visibility: hidden;
+    max-height: 200px;
+    overflow: auto;
+    z-index: -10000;
+    transition: all 0.2s ease-in-out;
+}
+.customSelect-container ul.show{
+    top: 105%;
+    opacity: 1;
+    visibility: visible;
+    z-index: 10000;
+}
+.customSelect-container ul a:hover{
+    background-color: #ced4da;
+    transition: all .1s ease-in-out;
+}
+
+input:focus{
+    border-color: #31947b !important;
+}
+body.dark .card{
+    background-color: #1e1e1e;
+    color: white;
+}
+body.dark .card input{
+    background-color: #1e1e1e !important;
+    color: white;
+}
+ .form-control[readonly] {
+    background-color: transparent;
+    opacity: 1;
+}
+.form-control:disabled  {
+    background-color: #e9ecef  !important;
+    opacity: 1;
+}
+.updated{
+    position: fixed;
+    width: max-content;
+    padding: .7rem 2rem;
+    display: block;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    border-radius: 20px;
+    transition: all 1s ease-in-out;
+}
