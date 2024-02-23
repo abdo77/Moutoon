@@ -1,0 +1,179 @@
+
+
+main{
+    padding-bottom: 40px;
+}
+main .card-header{
+    background-color: none !important;
+}
+main .nav-link {
+    border-radius: 20px !important;
+    font-weight: bold;
+    display: flex;
+    align-items: center;    
+}
+main .nav-link , main .nav-link:hover{
+    background-color: transparent !important;
+    color: black;
+}
+main .nav-link.active{
+    color: #31947b !important;
+    background-color: #49b99d36 !important;
+
+}
+.link-container-div{
+    background-color: #49b99d36;
+    color: #49b99d;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    transition: all .1s ease-in-out;
+    border-radius: 20px;
+}
+.link-container-div.show{
+    opacity: 1;
+}
+main .nav.nav-tabs {
+    position: relative;
+}
+.card , .card-body{
+    border: 0px !important;
+}
+main .nav-link .num{
+    height: 20px;
+    width: 20px;
+    font-size: 0.825rem;
+    justify-content: center;
+    align-items: center;
+    background-color: white !important;
+}
+main .nav-link.active .num{
+    background-color: #31947b !important;
+    color: white;
+}
+main .tab-content>.active{
+    display: flex;
+}
+
+main .description{
+    text-wrap: wrap;
+    overflow: hidden;
+    max-height: 40px;
+}
+.series-container .img-fluid{
+    max-width: 250px;
+   max-height: 250px;
+}
+
+.rate-container{
+    color: #31947b;
+}
+
+.series-container .btn{
+    border: 2px solid #31947b;
+    background-color: #31947b;
+    color: white;
+  
+}
+.series-container .btn:hover{
+    transition: all .2s ease-in-out;
+    background-color: #18755d;
+    border-color: #18755d;
+    color: white;
+}
+
+
+.level-container{
+    border-radius: 10px;
+    overflow: hidden;
+}
+.intro-div{
+    position: relative;
+    overflow: hidden;
+    background-color: #1e293b;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+}
+.intro-div svg{
+    position: absolute;
+    left: 0;
+    right: 0 ;
+    top: 0;
+}
+.text-gray-700 {
+    opacity: 1 !important;
+    color: rgb(51 ,65 ,85 );
+}
+.level-container .level{
+    background-color: #49b99d4a;
+    color: #298570 !important;
+    border-radius: 20px;
+}
+.text-muted{
+    color: #8b949f !important;
+}
+.progress{
+    height: 3px;
+    background-color: rgba(75, 185, 158 , .1) !important;
+}
+.progress-bar{
+    background-color: #49b99d;
+}
+main .btn{
+    border-radius: 20px;
+}
+html[dir="rtl"] main .btn i{
+    transform: rotate(180deg);
+}
+
+/* dark Theme */
+
+body.dark main  .card{
+    background-color: #1e1e1e;
+    
+}
+body.dark main .card-body{
+    background-color: #1e1e1e !important;
+    color: white;
+}
+body.dark main .card-title span ,body.dark .chain-container h4{
+    color: white !important;
+}
+body.dark main .card-header .nav-tabs .nav-link{
+    color: white;
+}
+body.dark main .card-header .nav-tabs .nav-link .num{
+    color: #1e1e1e;
+}
+body.dark main .card-header .nav-tabs .nav-link.active .num{
+    color: white;
+}
+body.dark main .tab-pane .card{
+    background-color: #1e1e1e;
+}
+body.dark main .tab-pane .card-body{
+    background-color: #1e1e1e !important;
+    color: white;
+}
+
+.owl-prev, .owl-next{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    font-size: 60px !important;
+    color: #298570 !important;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.owl-next{
+    right: -20px;
+}
+.owl-prev{
+    left: -20px;
+}
+ .owl-carousel .owl-nav.disabled{
+    display: block;
+}
+.owl-stage{
+    padding-bottom: 20px !important;
+}
