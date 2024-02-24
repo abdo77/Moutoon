@@ -1,0 +1,16 @@
+.notification-container .rounded-circle{
+    background-color: #1987545f!important;
+}
+
+
+body.dark main  .card{
+    background-color: #1e1e1e;
+    
+}
+body.dark main .card-body{
+    background-color: #1e1e1e !important;
+    color: white;
+}
+.main-font4{
+    font-size: 0.625rem;
+}

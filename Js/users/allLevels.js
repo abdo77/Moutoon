@@ -263,6 +263,11 @@ jQuery(document).ready(function() {
                 
                 </div>
             `)
+            if(array['chains'][i].levels.length==0){
+                $(`.carouselReaded${i}`).append(`
+                <div">No Levels Here</div>
+                `)
+            }
             for (let j = 0; j < array['chains'][i].levels.length; j++) {
                 $(`.carouselReaded${i}`).append(`
                 <div class="card level-container shadow" id="${array['chains'][i].levels[j]._id}">
