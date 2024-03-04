@@ -1,0 +1,83 @@
+.notiContent-div{
+    border-left: 2px solid #c2c2c2;
+}
+.notification-div{
+    width: max-content;
+}
+
+.notiContent-div .circle{
+    width: 20px;
+    height: 20px;
+    border: 5px solid;
+    background-color: white ;
+    position: absolute;
+    left: -10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.bg-success-light{
+    background-color: #1987545f;
+}
+.bg-danger-light{
+    background-color: rgba(255, 0, 0, 0.312);
+}
+.bg-warning-light{
+    background-color: rgba(255, 166, 0, 0.313);
+}
+
+body.dark main  .card{
+    background-color: #1e1e1e;
+    
+}
+body.dark main .card-body{
+    background-color: #1e1e1e !important;
+    color: white;
+}
+.main-font4{
+    font-size: 0.625rem;
+}
+body.dark main .date p{
+    color: white ;
+}
+body.dark main .notiContent-div .circle{
+    background-color: #1e1e1e;
+}
+
+
+@media screen and (max-width : 760px){
+    .container{
+        min-width: 100%;
+    }
+}
+@media screen and (max-width : 650px){
+    main .arrow , main .date {
+        display: none !important;
+    }
+    .notiContent-div{
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+   .notification-div, .notiContent-div, .notiContent-div .card{
+        width: 100% !important;
+    }
+}
+
+
+
+html[dir="rtl"] .notiContent-div{
+    border-right: 2px solid #c2c2c2;
+    border-left: 0px;
+}
+html[dir="rtl"] .notiContent-div .circle{
+    right: -10px;
+    left: auto;
+}
+html[dir="rtl"] .arrow .fa{
+    transform: rotate(180deg);
+}
+html[dir="rtl"] .small-date{
+    left: 10px !important;
+    right: auto !important;
+}
+

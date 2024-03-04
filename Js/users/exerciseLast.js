@@ -915,6 +915,7 @@ jQuery(document).ready(function() {
         $('.explaination-container').removeClass('d-none');
         $('.next-btn').removeClass('disabled')
         $('.next-btn').attr('disabled', false)
+        
         var audioElement = document.createElement('audio');
         audioElement.setAttribute('src', '../../Assests/mixkit-game-show-wrong-answer-buzz-950.wav');
         audioElement.play()
