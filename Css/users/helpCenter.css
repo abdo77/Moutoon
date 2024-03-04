@@ -1,0 +1,49 @@
+.search-Q i{
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto !important;
+    display: flex !important; 
+    align-items: center;
+}
+.tabs-container{
+    margin-top: -80px;
+}
+.search-Q input{
+    border-radius: 20px !important;
+    padding-left: 40px;
+}
+.fw-bolder{
+    font-weight: 500;
+    color: rgb(146, 146, 146) !important;
+}
+body.dark main  .card{
+    background-color: #1e1e1e;
+    
+}
+body.dark main .card-body{
+    background-color: #1e1e1e !important;
+    color: white;
+}
+body.dark main .sectionTitle{
+    color: white;
+}
+.card-body i.fa-chevron-up{
+    transition: all .3s ease-in-out;
+}
+.card-body.collapsed i.fa-chevron-up{
+    transform: rotate(180deg);
+    transition: all .3s ease-in-out;
+}
+.Support-container input , .Support-container textarea{
+    border-radius: 5px !important;
+}
+body.dark .Support-container input ,body.dark  .Support-container textarea{
+    color: white;
+}
+.btn-submit,.clear-btn{
+    border-radius: 20px !important;
+}
+body.dark .clear-btn{
+    color: white;
+}
