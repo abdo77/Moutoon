@@ -1,0 +1,42 @@
+.bg-success-light{
+    background-color: #1987545f;
+}
+.bg-danger-light{
+    background-color: rgba(255, 0, 0, 0.312);
+}
+.bg-warning-light{
+    background-color: rgba(255, 166, 0, 0.313);
+}
+
+body.dark main  .card{
+    background-color: #1e1e1e;
+    
+}
+body.dark main .card-body{
+    background-color: #1e1e1e !important;
+    color: white;
+}
+.main-font4{
+    font-size: 0.625rem;
+}
+.message-input{
+    border-radius: 20px;
+}
+
+.emoji-picker{
+    margin: 0px;
+    text-align: center;
+}
+.emoji-container{
+    max-width: 100%;
+    margin: auto;
+}
+.sent-message , .recieved-message{
+    max-width: 70%;
+}
+
+@media screen and ( max-width: 450px ) {
+    .emoji-picker{
+        width: 98% !important;
+    }
+}

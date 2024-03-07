@@ -15,4 +15,12 @@ jQuery(document).ready(function(){
     $('.clear-btn').click(function(){
         $('.Support-container').find('input,textarea').val(null)
     })
+
+
+    $('.search-Q input').keyup(function(){
+        var value = $(this).val().toLowerCase();
+            $(".FAQS .card-body").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+    })
 })
