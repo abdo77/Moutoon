@@ -28,5 +28,50 @@ jQuery(document).ready(function(){
         }
     })
 
+//     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+//         console.log("getUserMedia supported.");
+//         navigator.mediaDevices
+//           .getUserMedia(
+//             // constraints - only audio needed for this app
+//             {
+//               audio: true,
+//             },
+//           )
+      
+//           // Success callback
+//           .then((stream) => {
+//             start = function(){
+
+//             }
+//           })
+      
+//           // Error callback
+//           .catch((err) => {
+//             console.error(`The following getUserMedia error occurred: ${err}`);
+//           });
+//       } else {
+//         console.log("getUserMedia not supported on your browser!");
+//       }
+//       const mediaRecorder = new MediaRecorder(stream);
+//       recording = false
+//       $('.fa-microphone').click(function(){
+//         recording = !recording;
+//         if(recording){
+//             mediaRecorder.start();
+//   console.log(mediaRecorder.state);
+//   console.log("recorder started");
+//         }
+//         else{
+//             mediaRecorder.stop();
+//   console.log(mediaRecorder.state);
+//   console.log("recorder started");
+//         }
+//       })
+
+//       let chunks = [];
+
+// mediaRecorder.ondataavailable = (e) => {
+//   chunks.push(e.data);
+// };
 
 })
