@@ -27,51 +27,100 @@ jQuery(document).ready(function(){
             $('.message-input').val(null)
         }
     })
+    let can_record = false ;
+    let is_recording = false ;
+    let recorder = null ; 
+    let chunks = [];
 
-//     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-//         console.log("getUserMedia supported.");
-//         navigator.mediaDevices
-//           .getUserMedia(
-//             // constraints - only audio needed for this app
-//             {
-//               audio: true,
-//             },
-//           )
-      
-//           // Success callback
-//           .then((stream) => {
-//             start = function(){
+    function setUpAudio(){
+        if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
+            navigator.mediaDevices.getUserMedia({
+                audio: true 
+            })
+            .then(setUpStream)
+            .catch(err=>{
+                console.log(err);
+            })
+        }
+    }
 
-//             }
-//           })
-      
-//           // Error callback
-//           .catch((err) => {
-//             console.error(`The following getUserMedia error occurred: ${err}`);
-//           });
-//       } else {
-//         console.log("getUserMedia not supported on your browser!");
-//       }
-//       const mediaRecorder = new MediaRecorder(stream);
-//       recording = false
-//       $('.fa-microphone').click(function(){
-//         recording = !recording;
-//         if(recording){
-//             mediaRecorder.start();
-//   console.log(mediaRecorder.state);
-//   console.log("recorder started");
-//         }
-//         else{
-//             mediaRecorder.stop();
-//   console.log(mediaRecorder.state);
-//   console.log("recorder started");
-//         }
-//       })
+    function setUpStream(stream){
+        const context = new AudioContext();
+    const source = context.createMediaStreamSource(stream);
+    const analyzer = context.createAnalyser();
+    source.connect(analyzer);
+    let rec = true ;
 
-//       let chunks = [];
+    // The array we will put sound wave data in
+    const array = new Uint8Array(analyzer.fftSize);
 
-// mediaRecorder.ondataavailable = (e) => {
-//   chunks.push(e.data);
-// };
+    function getPeakLevel() {
+        analyzer.getByteTimeDomainData(array);
+        return array.reduce((max, current) => Math.max(max, Math.abs(current - 127)), 0) / 128;
+    }
 
+    function tick() {
+        const peak = getPeakLevel();
+        console.log(`${peak * 100}%`)
+        $('.peak-container').append(`
+            <div class="peak mx-1 p-1" style="height:${peak * 100}%">
+            </div>
+        `)
+        $('.peak-container').animate({scrollLeft: $('.peak-container').prop("scrollWidth")}, 500)
+        if(rec){
+            setTimeout(() => {
+                requestAnimationFrame(tick);
+            }, 200);
+        }
+    }
+    
+    recorder = new MediaRecorder(stream)
+        console.log(recorder);
+        recorder.onstart = () =>{
+            rec = true ;
+            tick();
+        };
+        recorder.ondataavailable = e => {
+            chunks.push(e.data)
+            console.log('data',e.data);
+        }
+        recorder.onstop = e => {
+            const blob = new Blob(chunks , {type : 'audio/ogg'})
+            console.log(chunks);
+            rec = false ;
+            chunks = [] ;
+            const audioUrl = window.URL.createObjectURL(blob);
+            $('audio').attr('src',audioUrl);
+            stream.getTracks().forEach( track => track.stop() );
+        }
+        can_record = true ;
+    }
+
+    $('#mic').click(function(){
+        console.log('Microphone clicked');
+        if(!can_record){
+            setUpAudio()    
+        }
+
+       setTimeout(() => {
+        is_recording = !is_recording ;
+        if(is_recording){
+            console.log('start');
+            recorder.start();
+            // setTimeout(() => {
+            // recorder.stop() ;
+            // recorder = null ;
+            // can_record = !can_record
+            // is_recording = !is_recording ;
+
+            // }, 5000);
+        }
+        else{
+            console.log('stop');
+            recorder.stop() ;
+            recorder = null ;
+            can_record = !can_record
+        }
+       }, 1000);
+    })
 })

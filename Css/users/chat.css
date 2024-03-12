@@ -35,6 +35,17 @@ body.dark main .card-body{
     max-width: 70%;
 }
 
+.recording-display{
+    width: 100%;
+    border-radius: 20px;
+}
+
+
+.peak{
+    width: 2px;
+    background-color: white;
+    border-radius: 5px;
+}
 @media screen and ( max-width: 450px ) {
     .emoji-picker{
         width: 98% !important;

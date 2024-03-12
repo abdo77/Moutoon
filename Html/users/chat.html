@@ -44,8 +44,14 @@
                 <div class="sent-message position-relative ms-auto main-font2 fw-bold my-2 bg-success p-1 text-white px-3 rounded-3 me-0 w-auto">HI</div>
             </div>
             <div class="card-footer d-flex align-items-center position-relative">
-                <input type="text" class="form-control shadow-none message-input">
-                <i class="fa fa-microphone text-success fs-5 mx-1 rpl rpl-dark p-2 rounded-circle" role="button" ></i>
+                <input type="text" class="form-control shadow-none message-input d-none">
+                <div class="recording-display h-100 bg-success p-1 px-3 d-flex align-items-center overflow-hidden">
+                    <div class="peak-container w-100 h-100 d-flex align-items-center overflow-hidden">
+
+                    </div>
+                    <i class="fa fa-trash text-white ms-auto" role="button"></i>
+                </div>
+                <i class="fa fa-microphone text-success fs-5 mx-1 rpl rpl-dark p-2 rounded-circle" id="mic" role="button" ></i>
                 <div class="emoji-container position-absolute end-0 d-none bottom-100">
                 </div>
                 <i class="far fa-face-smile text-success  fs-5 mx-1 rpl rpl-dark p-2 rounded-circle" role="button" ></i>
@@ -53,6 +59,11 @@
             </div>
         </div>
     </div>
+
+
+    <audio src="" controls>
+        
+    </audio>
 </main>
 
 
