@@ -22,6 +22,12 @@ body.dark main .card-body{
 .message-input{
     border-radius: 20px;
 }
+.message-input:focus{
+    border-color: #198754!important ;
+}
+body.dark .message-input{
+    color:white ;
+}
 
 .emoji-picker{
     margin: 0px;
@@ -37,14 +43,19 @@ body.dark main .card-body{
 
 .recording-display{
     width: 100%;
+    max-width: 300px;
     border-radius: 20px;
 }
 
 
-.peak{
-    width: 2px;
-    background-color: white;
-    border-radius: 5px;
+.peak-container{
+    transition: all .3s ease-in-out;
+    background-color: #13663f;
+    z-index: 0;
+    
+}
+.timer{
+    z-index: 1;
 }
 @media screen and ( max-width: 450px ) {
     .emoji-picker{
