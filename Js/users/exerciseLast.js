@@ -302,18 +302,19 @@ jQuery(document).ready(function() {
             <div class="col-12">
 
             <div class="correctAnswer-container row mx-0 d-none">
-            <div class="firstRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col-6 text-center" ></div>
+            <hr class="mt-3 col-12">
+            <h4 class="QHeader my-3 col-12 mt-5 fw-bold text-center">
+              Correct answeer
+            </h4>
+            <div class="firstRowAnswer d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col-6 text-center" ></div>
 
-            <div class="secondRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col-6" ></div>
-
-            <div class="col-12">
+            <div class="secondRowAnswer d-flex flex-column align-items-center flex-wrap  my-4 col-6" ></div>
+           
             </div>
-
             <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white my-2 Submit-match mx-auto disabled" style="width: 200px;">
-                    Submit Match
-                </button>
+            Submit Match
+        </button>
             </div>
-          </div>
           </div>
           `)
           $('.questionType').prop('id',counter)
@@ -779,7 +780,6 @@ jQuery(document).ready(function() {
    
  
     
-   
     $('.next-btn').removeClass('disabled')
     $('.next-btn').attr('disabled', false)
     // for (let i = 0; i < exercise[counter].answers.length; i++) {
@@ -787,40 +787,10 @@ jQuery(document).ready(function() {
     //   $(this).closest('.Match-Question').find(`.binded[value="${exercise[counter].answers[i]}"] .card`).addClass('correctChoice')
       
     // }
-    for (let i = 0; i < exercise[counter].firstRow.length; i++) {
-      $('.firstRow').append(`
-          <div class="d-flex align-items-center fw-bold px-2 match-element disabled my-2 correctChoice"  id="sleader${i}">
-            <div class="card border-0 rounded-4 shadow">
-                  <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
-                  <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
-                                       <span>${String.fromCharCode(i+97).toUpperCase()}</span>
-                                       <i class="fa fa-check d-none"></i>
-                                       <i class="fa fa-times d-none"></i>
-                                   </div>
-                  <span class="match-text">${exercise[counter].firstRow[i]}</span></div>
-            </div>
-          </div>
-      `)
-      
-    }
-    for (let i = 0; i < exercise[counter].secondRow.length; i++) {
-      $('.secondRow').append(`
-          <div class="d-flex align-items-center fw-bold px-2 match-element disabled correctChoice my-2"  id="eleader${i}">
-            <div class="card border-0 rounded-4 shadow">
-                  <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
-                  <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
-                                       <span>${i+1}</span>
-                                       <i class="fa fa-check d-none"></i>
-                                       <i class="fa fa-times d-none"></i>
-                                   </div>
-                  <span class="match-text">${exercise[counter].secondRow[i]}</span></div>
-            </div>
-          </div>
-      `)
-      
-    }
+    
+   
 
-
+    var allcorrect = true ;
     $(' .match-element').each(function(){
       var correct = 0
       var empty = true
@@ -840,9 +810,42 @@ jQuery(document).ready(function() {
          
         else{
           $(this).find('.card').addClass('wrongChoice')
+          allcorrect = false ;
         }
       }
     })
+    if (!allcorrect) {
+      $('.correctAnswer-container').removeClass('d-none')
+      var splitAnswer = []
+      for (let i = 0; i < exercise[counter].answers.length; i++) {
+        splitAnswer = exercise[counter].answers[i].split(":")
+        $('.firstRowAnswer').append(`
+            <div class="d-flex align-items-center fw-bold px-2 match-element disabled my-2 "  id="sleader${i}">
+              <div class="card border-0 rounded-4 shadow correctChoice">
+                    <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                    <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                         <span>${String.fromCharCode(i+97).toUpperCase()}</span>
+                                         
+                                     </div>
+                    <span class="match-text">${splitAnswer[0]}</span></div>
+              </div>
+            </div>
+        `)
+            $('.secondRowAnswer').append(`
+            <div class="d-flex align-items-center fw-bold px-2 match-element disabled  my-2"  id="eleader${i}">
+              <div class="card border-0 rounded-4 shadow correctChoice">
+                    <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                    <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                         <span>${i+1}</span>
+                                        
+                                     </div>
+                    <span class="match-text">${splitAnswer[1]}</span></div>
+              </div>
+            </div>
+        `)
+        
+      }
+     }
    })
 
 
