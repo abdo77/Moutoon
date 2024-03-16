@@ -5,6 +5,48 @@ jQuery(document).ready(function() {
     examName = 'test 1'
      exercise = [
       {
+        questionType:'Match' , 
+        firstRow :['frow3','frow1','frow2'],
+        secondRow :['srow1','srow2'],
+        answers:["frow1:srow1","frow2:srow2"]
+
+      },  
+      {
+        questionType:'chooseAudio' , 
+        questionHeader:' What is the question talking about ?',
+        src:'../../Assests/YG - Out On Bail (Official Video)(480P).mp4',
+        choices:[
+          'choice 1' ,'choice 2' ,'choice 3' , 
+        ],
+        rightChoice: 'choice 3',
+        explain : 'Explaination of the question'
+      },
+      {
+        questionType:'chooseVideo' , 
+        questionHeader:' What is the question talking about ?',
+        src:'../../Assests/YG - Out On Bail (Official Video)(480P).mp4',
+        choices:[
+          'choice 1' ,'choice 2' ,'choice 3' , 
+        ],
+        rightChoice: 'choice 3',
+        explain : 'Explaination of the question'
+      },
+   {
+     questionType:'choose' , 
+     questionHeader:' PREDICT THE TOP LOSER (for tomorrow) across these indices',
+     choices:[
+       'choice 1' ,'choice 2' ,'choice 3' , 
+     ],
+     rightChoice: 'choice 2' , 
+     explain : 'Explaination of the question'
+   } ,
+      {
+        questionType: 'Complete',
+        questionHeader:' Complete the following paragraph',
+        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
+        answers :['test','information']
+      },
+      {
         questionType: 'trueFalse',
         questionHeader:'True Or False',
         paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it ?',
@@ -31,12 +73,7 @@ jQuery(document).ready(function() {
         words :['added to','Name'],
         answers :['test','information']
       },
-      {
-        questionType: 'Complete',
-        questionHeader:' Complete the following paragraph',
-        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
-        answers :['test','information']
-      },
+      
       {
         questionType:'Match' , 
         firstRow :['frow1','frow2','frow3'],
@@ -44,13 +81,7 @@ jQuery(document).ready(function() {
         answers:["frow1:srow2","frow2:srow1"]
 
       },  
-      {
-        questionType:'Match' , 
-        firstRow :['frow3','frow1','frow2'],
-        secondRow :['srow1','srow2'],
-        answers:["frow1:srow1","frow2:srow3"]
-
-      },  
+     
 
       {
         questionType:'chooseAudio' , 
@@ -95,7 +126,43 @@ jQuery(document).ready(function() {
        
      ]
  
- 
+
+    var trueFalse_answer = `
+    
+    <div class="row mx-0 align-items-center trueOrFalse">
+    <hr>
+    <h4 class="QHeader fw-bold text-center">
+               Correct answer 
+          </h4>
+     <label for="true" class="choice card rounded-4 shadow border-0 my-4">
+                            <input type="radio"  id="true" class="d-none" name="trueFalse" value="true">
+                            <div class="card-body p-4 px-4 d-flex align-items-center">
+                                <div class="choiceLetter position-absolute d-flex align-items-center justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                    <span>A</span>
+                                    <i class="fa fa-check d-none"></i>
+                                    <i class="fa fa-times d-none"></i>
+                                </div>
+                                <p class="fs-5 m-0 fw-bold mx-auto">
+                                True
+                                </p>
+                            </div>
+                        </label>
+
+                        <label for="false" class="choice card rounded-4 shadow border-0 my-4">
+                        <input type="radio" id="false" class="d-none" name="trueFalse" value="false">
+                        <div class="card-body p-4 px-4 d-flex align-items-center">
+                            <div class="choiceLetter position-absolute d-flex align-items-center justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                <span>B</span>
+                                <i class="fa fa-check d-none"></i>
+                                <i class="fa fa-times d-none"></i>
+                            </div>
+                            <p class="fs-5 m-0 fw-bold mx-auto">
+                            false
+                            </p>
+                        </div>
+                    </label>                                
+  </div>`
+     
  
     var  appendQuestion = function(counter){
          if(exercise[counter].questionType == 'choose'){
@@ -107,7 +174,12 @@ jQuery(document).ready(function() {
            <div class="choices-container mt-5">
                
            </div>
-          
+           <div class="correctAnswer-container row mx-0 d-none">
+           <hr class="mt-3">
+           <h4 class="QHeader fw-bold text-center">
+                Correct answer
+           </h4>
+           </div>
        </div>
          `)
          $('.question-container').append(`
@@ -147,14 +219,15 @@ jQuery(document).ready(function() {
            <div class="choices-container mt-5">
                
            </div>
-          
+           <div class="correctAnswer-container row mx-0 d-none">
+           <hr class="mt-3">
+           <h4 class="QHeader fw-bold text-center">
+                Correct answer
+           </h4>
+           </div>
        </div>
          `)
-         $('.question-container').append(`
-         <div class="explaination-container card my-2 text-center col-12  shadow rounded-4 p-4 fw-bold mx-auto main-font d-none">
-         ${exercise[counter].explain}
-           </div>
-         `)
+         
          for (let i = 0; i < exercise[counter].choices.length; i++) {
              $('.choices-container').append(`
 
@@ -186,14 +259,15 @@ jQuery(document).ready(function() {
            <div class="choices-container mt-5">
                
            </div>
-          
+           <div class="correctAnswer-container row mx-0 d-none">
+           <hr class="mt-3">
+           <h4 class="QHeader fw-bold text-center">
+                Correct answer
+           </h4>
+           </div>
        </div>
          `)
-         $('.question-container').append(`
-         <div class="explaination-container card my-2 text-center col-12  shadow rounded-4 p-4 fw-bold mx-auto main-font d-none">
-         ${exercise[counter].explain}
-           </div>
-         `)
+         
          for (let i = 0; i < exercise[counter].choices.length; i++) {
              $('.choices-container').append(`
 
@@ -226,6 +300,15 @@ jQuery(document).ready(function() {
             <div class="secondRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col-6" ></div>
 
             <div class="col-12">
+
+            <div class="correctAnswer-container row mx-0 d-none">
+            <div class="firstRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col-6 text-center" ></div>
+
+            <div class="secondRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col-6" ></div>
+
+            <div class="col-12">
+            </div>
+
             <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white my-2 Submit-match mx-auto disabled" style="width: 200px;">
                     Submit Match
                 </button>
@@ -279,6 +362,12 @@ jQuery(document).ready(function() {
                   <p class="text-center fw-bold">${exercise[counter].paragraph}</p>
                </div>
            </div>
+           <div class="correctAnswer-container row mx-0 d-none">
+           <hr class="mt-3">
+           <h4 class="QHeader fw-bold text-center">
+                Correct answer
+           </h4>
+           </div>
            <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white mt-4 my-2 Submit-complete mx-auto disabled" style="width: 200px;">
            Submit Complete
        </button>
@@ -301,6 +390,12 @@ jQuery(document).ready(function() {
            </div>
            <div class="row mx-0 align-items-center e3raabContainer">
               
+            </div>
+            <div class="correctAnswer-container row mx-0 d-none">
+            <hr class="mt-3">
+            <h4 class="QHeader fw-bold text-center">
+                Correct answer
+            </h4>
             </div>
            <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white mt-4 my-2 Submit-e3raab mx-auto disabled" style="width: 200px;">
            Submit Complete
@@ -339,6 +434,12 @@ jQuery(document).ready(function() {
             </p>
             <div class="row mx-0 align-items-center extractionsContainer">
               
+            </div>
+            <div class="correctAnswer-container row mx-0 d-none">
+            <hr class="mt-3">
+            <h4 class="QHeader col-12 fw-bold text-center">
+                Correct answer
+            </h4>
             </div>
            <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white mt-4 my-2 Submit-extract mx-auto disabled" style="width: 200px;">
            Submit Complete
@@ -389,9 +490,16 @@ jQuery(document).ready(function() {
            <div class="row mx-0 align-items-center readContainer">
               
             </div>
-           <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white mt-4 my-2 Submit-read mx-auto disabled" style="width: 200px;">
+            <div class="correctAnswer-container row mx-0 d-none">
+            <hr class="mt-3">
+            <h4 class="QHeader fw-bold text-center">
+                Correct Answer
+           </h4>
+            </div>
+            <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white mt-4 my-2 Submit-read mx-auto disabled" style="width: 200px;">
            Submit Answers
        </button>
+       
        </div>
          `)
 
@@ -451,6 +559,9 @@ jQuery(document).ready(function() {
            
           
       </div>
+      <div class="correctAnswer-container">
+            
+      </div>
         `)
         }
        }
@@ -458,7 +569,7 @@ jQuery(document).ready(function() {
  
      $('.progress-container span').text(counter+'/'+exercise.length )
        
-     $('body').on('change', '.choose-Question label input', function(){
+     $('body').on('change', '.choose-Question label input , .chooseAudio-Question label input , .chooseVideo-Question label input', function(){
          $('label input').attr('disabled', 'disabled')
          if($(this).val() == exercise[counter].rightChoice){
            $(this).closest('.choice').addClass('correctChoice')
@@ -472,7 +583,21 @@ jQuery(document).ready(function() {
          else{
            $(this).closest('.choice').addClass('wrongChoice')
            $(this).closest('questionType').addClass('answeredWrong')
-           $('.explaination-container').removeClass('d-none');
+           $('.correctAnswer-container').removeClass('d-none');
+           $('.correctAnswer-container').append(`
+           <label for="choice" disabled class="disabled choice card rounded-4 shadow border-0 my-4 correctChoice">
+                                     <div class="card-body p-4 px-4 d-flex align-items-center">
+                                         <div class="choiceLetter position-absolute d-flex align-items-center justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                             
+                                             <i class="fa fa-check "></i>
+                                             <i class="fa fa-times d-none"></i>
+                                         </div>
+                                         <p class="fs-5 m-0 fw-bold mx-auto">
+                                         ${exercise[counter].rightChoice}
+                                         </p>
+                                     </div>
+                                 </label>
+           `)
            $('.next-btn').removeClass('disabled')
            $('.next-btn').attr('disabled', false)
            var audioElement = document.createElement('audio');
@@ -662,6 +787,40 @@ jQuery(document).ready(function() {
     //   $(this).closest('.Match-Question').find(`.binded[value="${exercise[counter].answers[i]}"] .card`).addClass('correctChoice')
       
     // }
+    for (let i = 0; i < exercise[counter].firstRow.length; i++) {
+      $('.firstRow').append(`
+          <div class="d-flex align-items-center fw-bold px-2 match-element disabled my-2 correctChoice"  id="sleader${i}">
+            <div class="card border-0 rounded-4 shadow">
+                  <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                  <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                       <span>${String.fromCharCode(i+97).toUpperCase()}</span>
+                                       <i class="fa fa-check d-none"></i>
+                                       <i class="fa fa-times d-none"></i>
+                                   </div>
+                  <span class="match-text">${exercise[counter].firstRow[i]}</span></div>
+            </div>
+          </div>
+      `)
+      
+    }
+    for (let i = 0; i < exercise[counter].secondRow.length; i++) {
+      $('.secondRow').append(`
+          <div class="d-flex align-items-center fw-bold px-2 match-element disabled correctChoice my-2"  id="eleader${i}">
+            <div class="card border-0 rounded-4 shadow">
+                  <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                  <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                       <span>${i+1}</span>
+                                       <i class="fa fa-check d-none"></i>
+                                       <i class="fa fa-times d-none"></i>
+                                   </div>
+                  <span class="match-text">${exercise[counter].secondRow[i]}</span></div>
+            </div>
+          </div>
+      `)
+      
+    }
+
+
     $(' .match-element').each(function(){
       var correct = 0
       var empty = true
@@ -728,13 +887,25 @@ jQuery(document).ready(function() {
      $('body').on('click','.Submit-complete' , function(){
       $('.paragraphContainer p span').removeAttr('contenteditable')
       $('.paragraphContainer p span').addClass('disabled')
+      $(this).addClass('disabled')
+      $(this).attr('disabled',true)
+      $('.correctAnswer-container').removeClass('d-none')
+      $('.correctAnswer-container').append(`
+      <div class="paragraphContainer border-0 card shadow rounded-3 mt-5">
+               <div class="card-body ">
+                  <p class="text-center fw-bold">${exercise[counter].paragraph}</p>
+               </div>
+      </div>
+      `)
       var word = 0 ;
       $('.paragraphContainer p span').each(function(){
         if($(this).text() != (exercise[counter].answers[word])){
           $(this).addClass('text-danger')
         }
+        $('.correctAnswer-container .paragraphContainer p').html($('.correctAnswer-container .paragraphContainer p').html().replace(exercise[counter].answers[word] , `<span style="min-width:100px !important ; outline:none"  class="text-success px-1 d-inline-block ">${exercise[counter].answers[word] }</span>`));
         word++;
       })
+      
       $(this).addClass('disabled')
       $(this).attr('disabled',true)
       $(this).off('click')
@@ -791,12 +962,38 @@ jQuery(document).ready(function() {
      $('body').on('click','.Submit-extract' , function(){
       $('.extractAnswer').removeAttr('contenteditable')
       $('.extractAnswer').addClass('disabled')
+      $(this).addClass('disabled')
+      $(this).attr('disabled',true)
+      $('.correctAnswer-container').removeClass('d-none')
       var word = 0
       $('.extractAnswer').each(function(){
         if($(this).text() != exercise[counter].answers[word]){
           $(this).addClass('text-danger')
           $(this).removeClass('text-muted')
           $(this).closest('.extraction-card-answer').addClass('border-danger')
+          $('.correctAnswer-container').append(`
+          <div class="col-lg-5 col-md-5 col-12 px-0 my-3">
+          <div class="card extraction-card border-3 rounded-3  shadow">
+          <div class="card-body ">
+              ${exercise[counter].words[word]}
+          </div>
+          </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-1  mx-auto my-1 my-auto">
+        <div class="card rounded-3 border-0 shadow">
+        <div class="card-body px-0 fw-bold">
+            :
+        </div>
+        </div>
+        </div>
+        <div class="col-lg-5 col-md-5 col-12 px-0 my-3">
+        <div class="card extraction-card-answer bg-transparent rounded-3 border-3 border-success ">
+        <div class="card-body p-0">
+            <div  class="card-body text-success fw-bold  extractAnswer text-success" style="outline:none ">${exercise[counter].answers[word]}</div>
+        </div>
+        </div>
+        </div>
+          `)
         }
         word++;
       })
@@ -832,11 +1029,29 @@ jQuery(document).ready(function() {
       $('.e3raabContainer input').addClass('disabled') ;
       $('.e3raabContainer input').attr('disabled',true) ;
       $('.e3raabContainer input').attr('readonly',true) ;
+      $('.correctAnswer-container').removeClass('d-none')
+      $(this).attr('disabled',true) ;
+      $(this).addClass('disabled')
       var answer = 0
       $('.e3raabContainer input').each(function(){
         if($(this).val()!=exercise[counter].answers[answer]){
           $(this).addClass('text-danger')
           $(this).addClass('text-danger')
+          $('.correctAnswer-container').removeClass('d-none')
+          $('.correctAnswer-container').append(`
+          <div class="col-lg-6 col-md-6 col-12 my-3" >
+              <div class="card border-0 shadow rounded-4">
+                <div class="card-body d-flex aling-align-items-end flex-wrap">
+                  <div class="rounded-2 fw-bold text-success d-block me-2">
+                    ${exercise[counter].words[answer]} :
+                  </div>
+                  <input type="text" style="outline:none;" value="${exercise[counter].answers[answer]}" readonly disabled class="disabled text-center text-succes disa fw-bold flex-grow-1 bg-transparent border-0 text-success" placeholder="Write your answer here">
+                </div>
+              </div>
+            </div>
+          `)
+
+
         }
         else{
 
@@ -878,12 +1093,23 @@ jQuery(document).ready(function() {
       $('.readContainer textarea').addClass('disabled') ;
       $('.readContainer textarea').attr('disabled',true) ;
       $('.readContainer textarea').attr('readonly',true) ;
+      $(this).attr('disabled',true) ;
+      $(this).addClass('disabled')
       var answer = 0
       $('.readContainer textarea').each(function(){
         if($(this).val()!=exercise[counter].answers[answer]){
           $(this).addClass('text-danger')
           $(this).addClass('border-danger')
-        }
+          $('.correctAnswer-container').removeClass('d-none')
+          $('.correctAnswer-container').append(`
+          <div class="shadow rounded-3 border-0 card  my-2">
+              <div class="card-body py-1">
+              <p class="fw-bold text-start my-3 ">${$(this).closest('.card-body').find('p').text()}</p>
+              <textarea style="border-color:#c2c2c2;outline:none;min-height:100px" disabled readonly class="disabled bg-transparent p-1 border-2 w-100 text-success border-success rounded-3">${exercise[counter].answers[answer]}</textarea>
+              </div>
+              </div>
+          `)
+        } 
         else{
           
           $(this).addClass('text-success')
@@ -915,7 +1141,14 @@ jQuery(document).ready(function() {
         $('.explaination-container').removeClass('d-none');
         $('.next-btn').removeClass('disabled')
         $('.next-btn').attr('disabled', false)
-        
+        $('.correctAnswer-container').append(trueFalse_answer)
+        $('.correctAnswer-container .trueOrFalse label input').each(function() {
+          if($(this).val() == exercise[counter].answers){
+            console.log('hi');
+            $(this).closest('.choice').addClass('correctChoice')
+            
+          }
+        })
         var audioElement = document.createElement('audio');
         audioElement.setAttribute('src', '../../Assests/mixkit-game-show-wrong-answer-buzz-950.wav');
         audioElement.play()
