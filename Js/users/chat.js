@@ -9,6 +9,7 @@ jQuery(document).ready(function(){
         e.stopPropagation()
 
     })
+    
     $('.emoji-container').click(function(e){
         e.stopPropagation()
     })

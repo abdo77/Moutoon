@@ -1,0 +1,12 @@
+tr , th{
+    font-size: 0.825rem;
+}
+
+.gridjs-input.gridjs-search-input{
+    box-shadow: none !important;
+    border-color: #198754;
+}
+.gridjs-input.gridjs-search-input:focus{
+    box-shadow: none !important;
+    border-color: #198754;
+}
