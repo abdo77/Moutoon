@@ -1,0 +1,18 @@
+body.dark main  .card{
+    background-color: #1e1e1e;
+    
+}
+body.dark main .card-body{
+    background-color: #1e1e1e !important;
+    color: white;
+}
+.profile-pic{
+    width: 3rem;
+    height: 3rem;
+}
+body.dark .bx{
+    color: white;
+}
+.bg-soft-success{
+    background-color: #34c38f40;
+}

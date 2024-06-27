@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../Assests/Screenshot 2023-11-05 203303.png" type="image/x-icon">
+    <title>Exams</title>
+    <link rel="stylesheet" href="../../Css/Shared/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../Css/Shared/ripple.css">
+    <link rel="stylesheet" href="../../Css/Shared/gridJs.css">
+    <link rel="stylesheet" href="../../Css/Shared/flatpicker.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
+
+    <link rel="stylesheet" href="../../Css/users/shared.css">
+    <link rel="stylesheet" href="../../Css/users/exams.css">
+</head>
+
+<body class="">
+
+    <header class="">
+    </header>
+
+    <aside class="">
+
+    </aside>
+
+    <div class="shadow-bg">
+
+    </div>
+    <main class="pb-3">
+        <div class="container-fluid">
+            <!-- <h3 class="page-title fw-bold my-5">
+                <span class="courseName">Course Name</span> Levels
+            </h3> -->
+            <!-- <div class="intro-div text-center fw-bold p-2 py-5 d-flex align-items-center justify-content-center">
+                <svg viewBox="0 0 960 540" width="100%" height="100%" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 pointer-events-none"><g fill="none" stroke="currentColor" stroke-width="100" class="text-gray-700 opacity-25"><circle r="234" cx="196" cy="23"></circle><circle r="234" cx="790" cy="491"></circle></g></svg>
+                <div class="text-center" style="z-index: 2;">
+                    <span class="main-font-2 text-white fw-bold">Exams</span>
+                    <p class="text-muted fw-normal main-font2 mt-3 mx-auto" style="max-width: 600px;"></p>
+                    
+                
+                </div>
+            </div> -->
+            
+        </div>
+
+
+        <div class="container pt-4">
+            <div class="d-block mb-5">
+                <button id="createBtn" class=" btn shadow main-font2 fw-bold float-end bg-success rpl rpl-dark" data-bs-toggle="modal" data-bs-target="#createExam">
+                    Create Exam
+                </button>
+            </div>
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link main-font2 fw-bold active" id="pills-finished-tab" data-bs-toggle="pill" data-bs-target="#pills-finished" type="button" role="tab" aria-controls="pills-finished" aria-selected="true">Finished Exams</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link main-font2 fw-bold" id="pills-pending-tab" data-bs-toggle="pill" data-bs-target="#pills-pending" type="button" role="tab" aria-controls="pills-pending" aria-selected="false">Pending Exams</button>
+                </li>
+                
+                
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-finished" role="tabpanel" aria-labelledby="pills-finished-tab" tabindex="0">
+                    <input type="text" name="" style="max-width: 300px;" placeholder="Search" id="" class="form-control shadow bg-transparent main-font2">
+                    <table class="finished">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Duration</th>
+                                <th>Subject</th>
+                                <th>View</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Level 1</td>
+                                <td>02:00PM 06-06-2024</td>
+                                <td>2 Hours</td>
+                                <td>Arabic</td>
+                                <td> <a href="" class="btn btn-success rpl rpl-dark shadow main-font2 fw-bold" type="button">View</a> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="pills-pending" role="tabpanel" aria-labelledby="pills-pending-tab" tabindex="0">
+                    <input type="text" name="" style="max-width: 300px;" placeholder="Search" id="" class="form-control shadow bg-transparent main-font2">
+                    <table class="pending">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Duration</th>
+                                <th>Subject</th>
+                                <th>View</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Level 1</td>
+                                <td>02:00PM 06-06-2024</td>
+                                <td>2 Hours</td>
+                                <td>Arabic</td>
+                                <td> <a href="" class="btn btn-success rpl rpl-dark shadow main-font2 fw-bold" type="button">View</a> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+               
+              </div>
+        </div>
+    </main>
+
+<!-- Modal -->
+<div class="modal fade" id="createExam" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-success" id="exampleModalLabel">Create Exam</h5>
+          <button type="button" class="bg-transparent border-0" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="text-success">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row m-0">
+            <div class="col-lg-6 col-12 pt-3">
+                <div class="input-group">
+                    <label for="ExamName" class="main-font2 mb-2">Exam Name</label>
+                    <input type="text" name="" id="ExamName" class="form-control shadow w-100 main-font2 rounded-2 text-center">
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 pt-3">
+                <div class="input-group">
+                    <label for="Subject" class="main-font2 mb-2">Subject</label>
+                    <input type="text" name="" id="Subject" class="form-control shadow w-100 main-font2 rounded-2 text-center">
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 pt-3">
+                <div class="input-group">
+                    <label for="date" class="main-font2 mb-2">Date</label>
+                    <input type="text" name="" id="date" class="form-control shadow w-100 main-font2 rounded-2 text-center">
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 pt-3">
+                <div class="input-group">
+                    <label for="Duration" class="main-font2 mb-2">Duration (Hourly)</label>
+                    <input type="number" name="" id="Duration" class="form-control shadow w-100 main-font2 rounded-2 text-center">
+                </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger shadow main-font2 rpl rpl-dark" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn bg-success shadow main-font2 rpl rpl-dark">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../../Js/Shared/jquery-3.6.0.min.js"></script>
+    
+    <script src="../../Js/Shared/bootstrap.min.js"></script>
+    <script src="../../Js/Shared/ripple.js"></script>
+    <script src="../../Js/Shared/gridJs.js"></script>
+    <script src="../../Js/Shared/flatpicker.js"></script>
+    <script src="../../Js/users/shared.js"></script>
+    <script src="../../Js/users/exams.js"></script>
+
+
+</body>
+
+</html>

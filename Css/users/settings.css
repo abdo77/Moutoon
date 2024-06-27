@@ -46,9 +46,9 @@ body.dark .card input{
     width: max-content;
     padding: .7rem 2rem;
     display: block;
-    position: absolute;
     left: 0%;
     right: 0%;
     border-radius: 20px;
     transition: all 1s ease-in-out;
+    z-index: 1080;
 }

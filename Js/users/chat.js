@@ -26,7 +26,7 @@ jQuery(document).ready(function(){
         if (!$('.message-input').hasClass('d-none')) {
             if($('.message-input').val()){
                 $('.messages').append(`
-                <div class="sent-message position-relative ms-auto main-font2 fw-bold my-2 bg-success p-1 text-white px-3 rounded-3 me-0 w-auto">${$('.message-input').val()}</div>
+                <div class="sent-message message position-relative ms-auto main-font2 fw-bold my-2 bg-success p-1 text-white px-3 rounded-3 me-0 w-auto">${$('.message-input').val()}</div>
                 `)
                 $('.message-input').val(null)
             }
@@ -45,7 +45,7 @@ jQuery(document).ready(function(){
                 
                 setTimeout(() => {
                     $('.messages').append(`
-                <div role="button" data-src=${voices} class="play-audio sent-audio position-relative ms-auto main-font2 fw-bold my-2 bg-success p-2 text-white px-3 rounded-3 me-0 w-auto">
+                <div role="button" data-src=${voices} class="play-audio message sent-audio position-relative ms-auto main-font2 fw-bold my-2 bg-success p-2 text-white px-3 rounded-3 me-0 w-auto">
                     <span class="text-white fw-bold me-2">${pad(totalSeconds % 60)}:${pad(parseInt(totalSeconds / 60))}</span>
                     <i class="fa fa-play"></i>
                 </div>
@@ -53,6 +53,7 @@ jQuery(document).ready(function(){
                 }, 100);
             // }
         }
+        $('.messages').animate({scrollTop: $('.messages').prop("scrollHeight")}, 500);
     })
     let can_record = false ;
     let is_recording = false ;

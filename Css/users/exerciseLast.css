@@ -50,11 +50,15 @@ body.dark .read-Question textarea{
     background-color: #31947b !important;
     color: #fafafa !important;
 }
+.correctChoice span:not(.match-text){
+    display: none !important;
+}
 .firstRow .correctChoice span:not(.match-text) ,  .secondRow .correctChoice span:not(.match-text){
     display: none !important;
 }
 .firstRowAnswer .correctChoice span:not(.match-text) ,  .secondRowAnswer .correctChoice span:not(.match-text){
     color: #31947b;
+    display: block !important;
 }
 .correctChoice .fa-check , .checkContainer .fa-check , .checkContainer .fa-money-bill-1-wave{
     display: block !important;

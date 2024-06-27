@@ -28,6 +28,10 @@ body.dark main .card-body{
 body.dark .message-input{
     color:white ;
 }
+.messages{
+    overflow: auto;
+    flex-grow: 1;
+}
 
 .emoji-picker{
     margin: 0px;
