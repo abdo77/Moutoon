@@ -39,4 +39,12 @@ body.dark .apexcharts-text title{
 }
 body.dark .apexcharts-tooltip {
     color: black;
-  }
+}
+.experience-div{
+    border-left: 2px dashed #c2c2c24f;
+}
+.experience-div .bx-right-arrow-circle{
+    left: -8px;
+    top: 6px;
+    font-size: 17px;
+}
