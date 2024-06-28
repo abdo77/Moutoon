@@ -1,0 +1,42 @@
+body.dark main  .card{
+    background-color: #1e1e1e;
+    
+}
+body.dark main .card-body ,  body.dark .profile-pic{
+    background-color: #1e1e1e !important;
+    color: white;
+}
+.profile-pic{
+    width: 5.5rem;
+    background-color: white;
+    height: 5.5rem;
+}
+body.dark .bx{
+    color: white;
+}
+.bg-soft-success{
+    background-color: #81c5ac;
+}
+.icn{
+    position: relative;
+}
+.icn:before {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 54px;
+    background-color: rgba(255, 255, 255, .1);
+    left: 16px;
+    -webkit-transform: rotate(32deg);
+    transform: rotate(32deg);
+    top: -5px;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+    
+}
+body.dark .apexcharts-text title{
+    color: white !important;
+}
+body.dark .apexcharts-tooltip {
+    color: black;
+  }
