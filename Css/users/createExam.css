@@ -148,3 +148,33 @@ body.dark .answerThefollowing{
     border-radius: 20px;
     transition: all 1s ease-in-out;
 }
+body.dark h4 , body.dark label{
+    color: white;
+}
+body.dark p{
+    color: white;
+}
+.completePargraph span{
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+
+
+.qNum{
+    width: 40px;
+    height: 40px;
+}
+.carousel-control-next {
+    right: -90px;
+}
+.carousel-control-prev {
+    left: -90px;
+}
+lord-icon{
+    margin-left: 150px;
+}

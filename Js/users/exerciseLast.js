@@ -4,6 +4,14 @@ jQuery(document).ready(function() {
     counter =0;
     examName = 'test 1'
      exercise = [
+      
+      {
+        questionType: 'e3raab',
+        questionHeader:' Find the expression position of underlined words',
+        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
+        words :['test','info'],
+        answers :['Name','added to it']
+      },
       {
         questionType:'Match' , 
         firstRow :['frow3','frow1','frow2'],
@@ -11,6 +19,20 @@ jQuery(document).ready(function() {
         answers:["frow1:srow1","frow2:srow2"]
 
       },  
+      {
+        questionType: 'Extract',
+        questionHeader:' Extract the needed words',
+        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
+        words :['added to','Name'],
+        answers :['test','information']
+      },
+      {
+        questionType: 'read',
+        questionHeader:'Read',
+        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
+        answers :['test','info'],
+        questions :['What is the answer of name ?','what is the answer of added to']
+      },
       {
         questionType:'chooseAudio' , 
         questionHeader:' What is the question talking about ?',
@@ -52,27 +74,9 @@ jQuery(document).ready(function() {
         paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it ?',
         answers :'false' ,
       },
-      {
-        questionType: 'read',
-        questionHeader:' Read',
-        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
-        answers :['test','info'],
-        questions :['What is the answer of name ?','what is the answer of added to']
-      },
-      {
-        questionType: 'e3raab',
-        questionHeader:' Find the expression position of underlined words',
-        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
-        words :['test','info'],
-        answers :['Name','added to it']
-      },
-      {
-        questionType: 'Extract',
-        questionHeader:' Extract the needed words',
-        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
-        words :['added to','Name'],
-        answers :['test','information']
-      },
+      
+      
+      
       
       {
         questionType:'Match' , 
@@ -311,7 +315,7 @@ jQuery(document).ready(function() {
             <div class="secondRowAnswer d-flex flex-column align-items-center flex-wrap  my-4 col-6" ></div>
            
             </div>
-            <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white my-2 Submit-match mx-auto disabled" style="width: 200px;">
+            <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white my-2 Submit-match mx-auto disabled" disabled style="width: 200px;">
             Submit Match
         </button>
             </div>
@@ -497,7 +501,7 @@ jQuery(document).ready(function() {
                 Correct Answer
            </h4>
             </div>
-            <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white mt-4 my-2 Submit-read mx-auto disabled" style="width: 200px;">
+            <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white mt-4 my-2 Submit-read mx-auto disabled" disabled style="width: 200px;">
            Submit Answers
        </button>
        
@@ -733,11 +737,13 @@ jQuery(document).ready(function() {
         $('.secondRow ').find('.match-element').each(function() {
           firstlength++
         })
-        if(firstlength == secondlength) {
+        if(firstlength == secondlength && firstlength != 0) {
           $('.Submit-match').removeClass('disabled')
+          $('.Submit-match').attr('disabled',false)
         }
         else{
           $('.Submit-match').addClass('disabled')
+          $('.Submit-match').attr('disabled',true)
         }        
           
           
@@ -755,11 +761,15 @@ jQuery(document).ready(function() {
         $('.secondRow ').find('.match-element').each(function() {
           firstlength++
         })
-        if(firstlength == secondlength) {
+        if(firstlength == secondlength && firstlength != 0) {
           $('.Submit-match').removeClass('disabled')
+          $('.Submit-match').attr('disabled',false)
+
         }
         else{
           $('.Submit-match').addClass('disabled')
+          $('.Submit-match').attr('disabled',true)
+
         }        
           
         delete Lines[name]
