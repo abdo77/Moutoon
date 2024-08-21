@@ -17,6 +17,12 @@ body.dark .form-control{
     color: #31947b;
 }
 
+.questionType{
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 2px solid #c2c2c2;
+}
+
 .select2{
     width: 100% !important;
     margin:  5px 0;
@@ -177,4 +183,52 @@ body.dark p{
 }
 lord-icon{
     margin-left: 150px;
+}
+
+.side-pick{
+    transition: all .3s ease-in-out;
+    right: 0;
+    border-radius: 7px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: 1px solid #2c816c;
+    max-height: 50px;
+    width: 100%;
+    max-width: 300px;
+    top: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 1000;
+    padding-left: 50px !important;
+}
+body.dark .side-pick{
+    background-color: black !important;;
+}
+.side-pick.hide{
+    width: 50px;
+    overflow: hidden;
+    padding: 0px !important;
+}
+.side-pick.hide .pickQuestion-container{
+    display: none !important;
+}
+.side-pick .after{
+    position: absolute;
+    top: 0px;
+    color: #31947b;
+    bottom: auto;
+    cursor: pointer;
+    left: 0;
+    height: 100%;
+    width: 50px;
+    border-radius: 7px;
+    
+    z-index: 2;
+}
+
+.submitQ{
+    display: none;
+}
+.deleteQ{
+    content: 'Delete';
 }

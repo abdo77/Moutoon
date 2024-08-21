@@ -1,0 +1,6 @@
+$(window).on('load',function(){
+    $('.loader-container').fadeOut(200)
+    $('.mobile-menu').click(function(){
+        $('nav').toggleClass('uncollapsed')
+    })
+})

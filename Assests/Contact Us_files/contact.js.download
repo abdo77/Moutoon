@@ -1,0 +1,23 @@
+$(document).ready(function(){
+    $('.whats-btn').click(function(){
+        $('.btns-container div').removeClass('selected')
+        $(this).addClass('selected')
+        $('.whats-form').css('display','flex')
+        $('.location-form').css('display','none')
+        $('.email-form').css('display','none')
+    })
+    $('.email-btn').click(function(){
+        $('.btns-container div').removeClass('selected')
+        $(this).addClass('selected')
+        $('.whats-form').css('display','none')
+        $('.location-form').css('display','none')
+        $('.email-form').css('display','flex')
+    })
+    $('.location-btn').click(function(){
+        $('.btns-container div').removeClass('selected')
+        $(this).addClass('selected')
+        $('.whats-form').css('display','none')
+        $('.location-form').css('display','flex')
+        $('.email-form').css('display','none')
+    })
+})

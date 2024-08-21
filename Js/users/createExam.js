@@ -2,33 +2,58 @@ jQuery(document).ready(function(){
     $('.pickQ').select2()
 
 
+    $('.side-pick .after').click(function(){
+      $('.side-pick').toggleClass('hide');
+    })
+
   var examData = {
     examName : 'Test Exam',
     Subject : 'Arabic ' , 
     Date : '12:00PM 02/02/2024',
     Duration :'2H',
-    QestionsNum:1
+    QestionsNum:2
   }
 
-  for (let i = 0; i < examData.QestionsNum; i++) {
-    $('.qNumContainer').append(`
-      <div class="qNum rounded-circle card mx-2 shadow">
-                        <div class="card-body p-0 d-flex align-items-center justify-content-center">
-                            ${i+1}
-                        </div>
-                     </div>
-      `)
-    
-  }
+  
 
   $('.exam-title').text(examData.examName)
 
     var questions = []
 
   $('.pickQ').on('change', function(){
-    $(this).closest('.pickQuestion-container').hide()
+    
     if($(this).val()=='trueFalse'){
       $('.question-container').append(trueFalse)
+      
+      $('.question-container').find('.trueFalse-Question:last-child').find('.trueOrFalse').append(`
+        <label for="true${$('.question-container').find('.trueFalse-Question:last-child').index()}" class="choice card rounded-4 shadow border-0 my-4">
+                                                   <input type="radio"  id="true${$('.question-container').find('.trueFalse-Question:last-child').index()}" class="d-none" name="trueFalse" value="true">
+                                                   <div class="card-body p-4 px-4 d-flex align-items-center">
+                                                       <div class="choiceLetter position-absolute d-flex align-items-center justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                                           <span>A</span>
+                                                           <i class="fa fa-check d-none"></i>
+                                                           <i class="fa fa-times d-none"></i>
+                                                       </div>
+                                                       <p class="fs-5 m-0 fw-bold mx-auto">
+                                                       True
+                                                       </p>
+                                                   </div>
+                                               </label>
+              
+                                               <label for="false${$('.question-container').find('.trueFalse-Question:last-child').index()}" class="choice card rounded-4 shadow border-0 my-4">
+                                               <input type="radio" id="false${$('.question-container').find('.trueFalse-Question:last-child').index()}" class="d-none" name="trueFalse" value="false">
+                                               <div class="card-body p-4 px-4 d-flex align-items-center">
+                                                   <div class="choiceLetter position-absolute d-flex align-items-center justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                                       <span>B</span>
+                                                       <i class="fa fa-check d-none"></i>
+                                                       <i class="fa fa-times d-none"></i>
+                                                   </div>
+                                                   <p class="fs-5 m-0 fw-bold mx-auto">
+                                                   false
+                                                   </p>
+                                               </div>
+                                           </label>  
+      `)
     }
     if($(this).val()=='Match'){
       $('.question-container').append(matchQuestion)
@@ -55,8 +80,7 @@ jQuery(document).ready(function(){
       $('.question-container').append(e3raabQuestion)
     }
     console.log($(this).val());
-    $(this).val('ChooseQuestion')
-    console.log($(this).val());
+    $(window).scrollTop($('.questionType:last-child').offset().top)
   });
 
 
@@ -67,37 +91,11 @@ jQuery(document).ready(function(){
                     
                         <p class="fw-bold text-start my-3 answerThefollowing">Select the correct Answer:</p>
                         <div class="row mx-0 align-items-center trueOrFalse">
-                            <label for="true" class="choice card rounded-4 shadow border-0 my-4">
-                                                   <input type="radio"  id="true" class="d-none" name="trueFalse" value="true">
-                                                   <div class="card-body p-4 px-4 d-flex align-items-center">
-                                                       <div class="choiceLetter position-absolute d-flex align-items-center justify-content-center fs-5 rounded-circle p-1 fw-bold ">
-                                                           <span>A</span>
-                                                           <i class="fa fa-check d-none"></i>
-                                                           <i class="fa fa-times d-none"></i>
-                                                       </div>
-                                                       <p class="fs-5 m-0 fw-bold mx-auto">
-                                                       True
-                                                       </p>
-                                                   </div>
-                                               </label>
-              
-                                               <label for="false" class="choice card rounded-4 shadow border-0 my-4">
-                                               <input type="radio" id="false" class="d-none" name="trueFalse" value="false">
-                                               <div class="card-body p-4 px-4 d-flex align-items-center">
-                                                   <div class="choiceLetter position-absolute d-flex align-items-center justify-content-center fs-5 rounded-circle p-1 fw-bold ">
-                                                       <span>B</span>
-                                                       <i class="fa fa-check d-none"></i>
-                                                       <i class="fa fa-times d-none"></i>
-                                                   </div>
-                                                   <p class="fs-5 m-0 fw-bold mx-auto">
-                                                   false
-                                                   </p>
-                                               </div>
-                                           </label>                                
+                                                            
                          </div>
                          <div class="btns d-flex align-items-center justify-content-center">
                             <button class="btn btn-danger shadow rounded-1 rpl rpl-dark main-font2 mx-2 DeleteQ">
-                                Cancel
+                                Delete
                             </button>
                             <button class="btn btn-success shadow rounded-1 rpl rpl-dark main-font2 mx-2 submitQ">
                                 Add Question
@@ -107,30 +105,30 @@ jQuery(document).ready(function(){
     
     
       $('body').on('change', '.trueFalse-Question label input', function(){
-        $('body').find('.choice').removeClass('correctChoice')
+        $(this).closest('.questionType').find('.choice').removeClass('correctChoice')
           $(this).closest('.choice').addClass('correctChoice')
       })
 
       $('body').on('click', '.trueFalse-Question .submitQ',function(){
         var checkd = false ;
-        $('.choice').each(function(){
+        $(this).closest('.questionType').find('.choice').each(function(){
             if($(this).hasClass('correctChoice')){
               checkd = true ;
             }
         })
-        if($('textarea').val()==0 || $('textarea').val()==''){
+        if($(this).closest('.questionType').find('textarea').val()==0 || $(this).closest('.questionType').find('textarea').val()==''){
           alert('please Write the question')
         }
         else if(!checkd){
           alert('please Choose the correct answer')
         }
         else{
+          $(this).closest('.questionType').addClass('submited')
           questions.push({
             type:'trueFalse',
-            Qheader:$('textarea').val(),
-            answer:$('label input').val()
+            Qheader:$(this).closest('.questionType').find('textarea').val(),
+            answer:$(this).closest('.questionType').find('.correctChoice input').val()
           })
-          $(this).closest('.questionType').remove();
         $('.pickQuestion-container').show();
           console.log(questions);
         }
@@ -187,7 +185,7 @@ jQuery(document).ready(function(){
                         <textarea class="explain form-control rounded-2 shadow my-3 text-center main-font2" placeholder="Explaination" style="height: 100px;"></textarea>
                         <div class="btns d-flex align-items-center justify-content-center">
                             <button class="btn btn-danger shadow rounded-1 rpl rpl-dark main-font2 mx-2 DeleteQ">
-                                Cancel
+                                Delete
                             </button>
                             <button class="btn btn-success shadow rounded-1 rpl rpl-dark main-font2 mx-2 submitQ">
                                 Add Question
@@ -199,7 +197,7 @@ jQuery(document).ready(function(){
 
       $('body').on('click', '.addChoiceBtn',function(){
         var i = 0
-        $('.choices-container').append(`
+        $(this).closest('.questionType').find('.choices-container').append(`
            <label for="" class="choice card rounded-4 shadow border-0 my-4">
                                 
                                 <div class="card-body p-4 px-4 d-flex align-items-center">
@@ -230,20 +228,20 @@ jQuery(document).ready(function(){
       $('body').on('click', '.deleteChoice',function(e){
         e.stopPropagation()
         var i1=0
-        $('.choice').each(function(){
+        $(this).closest('.questionType').find('.choice').each(function(){
           i1++
         })
         if(i1>2){
           console.log('sad');
         var i = 0
         $(this).closest('.choice').remove()
-          $('.choice').each(function(){
+        $(this).closest('.questionType').find('.choice').each(function(){
             $(this).find('.choiceLetter').text(String.fromCharCode(i+97).toUpperCase())
             i++
           })
         }
         else{
-          $('.deleteChoice').attr('disabled', 'disabled')
+          $(this).closest('.questionType').find('.deleteChoice').attr('disabled', 'disabled')
           var windowHeight = $(window).height();
         var desiredBottom =80;
 
@@ -270,13 +268,13 @@ jQuery(document).ready(function(){
         }
       })
       $('body').on('click', '.choose-Question label', function(e){
-        $('body').find('.choice').removeClass('correctChoice')
+        $(this).closest('.questionType').find('.choice').removeClass('correctChoice')
           $(this).addClass('correctChoice')
       })
       $('body').on('click', '.choose-Question .submitQ',function(){
         var checkd = false ;
         var value = true ;
-        $('.choice').each(function(){
+        $(this).closest('.questionType').find('.choice').each(function(){
             if($(this).hasClass('correctChoice')){
               checkd = true ;
             }
@@ -285,7 +283,7 @@ jQuery(document).ready(function(){
             }
             
         })
-        if($('textarea').val()==0 || $('textarea').val()==''){
+        if($(this).closest('.questionType').find('textarea').val()==0 || $(this).closest('.questionType').find('textarea').val()==''){
           alert('please Write the question')
         }
         else if(!checkd){
@@ -295,9 +293,9 @@ jQuery(document).ready(function(){
           alert('please fill all choice inputs')
         }
         else{
-
+          $(this).closest('.questionType').addClass('submited')
           answers = [] ;
-          $('.choiceInput').each(function(){
+          $(this).closest('.questionType').find('.choiceInput').each(function(){
             answers.push($(this).val()) ;
           })
           questions.push({
@@ -308,7 +306,6 @@ jQuery(document).ready(function(){
             explain : $('.explain').val(),
             
           })
-          $(this).closest('.questionType').remove();
           $('.pickQuestion-container').show();
           console.log(questions);
         }
@@ -371,7 +368,7 @@ var chooseAudio =`
                         <textarea class="explain form-control rounded-2 shadow my-3 text-center main-font2" placeholder="Explaination" style="height: 100px;"></textarea>
                         <div class="btns d-flex align-items-center justify-content-center">
                             <button class="btn btn-danger shadow rounded-1 rpl rpl-dark main-font2 mx-2 DeleteQ">
-                                Cancel
+                                Delete
                             </button>
                             <button class="btn btn-success shadow rounded-1 rpl rpl-dark main-font2 mx-2 submitQ">
                                 Add Question
@@ -388,13 +385,13 @@ var chooseAudio =`
           $(this).next('audio').attr('src',urlObj)
       })
       $('body').on('click', '.chooseAudio-Question label', function(e){
-        $('body').find('.choice').removeClass('correctChoice')
+        $(this).closest('.questionType').find('.choice').removeClass('correctChoice')
           $(this).addClass('correctChoice')
       })
       $('body').on('click', '.chooseAudio-Question .submitQ',function(){
         var checkd = false ;
         var value = true ;
-        $('.choice').each(function(){
+        $(this).closest('.questionType').find('.choice').each(function(){
             if($(this).hasClass('correctChoice')){
               checkd = true ;
             }
@@ -403,7 +400,7 @@ var chooseAudio =`
             }
             
         })
-        if($('input[type="file"]').val()==0 || $('input[type="file"]').val()==null){
+        if($(this).closest('.questionType').find('input[type="file"]').val()==0 || $(this).closest('.questionType').find('input[type="file"]').val()==null){
           alert('please Insert th Audio File')
         }
         else if(!checkd){
@@ -413,20 +410,19 @@ var chooseAudio =`
           alert('please fill all choice inputs')
         }
         else{
-
+          $(this).closest('.questionType').addClass('submited')
           answers = [] ;
-          $('.choiceInput').each(function(){
+          $(this).closest('.questionType').find('.choiceInput').each(function(){
             answers.push($(this).val()) ;
           })
           questions.push({
-            questionType:'chooseAudo' , 
-            questionHeader:$('input[type="file"]').val(),
+            questionType:'chooseAudio' , 
+            questionHeader:$(this).closest('.questionType').find('input[type="file"]').val(),
             choices:answers,
-            rightChoice: $('.correctChoice .choiceInput').val() ,
-            explain : $('.explain').val() 
+            rightChoice: $(this).closest('.questionType').find('.correctChoice .choiceInput').val() ,
+            explain : $(this).closest('.questionType').find('.explain').val() 
             
           })
-          $(this).closest('.questionType').remove();
           $('.pickQuestion-container').show();
           console.log(questions);
         }
@@ -489,7 +485,7 @@ var chooseAudio =`
                          <textarea class="explain form-control rounded-2 shadow my-3 text-center main-font2" placeholder="Explaination" style="height: 100px;"></textarea>
                         <div class="btns d-flex align-items-center justify-content-center">
                             <button class="btn btn-danger shadow rounded-1 rpl rpl-dark main-font2 mx-2 DeleteQ">
-                                Cancel
+                                Delete
                             </button>
                             <button class="btn btn-success shadow rounded-1 rpl rpl-dark main-font2 mx-2 submitQ">
                                 Add Question
@@ -506,13 +502,13 @@ var chooseAudio =`
           $(this).next('video').attr('src',urlObj)
       })
       $('body').on('click', '.chooseVideo-Question label', function(e){
-        $('body').find('.choice').removeClass('correctChoice')
+        $(this).closest('.questionType').find('.choice').removeClass('correctChoice')
           $(this).addClass('correctChoice')
       })
       $('body').on('click', '.chooseVideo-Question .submitQ',function(){
         var checkd = false ;
         var value = true ;
-        $('.choice').each(function(){
+        $(this).closest('.questionType').find('.choice').each(function(){
             if($(this).hasClass('correctChoice')){
               checkd = true ;
             }
@@ -521,7 +517,7 @@ var chooseAudio =`
             }
             
         })
-        if($('input[type="file"]').val()==0 || $('input[type="file"]').val()==null){
+        if($(this).closest('.questionType').find('input[type="file"]').val()==0 || $(this).closest('.questionType').find('input[type="file"]').val()==null){
           alert('please Insert th Video File')
         }
         else if(!checkd){
@@ -531,20 +527,19 @@ var chooseAudio =`
           alert('please fill all choice inputs')
         }
         else{
-
+          $(this).closest('.questionType').addClass('submited')
           answers = [] ;
-          $('.choiceInput').each(function(){
+          $(this).closest('.questionType').find('.choiceInput').each(function(){
             answers.push($(this).val()) ;
           })
           questions.push({
             questionType:'chooseVideo' , 
-            questionHeader:$('input[type="file"]').val(),
+            questionHeader:$(this).closest('.questionType').find('input[type="file"]').val(),
             choices:answers,
-            rightChoice: $('.correctChoice .choiceInput').val() , 
-            explain : $('.explain').val()
+            rightChoice: $(this).closest('.questionType').find('.correctChoice .choiceInput').val() , 
+            explain : $(this).closest('.questionType').find('.explain').val()
             
           })
-          $(this).closest('.questionType').remove();
           $('.pickQuestion-container').show();
           console.log(questions);
         }
@@ -569,7 +564,7 @@ var chooseAudio =`
                         
                         <div class="btns d-flex align-items-center justify-content-center">
                             <button class="btn btn-danger shadow rounded-1 rpl rpl-dark main-font2 mx-2 DeleteQ">
-                                Cancel
+                                Delete
                             </button>
                             <button class="btn btn-success shadow rounded-1 rpl rpl-dark main-font2 mx-2 submitQ">
                                 Add Question
@@ -583,9 +578,9 @@ var chooseAudio =`
         var ret = $(this).val().split(" ");
         splitArr = ret 
         console.log(splitArr);
-        $('.completePargraph').empty();
+        $(this).closest('.questionType').find('.completePargraph').empty();
         for(var i = 0; i < ret.length; i++){
-          $('.completePargraph').append(`<span>${ret[i]}</span> `)
+          $(this).closest('.questionType').find('.completePargraph').append(`<span>${ret[i]}</span> `)
         }
       })
       $('body').on('click','.Complete-Question .completePargraph span', function(){
@@ -596,26 +591,26 @@ var chooseAudio =`
       $('body').on('click', '.Complete-Question .submitQ',function(){
         var checkd = false ;
         var selected = [];
-        $('.completePargraph span').each(function(){
+        $(this).closest('.questionType').find('.completePargraph span').each(function(){
             if($(this).hasClass('text-success')){
               checkd = true ;
               selected.push($(this).text());
             }
         })
-        if($('textarea').val()==0 || $('textarea').val()==''){
+        if($(this).closest('.questionType').find('textarea').val()==0 || $(this).closest('.questionType').find('textarea').val()==''){
           alert('please Write the Pargrapgh')
         }
         else if(!checkd){
           alert('please select at least one word')
         }
         else{
+          $(this).closest('.questionType').addClass('submited')
           questions.push({
             questionType: 'Complete',
             questionHeader:' Complete the following paragraph',
-            paragraph : $('textarea').val(),
+            paragraph : $(this).closest('.questionType').find('textarea').val(),
             answers :selected
           },)
-          $(this).closest('.questionType').remove();
         $('.pickQuestion-container').show();
           console.log(questions);
         }
@@ -648,7 +643,7 @@ var chooseAudio =`
                         
                         <div class="btns d-flex align-items-center justify-content-center">
                             <button class="btn btn-danger shadow rounded-1 rpl rpl-dark main-font2 mx-2 DeleteQ">
-                                Cancel
+                                Delete
                             </button>
                             <button class="btn btn-success shadow rounded-1 rpl rpl-dark main-font2 mx-2 submitQ">
                                 Add Question
@@ -658,7 +653,7 @@ var chooseAudio =`
       `
       $('body').on('click', '.Read-Question .addQ',function(){
         var i = 0
-        $('.singleQ-container').append(`
+        $(this).closest('.questionType').find('.singleQ-container').append(`
            <div class="singleQ card rounded-3 overflow-hidden shadow my-2">
                             <div class="card-body">
                                 <div class="d-flex align-items-baseline">
@@ -675,7 +670,7 @@ var chooseAudio =`
                             </div>
                         </div>
           `)
-          $('.singleQ').each(function(){
+          $(this).closest('.questionType').find('.singleQ').each(function(){
             $(this).find('span').text(`${i+1}-`)
             i++
           })
@@ -683,20 +678,20 @@ var chooseAudio =`
       $('body').on('click', '.Read-Question .deleteQ',function(e){
         e.stopPropagation()
         var i1=0
-        $('.singleQ').each(function(){
+        $(this).closest('.questionType').find('.singleQ').each(function(){
           i1++
         })
         if(i1>1){
           console.log('sad');
         var i = 0
         $(this).closest('.singleQ').remove()
-          $('.singleQ').each(function(){
+        $(this).closest('.questionType').find('.singleQ').each(function(){
             $(this).find('span').text(`${i+1}-`)
             i++
           })
         }
         else{
-          $('.deleteQ').attr('disabled', 'disabled')
+          $(this).closest('.questionType').find('.deleteQ').attr('disabled', 'disabled')
           var windowHeight = $(window).height();
         var desiredBottom =80;
 
@@ -718,7 +713,7 @@ var chooseAudio =`
         complete:function(){
             $(this).remove()
         }})
-        $('.deleteQ').attr('disabled', false)
+        $(this).closest('.questionType').find('.deleteQ').attr('disabled', false)
     }, 2000);
         }
       })
@@ -726,7 +721,7 @@ var chooseAudio =`
       $('body').on('click', '.Read-Question .submitQ',function(){
         var filled = true ;
         var filled2 = true ;
-        $('.singleQ').each(function(){
+        $(this).closest('.questionType').find('.singleQ').each(function(){
             if($(this).find('input').val() == 0 || $(this).find('input').val() == ''){
               filled = false ;
             }
@@ -734,7 +729,7 @@ var chooseAudio =`
               filled2 = false ;
             }
         })
-        if($('.paraContainer').val()==0 || $('.paraContainer').val()==''){
+        if($(this).closest('.questionType').find('.paraContainer').val()==0 || $(this).closest('.questionType').find('.paraContainer').val()==''){
           alert('please Write the question')
         }
         else if(!filled){
@@ -744,22 +739,22 @@ var chooseAudio =`
           alert("please Write all Questions's Answers")
         }
         else{
+          $(this).closest('.questionType').addClass('submited')
           var Q = [] ;
           var A = [] ;
-          $('.singleQ textarea').each(function(){
+          $(this).closest('.questionType').find('.singleQ textarea').each(function(){
             A.push($(this).val()) ;
           })
-          $('.singleQ input').each(function(){
+          $(this).closest('.questionType').find('.singleQ input').each(function(){
             Q.push($(this).val()) ;
           })
           questions.push({
             questionType: 'read',
             questionHeader:'Read',
-            paragraph : $('.paraContainer').val(),
+            paragraph : $(this).closest('.questionType').find('.paraContainer').val(),
             answers :A,
             questions :Q
           },)
-          $(this).closest('.questionType').remove();
         $('.pickQuestion-container').show();
           console.log(questions);
         }
@@ -776,7 +771,7 @@ var chooseAudio =`
                         </label>
                         <textarea name="" id="" style="height: 100px;" class="w-100 rounded-3 form-control shadow  p-2 text-center" placeholder="Write the pargrapgh here"></textarea>
                         <label for="" class="fw-bold main-font2 mt-3">
-                            Please Select the word you want the student to complete :
+                            Please Select the word you want the student to Answer :
                         </label>
                         <p class="completePargraph fw-bold border rounded-2 border-2 p-2 py-3 main-font2 text-center border-success my-2">
 
@@ -798,9 +793,9 @@ var chooseAudio =`
         splitArr = [] ;
         var ret = $(this).val().split(" ");
         splitArr = ret 
-        $('.completePargraph').empty();
+        $(this).closest('.questionType').find('.completePargraph').empty();
         for(var i = 0; i < ret.length; i++){
-          $('.completePargraph').append(`<span>${ret[i]}</span> `)
+          $(this).closest('.questionType').find('.completePargraph').append(`<span>${ret[i]}</span> `)
         }
       })
       
@@ -808,7 +803,7 @@ var chooseAudio =`
         $(this).toggleClass('text-success')
         var found = false ;
         var val = ($(this).text()+`-`+$(this).index()) ;
-        $('.answersDiv').find('div').each(function(){
+        $(this).closest('.questionType').find('.answersDiv').find('div').each(function(){
           if($(this).attr('data-val') == val){
             $(this).remove() ; 
             found = true ;
@@ -820,7 +815,7 @@ var chooseAudio =`
           
         }
         else{
-          $('.answersDiv').append(`
+          $(this).closest('.questionType').find('.answersDiv').append(`
             <div class="col-lg-6 col-md-6 col-12 my-3" data-val="${$(this).text()+`-`+$(this).index()}">
                                   <div class="card border-0 shadow rounded-4">
                                     <div class="card-body d-flex aling-align-items-end flex-wrap">
@@ -839,18 +834,18 @@ var chooseAudio =`
         var checkd = false ;
         var selected = [];
         var filled = true ;
-        $('.completePargraph span').each(function(){
+        $(this).closest('.questionType').find('.completePargraph span').each(function(){
             if($(this).hasClass('text-success')){
               checkd = true ;
               selected.push($(this).text());
             }
         })
-        $('.answersDiv div').each(function(){
+        $(this).closest('.questionType').find('.answersDiv div').each(function(){
           if($(this).find('input').val() == 0 || $(this).find('input').val() == '' ){
             filled = false ;
           }
         })
-        if($('textarea').val()==0 || $('textarea').val()==''){
+        if($(this).closest('.questionType').find('textarea').val()==0 || $(this).closest('.questionType').find('textarea').val()==''){
           alert('please Write the Pargrapgh')
         }
         else if(!checkd){
@@ -862,22 +857,22 @@ var chooseAudio =`
         else{
           var words = [] ;
           var answers = [] ;
-          $('.completePargraph .text-success').each(function() {
+          $(this).closest('.questionType').find('.completePargraph .text-success').each(function() {
             words.push($(this).text()) ;
           })
-          $('.answersDiv input').each(function() {
+          $(this).closest('.questionType').find('.answersDiv input').each(function() {
               answers.push($(this).val()) ;
           })
           questions.push({
             questionType: 'e3raab',
             questionHeader:' Find the expression position of underlined words',
-            paragraph : $('textarea').val() ,
+            paragraph : $(this).closest('.questionType').find('textarea').val() ,
             words :words,
             answers :answers
           },)
-          $(this).closest('.questionType').remove();
         $('.pickQuestion-container').show();
           console.log(questions);
+          $(this).closest('.questionType').addClass('submited')
         }
       })
 
@@ -902,7 +897,7 @@ var chooseAudio =`
                         </div>
                         <div class="btns d-flex align-items-center justify-content-center">
                             <button class="btn btn-danger shadow rounded-1 rpl rpl-dark main-font2 mx-2 DeleteQ">
-                                Cancel
+                                Delete
                             </button>
                             <button class="btn btn-success shadow rounded-1 rpl rpl-dark main-font2 mx-2 submitQ">
                                 Add Question
@@ -914,9 +909,9 @@ var chooseAudio =`
         splitArr = [] ;
         var ret = $(this).val().split(" ");
         splitArr = ret 
-        $('.completePargraph').empty();
+        $(this).closest('.questionType').find('.completePargraph').empty();
         for(var i = 0; i < ret.length; i++){
-          $('.completePargraph').append(`<span>${ret[i]}</span> `)
+          $(this).closest('.questionType').find('.completePargraph').append(`<span>${ret[i]}</span> `)
         }
       })
       
@@ -924,7 +919,7 @@ var chooseAudio =`
         $(this).toggleClass('text-success')
         var found = false ;
         var val = ($(this).text()+`-`+$(this).index()) ;
-        $('.answersDiv').find('div').each(function(){
+        $(this).closest('.questionType').find('.answersDiv').find('div').each(function(){
           if($(this).attr('data-val') == val){
             $(this).remove() ; 
             found = true ;
@@ -936,7 +931,7 @@ var chooseAudio =`
           
         }
         else{
-          $('.answersDiv').append(`
+          $(this).closest('.questionType').find('.answersDiv').append(`
             <div class="col-lg-6 col-md-6 col-12 my-3" data-val="${$(this).text()+`-`+$(this).index()}">
                                   <div class="card border-0 shadow rounded-4">
                                     <div class="card-body d-flex aling-align-items-end flex-wrap">
@@ -955,18 +950,18 @@ var chooseAudio =`
         var checkd = false ;
         var selected = [];
         var filled = true ;
-        $('.completePargraph span').each(function(){
+        $(this).closest('.questionType').find('.completePargraph span').each(function(){
             if($(this).hasClass('text-success')){
               checkd = true ;
               selected.push($(this).text());
             }
         })
-        $('.answersDiv div').each(function(){
+        $(this).closest('.questionType').find('.answersDiv div').each(function(){
           if($(this).find('input').val() == 0 || $(this).find('input').val() == '' ){
             filled = false ;
           }
         })
-        if($('textarea').val()==0 || $('textarea').val()==''){
+        if($(this).closest('.questionType').find('textarea').val()==0 || $(this).closest('.questionType').find('textarea').val()==''){
           alert('please Write the Pargrapgh')
         }
         else if(!checkd){
@@ -976,22 +971,22 @@ var chooseAudio =`
           alert('please write all answers')
         }
         else{
+          $(this).closest('.questionType').addClass('submited')
           var words = [] ;
           var answers = [] ;
-          $('.completePargraph .text-success').each(function() {
+          $(this).closest('.questionType').find('.completePargraph .text-success').each(function() {
             words.push($(this).text()) ;
           })
-          $('.answersDiv input').each(function() {
+          $(this).closest('.questionType').find('.answersDiv input').each(function() {
               answers.push($(this).val()) ;
           })
           questions.push({
             questionType: 'Extract',
             questionHeader:' Extract the needed words',
-            paragraph : $('textarea').val() ,
+            paragraph : $(this).closest('.questionType').find('textarea').val() ,
             words :answers,
             answers :words
           },)
-          $(this).closest('.questionType').remove();
         $('.pickQuestion-container').show();
           console.log(questions);
         }
@@ -1056,7 +1051,7 @@ var chooseAudio =`
                         </div>
                         <div class="btns d-flex align-items-center justify-content-center">
                             <button class="btn btn-danger shadow rounded-1 rpl rpl-dark main-font2 mx-2 DeleteQ">
-                                Cancel
+                                Delete
                             </button>
                             <button class="btn btn-success shadow rounded-1 rpl rpl-dark main-font2 mx-2 submitQ">
                                 Add Question
@@ -1066,7 +1061,7 @@ var chooseAudio =`
       `
 
       $('body').on('click','.firstRow .add-element',function(){
-        $('.firstRow').append(`
+        $(this).closest('.questionType').find('.firstRow').append(`
               <div class="d-flex align-items-center fw-bold px-2 match-element my-2" >
                                 <div class="card border-0 rounded-4 shadow">
                                       <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
@@ -1081,7 +1076,7 @@ var chooseAudio =`
                               </div>
           `)
           var i=1 ;
-          $('.firstRow').find('.choiceLetter').each(function(){
+          $(this).closest('.questionType').find('.firstRow').find('.choiceLetter').each(function(){
             $(this).find('span').text(i)
             i++;
           })
@@ -1090,7 +1085,7 @@ var chooseAudio =`
 
 
       $('body').on('click','.secondRow .add-element',function(){
-        $('.secondRow').append(`
+        $(this).closest('.questionType').find('.secondRow').append(`
               <div class="d-flex align-items-center fw-bold px-2 match-element my-2" >
                                 <div class="card border-0 rounded-4 shadow">
                                       <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
@@ -1105,7 +1100,7 @@ var chooseAudio =`
                               </div>
           `)
           var i=0 ;
-          $('.secondRow').find('.choiceLetter').each(function(){
+          $(this).closest('.questionType').find('.secondRow').find('.choiceLetter').each(function(){
             $(this).find('span').text(String.fromCharCode(i+97).toUpperCase())
             i++;
           })
@@ -1122,7 +1117,7 @@ var chooseAudio =`
       $('body').on('click', '.Match-Question .submitQ',function(){
         console.log($('.firstRow').length);
         var filled = true ;
-        $('.match-element input').each(function(){
+        $(this).closest('.questionType').find('.match-element input').each(function(){
             if($(this).val()==0 || $(this).val()==''){
               filled = false ;
             }
@@ -1134,18 +1129,19 @@ var chooseAudio =`
           var firstRow = [] ;
           var secondRow = [] ;
           var answers = [] ;
-          $('.firstRow .match-element').each(function() {
+          $(this).closest('.questionType').find('.firstRow .match-element').each(function() {
             firstRow.push($(this).find('input').val()) ;
           })
-          $('.secondRow .match-element').each(function() {
+          $(this).closest('.questionType').find('.secondRow .match-element').each(function() {
             secondRow.push($(this).find('input').val()) ;
           })
-          if($('.firstRow').length >= $('.secondRow').length ){
+          if($(this).closest('.questionType').find('.firstRow').length >= $(this).closest('.questionType').find('.secondRow').length ){
             for (let i = 0; i < secondRow.length; i++) {
               answers.push(firstRow[i]+':'+secondRow[i])
             }
           }
           else{
+            $(this).closest('.questionType').addClass('submited')
             for (let i = 0; i < firstRow.length; i++) {
               answers.push(firstRow[i]+':'+secondRow[i])
             }
@@ -1159,7 +1155,6 @@ var chooseAudio =`
           },)
 
 
-          $(this).closest('.questionType').remove();
         $('.pickQuestion-container').show();
           console.log(questions);
         }
@@ -1180,23 +1175,39 @@ var chooseAudio =`
       $('body').on('click','.submitQ', function(){
         $(`.qNum:nth-child(${questions.length})`).addClass('bg-success')
           $(`.qNum:nth-child(${questions.length})`).addClass('text-white')
-        if(questions.length==examData.QestionsNum){
-          $('.question-container').append(`
-              <div class="btns d-flex align-items-center my-5 justify-content-center">
-                        <button class="endExam btn btn-danger rounded-2 mx-2 rpl rpl-dark fw-bold main-font2 shadow">
-                            Cancel Exam
-                        </button>
-                        <button class="finishExam btn btn-success rounded-2 mx-2 rpl rpl-dark fw-bold main-font2 shadow">
-                            Submit Exam
-                        </button>
-                    </div>
-            `)
-          $('.pickQuestion-container').remove();
-        }
+        // if(questions.length==examData.QestionsNum){
+        //   $('.question-container').append(`
+        //       <div class="btns d-flex align-items-center my-5 justify-content-center">
+        //                 <button class="endExam btn btn-danger rounded-2 mx-2 rpl rpl-dark fw-bold main-font2 shadow">
+        //                     Cancel Exam
+        //                 </button>
+        //                 <button class="finishExam btn btn-success rounded-2 mx-2 rpl rpl-dark fw-bold main-font2 shadow">
+        //                     Submit Exam
+        //                 </button>
+        //             </div>
+        //     `)
+        //   $('.pickQuestion-container').remove();
+        // }
         
       })
       $('body').on('click','.finishExam', function(){
-        $('.question-container').empty();
+        qNums = 0
+        questions = []
+        $('.questionType').each(function(){
+          $(this).find('.submitQ').trigger('click');
+          if($(this).hasClass('submited') == false){
+            $(window).scrollTop($(this).offset().top)
+            return false;
+          }
+        qNums++;
+        })
+
+        console.log(qNums);
+        if(qNums == questions.length && qNums >0){
+          $(this).remove()
+          $('.pickQuestion-container').remove()
+          $('.side-pick').remove()
+          $('.question-container').empty();
           $('.question-container').append(
             `
             <div class=" d-flex align-items-center justify-content-center">
@@ -1209,6 +1220,9 @@ var chooseAudio =`
             </div>
             `
           )
+        }
+        
+
       })
 })
 
