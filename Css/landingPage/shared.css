@@ -1,0 +1,93 @@
+header{
+    border-radius: 30px;
+    position: relative;
+}
+.img-fluid{
+    width: 150px;
+}
+@font-face {
+    font-family: 'Rocko';
+    src: url('../../Assests/Roboto-Regular.ttf');
+}
+.Rocko{
+    font-family: 'Rocko';
+}
+.headerBtn{
+    border-radius: 10px;
+}
+.border-light{
+    border-color: #c2c2c2 !important;
+}
+.rounded-10{
+    border-radius: 10px;
+}
+.rounded-20{
+    border-radius: 20px;
+}
+.rounded-30{
+    border-radius: 30px;
+}
+.main-font1{
+    font-size: 0.876rem;
+}
+.main-font2{
+    font-size: 0.776rem;
+}
+.cText-muted{
+    color: #898989;
+}
+
+.bg-soft-success{
+    background-color: #2cb47549!important;
+}
+.avatar-md{
+    width: 2.5rem ;
+    height: 2.5rem;
+}
+.avatar-sm{
+    width: 2.0rem ;
+    height: 2.0rem;
+}
+
+#nav-toggle{
+    display: none;
+}
+
+header nav{
+    display: flex;
+}
+@media all and (max-width:800px){
+    header.opened{
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;    
+    }
+ header nav{
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+    width: 100%;
+    height: auto;
+    max-height: 0px;
+    left: 0;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+    display: block !important;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+ }
+ header nav .nav{
+    display: block !important;
+    text-align: center;
+ }
+ header nav .nav li{
+    padding: 15px 0px;
+ }
+
+ header.opened nav{
+    max-height: 1000px;
+ }
+ #nav-toggle{
+    display: block;
+ }
+}

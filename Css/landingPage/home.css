@@ -1,0 +1,82 @@
+.openingDiv{
+    background-image: url('../../Assests/pexels-photo-998641.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.img-preview-container{
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border: 1px solid #7a7979;
+    padding: 30px;
+    padding-bottom: 5px;
+    border-bottom: 0px;
+    background-color: #1c1c1c;
+}
+.img-preview-container img{
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border-top-left-radius: 30px !important;
+    border-top-right-radius: 30px !important;
+}
+.aboutUs img{
+    max-height: 300px;
+}
+.Prices{
+    background-image: url('../../Assests/422ec8ac96a7e19836c85c2e7a103dd0.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.priceContainer{
+    transition: transform .3s ease-in-out;
+    color: white;
+    background-color: #3c3c3ce3;
+}
+.priceContainer hr{
+    background-color: transparent;
+    border-top: 2px dashed #c2c2c2 ;
+}
+
+.priceContainer .btn{
+    background-color: #484848;
+}
+
+.container{
+    max-width: 1200px;
+}
+
+.priceContainer:hover{
+    background-color: white;
+
+}
+.priceContainer.selected{
+    transform: scale(1.05);
+}
+.priceContainer.notSelected{
+    transform: scale(.9);
+}
+.priceContainer:hover h1{
+    color: black;
+}
+.priceContainer:hover .btn{
+    color: white;
+    background-color: black;
+}
+.priceContainer:hover p:not(.cText-muted){
+    color: black
+}
+.border-muted{
+    border-color: #7a7979 !important;
+}
+
+
+@media all and (max-width: 768px) {
+    .rounded-30, header{
+        border-radius: 10px;
+    }
+    .img-preview-container img{
+        border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    }
+}
