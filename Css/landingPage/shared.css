@@ -98,4 +98,7 @@ header nav{
  #nav-toggle{
     display: block;
  }
+ .rounded-30, header{
+    border-radius: 10px;
+}
 }

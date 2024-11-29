@@ -1,0 +1,7 @@
+.product img{
+    max-width: 100%;
+    height:200px ;
+}
+.productsContainer .card:hover{
+    border: 1px solid #c2c2c2 !important;
+}
