@@ -1,0 +1,10 @@
+.accordion .card{
+    margin-top: 20px;
+}
+.accordion .card , .accordion .card .card-header , .accordion .card .btn{
+    transition: all .0s ease-in-out !important;
+}
+.accordion .card:hover , .accordion .card:hover .card-header , .accordion .card:hover .btn , .accordion .card:active , .card.uncollapsed .btn , .card.uncollapsed .card-header , .card.uncollapsed {
+    background-color: black !important;
+    color: white !important;
+}
