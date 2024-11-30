@@ -64,6 +64,24 @@ header{
 header nav{
     display: flex;
 }
+.lang{
+    top: 120% !important;
+    visibility: hidden ;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    max-height: 0;
+    z-index: 1000;
+    height: auto;
+}
+.lang a:hover{
+    background-color: #c2c2c2;
+}
+.langContainer:hover .lang{
+    top: 100% !important;
+    visibility: visible;
+    opacity: 1;
+    max-height: 500px;
+}
 @media all and (max-width:800px){
     header.opened{
         border-bottom-left-radius: 0px !important;
@@ -94,11 +112,26 @@ header nav{
 
  header.opened nav{
     max-height: 1000px;
+    box-shadow: 0px 10px 8px 0px rgba(0,0,0,.15);
  }
  #nav-toggle{
     display: block;
  }
  .rounded-30, header{
     border-radius: 10px;
+}
+.langContainer{
+    margin-left: auto;
+    margin-right: auto;
+}
+.langContainer button{
+    box-shadow: none !important;
+}
+.langContainer .lang{
+    position: static !important;
+    width: 100%;
+}
+.langContainer .lang .nav-item{
+    padding: 0px !important;
 }
 }

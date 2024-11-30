@@ -1,10 +1,21 @@
 jQuery(document).ready(function () {
     
-        $(".owl-carousel").owlCarousel({
-            items:1,
-            dots:false
-        });
+        
 
+        if(localStorage.getItem("lang") == "Arabic"){
+            $(".owl-carousel").owlCarousel({
+                items:1,
+                dots:false,    
+                rtl:true
+            });
+        }
+        else{
+            $(".owl-carousel").owlCarousel({
+                items:1,
+                dots:false,
+                
+            });
+        }
 
     // $('body').on('click','.productsContainer .likeBtn',function(){
     //     $(this).toggleClass('liked')
