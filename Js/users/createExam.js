@@ -64,6 +64,9 @@ jQuery(document).ready(function(){
     if($(this).val()=='Read'){
       $('.question-container').append(ReadQuesiton)
     }
+    if($(this).val()=='ReadImg'){
+      $('.question-container').append(ReadQuesitonImg)
+    }
     if($(this).val()=='Choose'){
       $('.question-container').append(choose)
     }
@@ -79,8 +82,22 @@ jQuery(document).ready(function(){
     if($(this).val()=='E3raab'){
       $('.question-container').append(e3raabQuestion)
     }
+    if($(this).val()=='MatchImage'){
+      $('.question-container').append(matchQuestionImg)
+    } 
+    if($(this).val()=='MatchAudio'){
+      $('.question-container').append(matchQuestionAudio)
+    } 
+    if($(this).val()=='ExtractImg'){
+      $('.question-container').append(ExtractQuestionImg)
+    } 
+    if($(this).val()=='ChooseImage'){
+      $('.question-container').append(chooseImage)
+    } 
+    
     console.log($(this).val());
     $(window).scrollTop($('.questionType:last-child').offset().top)
+    $(this).val(0)
   });
 
 
@@ -545,6 +562,127 @@ var chooseAudio =`
         }
       })
 
+
+      var chooseImage =`
+                        <div class="questionType chooseImage-Question">
+                        <div class="mediaContainer d-flex flex-column">
+                            <button class="upload mx-auto my-2 btn btn-success main-font2 shadow rpl rpl-dark">
+                                Upload Image
+                            </button>
+                            <input type="file" accept="image/*" class="d-none" name="" id="">
+                            <div class="img-fluid  overflow-hidden" >
+                                <img src="../../Assests/istockphoto-1147544807-612x612.jpg" style="max-height :300px ;" class="w-100 h-100 text-center" alt="">
+                            </div>
+                        </div>
+                        <div class="d-flex ">
+                                <button class="addChoiceBtn btn btn-success shadow rpl rpl-dark main-font2 my-2 mx-auto">
+                                    Add Choice
+                                </button>
+                            </div>
+                        <div class="choices-container mt-5">
+                            <label for="" class="choice card rounded-4 shadow border-0 my-4">
+                                
+                                <div class="card-body p-4 px-4 d-flex align-items-center">
+                                    <div class="choiceLetter  d-flex align-items-center justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                        <span>A</span>
+                                        <i class="fa fa-check d-none"></i>
+                                        <i class="fa fa-times d-none"></i>
+                                    </div>
+                                    
+                                    <input type="text" placeholder="Write Choice" class="choiceInput text-center main-font2 w-75 mx-auto form-control shadow rounded-2">
+                                    
+                                    <button class="btn text-danger deleteChoice main-font2 rpl rpl-dark rounded-circle border-0 shadow-none">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                    
+                                </div>
+                            </label>
+                            <label for="" class="choice card rounded-4 shadow border-0 my-4">
+                                
+                                <div class="card-body p-4 px-4 d-flex align-items-center">
+                                    <div class="choiceLetter  d-flex align-items-center justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                        <span>B</span>
+                                        <i class="fa fa-check d-none"></i>
+                                        <i class="fa fa-times d-none"></i>
+                                    </div>
+                                    
+                                    <input type="text" placeholder="Write Choice" class="choiceInput text-center main-font2 w-75 mx-auto form-control shadow rounded-2">
+                                    
+                                    <button class="btn deleteChoice text-danger main-font2 rpl rpl-dark rounded-circle border-0 shadow-none">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                    
+                                </div>
+                            </label>
+                            
+                        </div>
+                         <textarea class="explain form-control rounded-2 shadow my-3 text-center main-font2" placeholder="Explaination" style="height: 100px;"></textarea>
+                        <div class="btns d-flex align-items-center justify-content-center">
+                            <button class="btn btn-danger shadow rounded-1 rpl rpl-dark main-font2 mx-2 DeleteQ">
+                                Delete
+                            </button>
+                            <button class="btn btn-success shadow rounded-1 rpl rpl-dark main-font2 mx-2 submitQ">
+                                Add Question
+                            </button>
+                         </div>
+                    </div>
+
+      `
+            // Choice Video Question
+            $('body').on('click','.chooseImage-Question .upload',function(){
+              $(this).next('input').click();
+            })
+            $('body').on('change','.mediaContainer input',function(target){
+                const urlObj = URL.createObjectURL(target.target.files[0]);
+                $(this).next('.img-fluid').find('img').attr('src',urlObj)
+            })
+            $('body').on('click', '.chooseImage-Question label', function(e){
+              $(this).closest('.questionType').find('.choice').removeClass('correctChoice')
+                $(this).addClass('correctChoice')
+            })
+            $('body').on('click', '.chooseImage-Question .submitQ',function(){
+              var checkd = false ;
+              var value = true ;
+              $(this).closest('.questionType').find('.choice').each(function(){
+                  if($(this).hasClass('correctChoice')){
+                    checkd = true ;
+                  }
+                  if($(this).find('.choiceInput').val()==0 || $(this).find('.choiceInput').val()==''){
+                      value = false ;
+                  }
+                  
+              })
+              if($(this).closest('.questionType').find('input[type="file"]').val()==0 || $(this).closest('.questionType').find('input[type="file"]').val()==null){
+                alert('please Insert th Video File')
+              }
+              else if(!checkd){
+                alert('please Choose the correct answer')
+              }
+              else if(!value){
+                alert('please fill all choice inputs')
+              }
+              else{
+                $(this).closest('.questionType').addClass('submited')
+                answers = [] ;
+                $(this).closest('.questionType').find('.choiceInput').each(function(){
+                  answers.push($(this).val()) ;
+                })
+                questions.push({
+                  questionType:'chooseVideo' , 
+                  questionHeader:$(this).closest('.questionType').find('input[type="file"]').val(),
+                  choices:answers,
+                  rightChoice: $(this).closest('.questionType').find('.correctChoice .choiceInput').val() , 
+                  explain : $(this).closest('.questionType').find('.explain').val()
+                  
+                })
+                $('.pickQuestion-container').show();
+                console.log(questions);
+              }
+            })
+      
+
+
+
       // Complete Question
 
       
@@ -651,7 +789,7 @@ var chooseAudio =`
                          </div>
                     </div>
       `
-      $('body').on('click', '.Read-Question .addQ',function(){
+      $('body').on('click', '.Read-Question-img .addQ',function(){
         var i = 0
         $(this).closest('.questionType').find('.singleQ-container').append(`
            <div class="singleQ card rounded-3 overflow-hidden shadow my-2">
@@ -675,7 +813,17 @@ var chooseAudio =`
             i++
           })
       })
-      $('body').on('click', '.Read-Question .deleteQ',function(e){
+      $('body').on('click','.Read-Question-img .upload',function(){
+        $(this).next('input').click();
+      })
+      $('body').on('change','.mediaContainer input',function(target){
+          const urlObj = URL.createObjectURL(target.target.files[0]);
+          $(this).next('.img-fluid').find('img').attr('src',urlObj)
+      })
+
+
+
+      $('body').on('click', '.Read-Question-img .deleteQ',function(e){
         e.stopPropagation()
         var i1=0
         $(this).closest('.questionType').find('.singleQ').each(function(){
@@ -718,7 +866,52 @@ var chooseAudio =`
         }
       })
 
-      $('body').on('click', '.Read-Question .submitQ',function(){
+
+      var ReadQuesitonImg = `
+      <div class="questionType Read-Question-img">
+                        <h4 class="text-center my-3 fw-bold">Read And Answer Question</h4>
+                        <textarea name="" id="" style="height: 100px;" class="w-100 paraContainer mb-2 rounded-3 form-control shadow  p-2 text-center" placeholder="Write the pargrapgh here"></textarea>
+                        <div class="mediaContainer d-flex flex-column align-items-center">
+                            <button class="upload mx-auto my-2 btn btn-success main-font2 shadow rpl rpl-dark">
+                                Upload Image
+                            </button>
+                            <input type="file" accept="image/*" class="d-none" name="" id="">
+                            <div class="img-fluid  overflow-hidden" >
+                                <img src="../../Assests/istockphoto-1147544807-612x612.jpg" style="max-height :250px ;max-width: 250px;" class="mx-auto  h-100 text-center" alt="">
+                            </div>
+                        </div>
+                        <div class="text-center my-3">
+                            <button class="addQ btn btn-success rounded-2 shadow mx-auto main-font2">Add another question</button>
+                        </div>
+                        <div class="singleQ-container">
+                            <div class="singleQ card rounded-3 overflow-hidden shadow my-2">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-baseline">
+                                        <span class="main-font2">1- </span>
+                                        <div class="flex-grow-1 ms-2">
+                                            <input type="text" placeholder="Write Question Here" class="flex-grow-1  main-font2 form-control text-center shadow rounded-2 border-success">
+                                        <textarea name="" id="" style="height: 100px;" class="w-100  my-2 rounded-3 form-control shadow  p-2 text-center" placeholder="Write the Answer here"></textarea>
+                                        </div>
+                                        <button class="btn deleteQ text-danger main-font2 rpl rpl-dark rounded-circle d-flex align-items-center justify-content-center shadow-none ms-2" style="width: 30px;height: 30px;">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="btns d-flex align-items-center justify-content-center">
+                            <button class="btn btn-danger shadow rounded-1 rpl rpl-dark main-font2 mx-2 DeleteQ">
+                                Delete
+                            </button>
+                            <button class="btn btn-success shadow rounded-1 rpl rpl-dark main-font2 mx-2 submitQ">
+                                Add Question
+                            </button>
+                         </div>
+                    </div>
+      `
+
+      $('body').on('click', '.Read-Question-img .submitQ',function(){
         var filled = true ;
         var filled2 = true ;
         $(this).closest('.questionType').find('.singleQ').each(function(){
@@ -731,6 +924,9 @@ var chooseAudio =`
         })
         if($(this).closest('.questionType').find('.paraContainer').val()==0 || $(this).closest('.questionType').find('.paraContainer').val()==''){
           alert('please Write the question')
+        }
+        if($(this).closest('.questionType').find('.mediaContainer input').val()==0 || $(this).closest('.questionType').find('.mediaContainer input').val()==''){
+          alert('please upload picture')
         }
         else if(!filled){
           alert('please Write all Questions')
@@ -749,7 +945,7 @@ var chooseAudio =`
             Q.push($(this).val()) ;
           })
           questions.push({
-            questionType: 'read',
+            questionType: 'readImg',
             questionHeader:'Read',
             paragraph : $(this).closest('.questionType').find('.paraContainer').val(),
             answers :A,
@@ -781,7 +977,7 @@ var chooseAudio =`
                         </div>
                         <div class="btns d-flex align-items-center justify-content-center">
                             <button class="btn btn-danger shadow rounded-1 rpl rpl-dark main-font2 mx-2 DeleteQ">
-                                Cancel
+                                Delete
                             </button>
                             <button class="btn btn-success shadow rounded-1 rpl rpl-dark main-font2 mx-2 submitQ">
                                 Add Question
@@ -880,10 +1076,10 @@ var chooseAudio =`
 
 
       var ExtractQuestion = `
-       <div class="questionType e3raab-Question">
+       <div class="questionType Extract-Question">
                         <h4 class="text-center my-3 fw-bold">Extract Question</h4>
                         <label for="" class="fw-bold main-font2 mt-3 mb-1">
-                            Find the expression position of underlined words :
+                            Extract words :
                         </label>
                         <textarea name="" id="" style="height: 100px;" class="w-100 rounded-3 form-control shadow  p-2 text-center" placeholder="Write the pargrapgh here"></textarea>
                         <label for="" class="fw-bold main-font2 mt-3">
@@ -905,7 +1101,35 @@ var chooseAudio =`
                          </div>
                     </div>
        `
-      $('body').on('keyup', '.Extract-Question textarea', function(){
+
+      var ExtractQuestionImg = `
+        <div class="questionType Extract-Question-img">
+                        <h4 class="text-center my-3 fw-bold">Extract Question</h4>
+                        <label for="" class="fw-bold main-font2 mt-3 mb-1">
+                            Extract words :
+                        </label>
+                        <textarea name="" id="" style="height: 100px;" class="w-100 rounded-3 form-control shadow  p-2 text-center" placeholder="Write the pargrapgh here"></textarea>
+                        <label for="" class="fw-bold main-font2 mt-3">
+                            Please Select the words you want to be Extracted :
+                        </label>
+                        <p class="completePargraph fw-bold border rounded-2 border-2 p-2 py-3 main-font2 text-center border-success my-2">
+
+                        </p>
+                        <div class="answersDiv row mx-0 my-2">
+                            
+                        </div>
+                        <div class="btns d-flex align-items-center justify-content-center">
+                            <button class="btn btn-danger shadow rounded-1 rpl rpl-dark main-font2 mx-2 DeleteQ">
+                                Delete
+                            </button>
+                            <button class="btn btn-success shadow rounded-1 rpl rpl-dark main-font2 mx-2 submitQ">
+                                Add Question
+                            </button>
+                         </div>
+                    </div>
+      
+      `
+      $('body').on('keyup', '.Extract-Question textarea , .Extract-Question-img textarea', function(){
         splitArr = [] ;
         var ret = $(this).val().split(" ");
         splitArr = ret 
@@ -945,6 +1169,52 @@ var chooseAudio =`
             `)
         }
       })
+      $('body').on('click','.Extract-Question-img .completePargraph span', function(){
+        $(this).toggleClass('text-success')
+        var found = false ;
+        var val = ($(this).text()+`-`+$(this).index()) ;
+        $(this).closest('.questionType').find('.answersDiv').find('div').each(function(){
+          if($(this).attr('data-val') == val){
+            $(this).remove() ; 
+            found = true ;
+          }
+        })
+
+        console.log($(this).text()+`-`+$(this).index());
+        if(found){
+          
+        }
+        else{
+          $(this).closest('.questionType').find('.answersDiv').append(`
+            <div class="col-lg-6 col-md-6 col-12 my-3" data-val="${$(this).text()+`-`+$(this).index()}">
+                                  <div class="card border-0 shadow rounded-4">
+                                    <div class="card-body d-flex d-flex align-items-center  ">
+                                      <div class="rounded-2 fw-bold text-success flex-shrink-0 d-block me-2">
+                                          ${$(this).text()} :
+                                      </div>
+                                      <input type="file" placeholder="Element text" class="text-center form-control main-font2 shadow border-success flex-grow-1 rounded-2">
+                                      <i class="ms-3 fa fa-eye" style="cursor:pointer"></i>
+                                    </div>
+                                  </div>
+                    </div>
+            `)
+        }
+      })
+
+      $('body').on('click', '.Extract-Question-img .fa-eye', function(){
+        if($(this).closest('.card-body').find('input').val() != 0 ){
+          const files = $(this).closest('.card-body').find('input')[0].files
+          var reader = new FileReader();
+          reader.readAsDataURL(files[0]);
+          reader.onload = function(){
+          $('.previewDiv').addClass('show')
+        $('.previewDiv').append(`
+            <img src="${reader.result }">  
+        `)
+        }
+      }
+    })
+
       
       $('body').on('click', '.Extract-Question .submitQ',function(){
         var checkd = false ;
@@ -992,11 +1262,65 @@ var chooseAudio =`
         }
       })
 
+      $('body').on('click', '.Extract-Question-img .submitQ',function(){
+        var checkd = false ;
+        var selected = [];
+        var filled = true ;
+        $(this).closest('.questionType').find('.completePargraph span').each(function(){
+            if($(this).hasClass('text-success')){
+              checkd = true ;
+              selected.push($(this).text());
+            }
+        })
+        $(this).closest('.questionType').find('.answersDiv div').each(function(){
+          if($(this).find('input').val() == 0 || $(this).find('input').val() == '' ){
+            filled = false ;
+          }
+        })
+        if($(this).closest('.questionType').find('textarea').val()==0 || $(this).closest('.questionType').find('textarea').val()==''){
+          alert('please Write the Pargrapgh')
+        }
+        else if(!checkd){
+          alert('please select at least one word')
+        }
+        else if(!filled){
+          alert('please upload all images')
+        }
+        else{
+          $(this).closest('.questionType').addClass('submited')
+          var words = [] ;
+          var answers = [] ;
+          $(this).closest('.questionType').find('.completePargraph .text-success').each(function() {
+            words.push($(this).text()) ;
+          })
+          $(this).closest('.questionType').find('.answersDiv input').each(function() {
+              answers.push($(this).val()) ;
+          })
+          questions.push({
+            questionType: 'ExtractImg',
+            questionHeader:' Extract the needed words',
+            paragraph : $(this).closest('.questionType').find('textarea').val() ,
+            words :answers,
+            answers :words
+          },)
+        $('.pickQuestion-container').show();
+          console.log(questions);
+        }
+      })
+
 
 
      //Match Question
 
-      var matchQuestion = `
+     $('.previewDiv').click(function (e) {
+        e.stopPropagation()
+        $(this).empty();
+        $(this).removeClass('show')
+     }) 
+     $('.previewDiv').on('click','*',function (e) {
+      e.stopPropagation(); 
+     })
+     var matchQuestion = `
            <div class="questionType Match-Question text-center" id='capture'>
                         <h4 class="QHeader my-3 mt-5 fw-bold text-center">
                             Match The Following
@@ -1059,6 +1383,137 @@ var chooseAudio =`
                          </div>
                 </div>
       `
+      var matchQuestionImg = `
+           <div class="questionType Match-Question-img text-center" id='capture'>
+                        <h4 class="QHeader my-3 mt-5 fw-bold text-center">
+                            Match The Following
+                        </h4>
+                        <div class="matchContainer position-relative row mx-0"  >
+                          <div class="firstRow d-flex flex-column align-items-center flex-wrap justify-content-start my-4 col-6 text-center" >
+                          <div class="mb-3 btns-group">
+                              <button class="btn add-element btn-success shadow rounded-2 main-font2 rpl rpl-dark">
+                                Add Elemnt
+                            </button>
+                              <button class="btn remove-element btn-danger main-font2 shadow rounded-2 rpl rpl-dark">
+                                remove Elemnt
+                            </button>
+                          </div>
+                            <div class="d-flex align-items-center fw-bold px-2 match-element my-2" >
+                                <div class="card border-0 rounded-4 shadow">
+                                      <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                                      <div class="choiceLetter  d-flex align-items-center me-3 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                                           <span>1</span>
+                                                           <i class="fa fa-check d-none"></i>
+                                                           <i class="fa fa-times d-none"></i>
+                                                       </div>
+                                                       <span class="match-text"><input type="text" placeholder="Element text" class="text-center form-control main-font2 shadow border-success flex-grow-1 rounded-2"></span>
+                                      </div>
+                                </div>
+                              </div>
+                          </div>
+              
+                          <div class="secondRow d-flex flex-column align-items-center flex-wrap justify-content-start my-4 col-6" >
+                          <div class="mb-3 btns-group">
+                              <button class="btn add-element btn-success shadow rounded-2 main-font2 rpl rpl-dark">
+                                Add Elemnt
+                            </button>
+                              <button class="btn remove-element btn-danger main-font2 shadow rounded-2 rpl rpl-dark">
+                                remove Elemnt
+                            </button>
+                          </div>
+                            <div class="d-flex align-items-center fw-bold px-2 match-element my-2" >
+                              <div class="card border-0 rounded-4 shadow">
+                                    <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                                    <div class="choiceLetter flex-shrink-0 d-flex align-items-center me-3 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                                         <span></span>
+                                                         <i class="fa fa-check d-none"></i>
+                                                         <i class="fa fa-times d-none"></i>
+                                                     </div>
+                                      <span class="match-text"><input type="file" placeholder="Element text" class="text-center form-control main-font2 shadow border-success flex-grow-1 rounded-2"></span> <i class="ms-3 fa fa-eye show"></i> </div>
+                                    </div>
+                              </div>
+                            </div>
+                          </div>
+              
+                          
+                        
+                        <div class="btns d-flex align-items-center justify-content-center">
+                            <button class="btn btn-danger shadow rounded-1 rpl rpl-dark main-font2 mx-2 DeleteQ">
+                                Delete
+                            </button>
+                            <button class="btn btn-success shadow rounded-1 rpl rpl-dark main-font2 mx-2 submitQ">
+                                Add Question
+                            </button>
+                         </div>
+                </div>
+                </div>
+      `
+
+      var matchQuestionAudio = `
+      <div class="questionType Match-Question-Audio text-center" id='capture'>
+                   <h4 class="QHeader my-3 mt-5 fw-bold text-center">
+                       Match The Following
+                   </h4>
+                   <div class="matchContainer position-relative row mx-0"  >
+                     <div class="firstRow d-flex flex-column align-items-center flex-wrap justify-content-start my-4 col-6 text-center" >
+                     <div class="mb-3 btns-group">
+                         <button class="btn add-element btn-success shadow rounded-2 main-font2 rpl rpl-dark">
+                           Add Elemnt
+                       </button>
+                         <button class="btn remove-element btn-danger main-font2 shadow rounded-2 rpl rpl-dark">
+                           remove Elemnt
+                       </button>
+                     </div>
+                       <div class="d-flex align-items-center fw-bold px-2 match-element my-2" >
+                           <div class="card border-0 rounded-4 shadow">
+                                 <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                                 <div class="choiceLetter  d-flex align-items-center me-3 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                                      <span>1</span>
+                                                      <i class="fa fa-check d-none"></i>
+                                                      <i class="fa fa-times d-none"></i>
+                                                  </div>
+                                                  <span class="match-text"><input type="text" placeholder="Element text" class="text-center form-control main-font2 shadow border-success flex-grow-1 rounded-2"></span>
+                                 </div>
+                           </div>
+                         </div>
+                     </div>
+         
+                     <div class="secondRow d-flex flex-column align-items-center flex-wrap justify-content-start my-4 col-6" >
+                     <div class="mb-3 btns-group">
+                         <button class="btn add-element btn-success shadow rounded-2 main-font2 rpl rpl-dark">
+                           Add Elemnt
+                       </button>
+                         <button class="btn remove-element btn-danger main-font2 shadow rounded-2 rpl rpl-dark">
+                           remove Elemnt
+                       </button>
+                     </div>
+                       <div class="d-flex align-items-center fw-bold px-2 match-element my-2" >
+                         <div class="card border-0 rounded-4 shadow">
+                               <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                               <div class="choiceLetter flex-shrink-0 d-flex align-items-center me-3 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                                    <span></span>
+                                                    <i class="fa fa-check d-none"></i>
+                                                    <i class="fa fa-times d-none"></i>
+                                                </div>
+                                 <span class="match-text"><input type="file" accept="audio/*" placeholder="Element text" class="text-center form-control main-font2 shadow border-success flex-grow-1 rounded-2"></span> <i class="ms-3 fa fa-microphone show"></i> </div>
+                               </div>
+                         </div>
+                       </div>
+                     </div>
+         
+                     
+                   
+                   <div class="btns d-flex align-items-center justify-content-center">
+                       <button class="btn btn-danger shadow rounded-1 rpl rpl-dark main-font2 mx-2 DeleteQ">
+                           Delete
+                       </button>
+                       <button class="btn btn-success shadow rounded-1 rpl rpl-dark main-font2 mx-2 submitQ">
+                           Add Question
+                       </button>
+                    </div>
+           </div>
+           </div>
+ `
 
       $('body').on('click','.firstRow .add-element',function(){
         $(this).closest('.questionType').find('.firstRow').append(`
@@ -1085,27 +1540,73 @@ var chooseAudio =`
 
 
       $('body').on('click','.secondRow .add-element',function(){
-        $(this).closest('.questionType').find('.secondRow').append(`
-              <div class="d-flex align-items-center fw-bold px-2 match-element my-2" >
-                                <div class="card border-0 rounded-4 shadow">
-                                      <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
-                                      <div class="choiceLetter  d-flex align-items-center me-3 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
-                                                           <span></span>
-                                                           <i class="fa fa-check d-none"></i>
-                                                           <i class="fa fa-times d-none"></i>
-                                                       </div>
-                                                       <span class="match-text"><input type="text" placeholder="Element text" class="text-center form-control main-font2 shadow border-success flex-grow-1 rounded-2"></span>
-                                      </div>
-                                </div>
+        if($(this).closest('.questionType').hasClass('Match-Question')){
+          $(this).closest('.questionType').find('.secondRow').append(`
+            <div class="d-flex align-items-center fw-bold px-2 match-element my-2" >
+                              <div class="card border-0 rounded-4 shadow">
+                                    <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                                    <div class="choiceLetter  d-flex align-items-center me-3 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                                         <span></span>
+                                                         <i class="fa fa-check d-none"></i>
+                                                         <i class="fa fa-times d-none"></i>
+                                                     </div>
+                                                     <span class="match-text"><input type="text" placeholder="Element text" class="text-center form-control main-font2 shadow border-success flex-grow-1 rounded-2"></span>
+                                    </div>
                               </div>
-          `)
-          var i=0 ;
-          $(this).closest('.questionType').find('.secondRow').find('.choiceLetter').each(function(){
-            $(this).find('span').text(String.fromCharCode(i+97).toUpperCase())
-            i++;
-          })
-          
+                            </div>
+        `)
+        var i=0 ;
+        $(this).closest('.questionType').find('.secondRow').find('.choiceLetter').each(function(){
+          $(this).find('span').text(String.fromCharCode(i+97).toUpperCase())
+          i++;
+        })
+        }
+        else if($(this).closest('.questionType').hasClass('Match-Question-img')){
+          $(this).closest('.questionType').find('.secondRow').append(`
+            <div class="d-flex align-items-center fw-bold px-2 match-element my-2" >
+                              <div class="card border-0 rounded-4 shadow">
+                                    <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                                    <div class="choiceLetter flex-shrink-0 d-flex align-items-center me-3 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                                         <span></span>
+                                                         <i class="fa fa-check d-none"></i>
+                                                         <i class="fa fa-times d-none"></i>
+                                                     </div>
+                                      <span class="match-text"><input type="file" placeholder="Element text" class="text-center form-control main-font2 shadow border-success flex-grow-1 rounded-2"></span> <i class="ms-3 fa fa-eye show"></i> </div>
+                                    </div>
+                              </div>
+                            </div>
+        `)
+        var i=0 ;
+        $(this).closest('.questionType').find('.secondRow').find('.choiceLetter').each(function(){
+          $(this).find('span').text(String.fromCharCode(i+97).toUpperCase())
+          i++;
+        })
+        }
+         
+        else if($(this).closest('.questionType').hasClass('Match-Question-Audio')){
+          $(this).closest('.questionType').find('.secondRow').append(`
+            <div class="d-flex align-items-center fw-bold px-2 match-element my-2" >
+                              <div class="card border-0 rounded-4 shadow">
+                                    <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                                    <div class="choiceLetter flex-shrink-0 d-flex align-items-center me-3 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                                         <span></span>
+                                                         <i class="fa fa-check d-none"></i>
+                                                         <i class="fa fa-times d-none"></i>
+                                                     </div>
+                                      <span class="match-text"><input type="file" accept="audio/*" placeholder="Element text" class="text-center form-control main-font2 shadow border-success flex-grow-1 rounded-2"></span> <i class="ms-3 fa fa-microphone show"></i> </div>
+                                    </div>
+                              </div>
+                            </div>
+        `)
+        var i=0 ;
+        $(this).closest('.questionType').find('.secondRow').find('.choiceLetter').each(function(){
+          $(this).find('span').text(String.fromCharCode(i+97).toUpperCase())
+          i++;
+        })
+        }
       })
+
+
 
       $('body').on('click', '.remove-element', function(){
         if($(this).closest('.d-flex').find('.match-element:last').index()>1){
@@ -1113,7 +1614,42 @@ var chooseAudio =`
         }
         
       })
+
+      $('body').on('click', '.secondRow .fa-eye', function(){
+          if($(this).closest('.match-element').find('input').val() != 0 ){
+            const files = $(this).closest('.match-element').find('input')[0].files
+            var reader = new FileReader();
+            reader.readAsDataURL(files[0]);
+            reader.onload = function(){
+            $('.previewDiv').addClass('show')
+          $('.previewDiv').append(`
+              <img src="${reader.result }">  
+          `)
+          }
+        }
+      })
+
+      $('body').on('click', '.secondRow .fa-microphone', function(){
+        if($(this).closest('.match-element').find('input').val() != 0 ){
+          const files = $(this).closest('.match-element').find('input')[0].files
+          var reader = new FileReader();
+          reader.readAsDataURL(files[0]);
+          reader.onload = function(){
+          $('.previewDiv').addClass('show')
+        $('.previewDiv').append(`
+            <audio controls>
+            <source src="${reader.result}" type="audio/ogg">
+            <source src="${reader.result}" type="audio/mpeg">
+
+            </audio>  
+        `)
+        }
+      }
+    })
+
       
+      // match question sumbit
+
       $('body').on('click', '.Match-Question .submitQ',function(){
         console.log($('.firstRow').length);
         var filled = true ;
@@ -1160,6 +1696,103 @@ var chooseAudio =`
         }
       })
 
+      // match question img sumbit
+
+
+      $('body').on('click', '.Match-Question-img .submitQ',function(){
+        console.log($('.firstRow').length);
+        var filled = true ;
+        $(this).closest('.questionType').find('.match-element input').each(function(){
+            if($(this).val()==0 || $(this).val()==''){
+              filled = false ;
+            }
+        })
+        if(!filled){
+          alert('please write all answers')
+        }
+        else{
+          var firstRow = [] ;
+          var secondRow = [] ;
+          var answers = [] ;
+          $(this).closest('.questionType').find('.firstRow .match-element').each(function() {
+            firstRow.push($(this).find('input').val()) ;
+          })
+          $(this).closest('.questionType').find('.secondRow .match-element').each(function() {
+            secondRow.push($(this).find('input').val()) ;
+          })
+          if($(this).closest('.questionType').find('.firstRow').length >= $(this).closest('.questionType').find('.secondRow').length ){
+            for (let i = 0; i < secondRow.length; i++) {
+              answers.push(firstRow[i]+':'+secondRow[i])
+            }
+          }
+          else{
+            $(this).closest('.questionType').addClass('submited')
+            for (let i = 0; i < firstRow.length; i++) {
+              answers.push(firstRow[i]+':'+secondRow[i])
+            }
+          }
+          questions.push({
+            questionType:'MatchImg' , 
+        firstRow :firstRow,
+        secondRow :secondRow,
+        answers:answers
+
+          },)
+
+
+        $('.pickQuestion-container').show();
+          console.log(questions);
+        }
+      })
+
+      // match question  Audio
+
+
+      $('body').on('click', '.Match-Question-Audio .submitQ',function(){
+        console.log($('.firstRow').length);
+        var filled = true ;
+        $(this).closest('.questionType').find('.match-element input').each(function(){
+            if($(this).val()==0 || $(this).val()==''){
+              filled = false ;
+            }
+        })
+        if(!filled){
+          alert('please write all answers')
+        }
+        else{
+          var firstRow = [] ;
+          var secondRow = [] ;
+          var answers = [] ;
+          $(this).closest('.questionType').find('.firstRow .match-element').each(function() {
+            firstRow.push($(this).find('input').val()) ;
+          })
+          $(this).closest('.questionType').find('.secondRow .match-element').each(function() {
+            secondRow.push($(this).find('input').val()) ;
+          })
+          if($(this).closest('.questionType').find('.firstRow').length >= $(this).closest('.questionType').find('.secondRow').length ){
+            for (let i = 0; i < secondRow.length; i++) {
+              answers.push(firstRow[i]+':'+secondRow[i])
+            }
+          }
+          else{
+            $(this).closest('.questionType').addClass('submited')
+            for (let i = 0; i < firstRow.length; i++) {
+              answers.push(firstRow[i]+':'+secondRow[i])
+            }
+          }
+          questions.push({
+            questionType:'MatchAuido' , 
+        firstRow :firstRow,
+        secondRow :secondRow,
+        answers:answers
+
+          },)
+
+
+        $('.pickQuestion-container').show();
+          console.log(questions);
+        }
+      })
 
 
 
@@ -1199,9 +1832,11 @@ var chooseAudio =`
             $(window).scrollTop($(this).offset().top)
             return false;
           }
-        qNums++;
         })
 
+        $('.questionType').each(function(){
+          qNums++;
+        })
         console.log(qNums);
         if(qNums == questions.length && qNums >0){
           $(this).remove()
