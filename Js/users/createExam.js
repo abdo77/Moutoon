@@ -64,7 +64,7 @@ jQuery(document).ready(function(){
     if($(this).val()=='Read'){
       $('.question-container').append(ReadQuesiton)
     }
-    if($(this).val()=='ReadImg'){
+    if($(this).val()=='ReadImage'){
       $('.question-container').append(ReadQuesitonImg)
     }
     if($(this).val()=='Choose'){
@@ -628,7 +628,7 @@ var chooseAudio =`
                     </div>
 
       `
-            // Choice Video Question
+            // Choice Image Question
             $('body').on('click','.chooseImage-Question .upload',function(){
               $(this).next('input').click();
             })
@@ -653,7 +653,7 @@ var chooseAudio =`
                   
               })
               if($(this).closest('.questionType').find('input[type="file"]').val()==0 || $(this).closest('.questionType').find('input[type="file"]').val()==null){
-                alert('please Insert th Video File')
+                alert('please Upload the Image')
               }
               else if(!checkd){
                 alert('please Choose the correct answer')
@@ -668,7 +668,7 @@ var chooseAudio =`
                   answers.push($(this).val()) ;
                 })
                 questions.push({
-                  questionType:'chooseVideo' , 
+                  questionType:'chooseImage' , 
                   questionHeader:$(this).closest('.questionType').find('input[type="file"]').val(),
                   choices:answers,
                   rightChoice: $(this).closest('.questionType').find('.correctChoice .choiceInput').val() , 
@@ -789,7 +789,7 @@ var chooseAudio =`
                          </div>
                     </div>
       `
-      $('body').on('click', '.Read-Question-img .addQ',function(){
+      $('body').on('click', '.Read-Question-img .addQ , .Read-Question .addQ',function(){
         var i = 0
         $(this).closest('.questionType').find('.singleQ-container').append(`
            <div class="singleQ card rounded-3 overflow-hidden shadow my-2">
@@ -823,7 +823,7 @@ var chooseAudio =`
 
 
 
-      $('body').on('click', '.Read-Question-img .deleteQ',function(e){
+      $('body').on('click', '.Read-Question-img .deleteQ , .Read-Question .deleteQ',function(e){
         e.stopPropagation()
         var i1=0
         $(this).closest('.questionType').find('.singleQ').each(function(){
@@ -911,9 +911,54 @@ var chooseAudio =`
                     </div>
       `
 
+      $('body').on('click', '.Read-Question .submitQ',function(){
+        var filled = true ;
+        var filled2 = true ;
+        $(this).closest('.questionType').find('.singleQ').each(function(){
+            if($(this).find('input').val() == 0 || $(this).find('input').val() == ''){
+              filled = false ;
+            }
+            if($(this).find('textarea').val() == 0 || $(this).find('textarea').val() == ''){
+              filled2 = false ;
+            }
+        })
+        if($(this).closest('.questionType').find('.paraContainer').val()==0 || $(this).closest('.questionType').find('.paraContainer').val()==''){
+          alert('please Write the question')
+        }
+        
+        else if(!filled){
+          alert('please Write all Questions')
+        }
+        else if(!filled2){
+          alert("please Write all Questions's Answers")
+        }
+        else{
+          $(this).closest('.questionType').addClass('submited')
+          var Q = [] ;
+          var A = [] ;
+          $(this).closest('.questionType').find('.singleQ textarea').each(function(){
+            A.push($(this).val()) ;
+          })
+          $(this).closest('.questionType').find('.singleQ input').each(function(){
+            Q.push($(this).val()) ;
+          })
+          questions.push({
+            questionType: 'read',
+            questionHeader:'Read',
+            paragraph : $(this).closest('.questionType').find('.paraContainer').val(),
+            answers :A,
+            questions :Q
+          },)
+        $('.pickQuestion-container').show();
+          console.log(questions);
+        }
+      })
+
       $('body').on('click', '.Read-Question-img .submitQ',function(){
         var filled = true ;
         var filled2 = true ;
+        console.log('hi');
+        
         $(this).closest('.questionType').find('.singleQ').each(function(){
             if($(this).find('input').val() == 0 || $(this).find('input').val() == ''){
               filled = false ;
@@ -949,7 +994,8 @@ var chooseAudio =`
             questionHeader:'Read',
             paragraph : $(this).closest('.questionType').find('.paraContainer').val(),
             answers :A,
-            questions :Q
+            questions :Q,
+            img : $(this).closest('.questionType').find('input[type="file"]').val(),
           },)
         $('.pickQuestion-container').show();
           console.log(questions);
@@ -1425,7 +1471,7 @@ var chooseAudio =`
                               <div class="card border-0 rounded-4 shadow">
                                     <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
                                     <div class="choiceLetter flex-shrink-0 d-flex align-items-center me-3 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
-                                                         <span></span>
+                                                         <span>A</span>
                                                          <i class="fa fa-check d-none"></i>
                                                          <i class="fa fa-times d-none"></i>
                                                      </div>
@@ -1491,7 +1537,7 @@ var chooseAudio =`
                          <div class="card border-0 rounded-4 shadow">
                                <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
                                <div class="choiceLetter flex-shrink-0 d-flex align-items-center me-3 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
-                                                    <span></span>
+                                                    <span>A</span>
                                                     <i class="fa fa-check d-none"></i>
                                                     <i class="fa fa-times d-none"></i>
                                                 </div>

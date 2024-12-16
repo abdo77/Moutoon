@@ -128,3 +128,17 @@ body.dark .answerThefollowing{
     }
 }
 
+.previewDiv{
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.564);
+    display: none;
+}
+.previewDiv.show{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.previewDiv img{
+    max-width: 90%;
+    max-height: 90%;
+}

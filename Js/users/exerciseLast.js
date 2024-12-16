@@ -4,14 +4,48 @@ jQuery(document).ready(function() {
     counter =0;
     examName = 'test 1'
      exercise = [
-      
+
       {
-        questionType: 'e3raab',
-        questionHeader:' Find the expression position of underlined words',
-        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
-        words :['test','info'],
-        answers :['Name','added to it']
+        answers: ['asdasdads'] ,
+img: "../../Assests/360_F_625930300_RCif2F8QPzkuiC7TAEtj5QIwlumqwe3w.jpg",
+paragraph: "sadsasad",
+questionHeader: "Read and answer",
+questionType: "readImg",
+questions: ['sadasd'] ,
       },
+      {
+        questionType:'chooseImage' , 
+        questionHeader:' What is the question talking about ?',
+        src:'../../Assests/cover.jpg',
+        choices:[
+          'choice 1' ,'choice 2' ,'choice 3' , 
+        ],
+        rightChoice: 'choice 3',
+        explain : 'Explaination of the question'
+      },
+      {
+        questionType: 'ExtractImg',
+        questionHeader:' Extract the needed words',
+        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
+        words :['../../Assests/422ec8ac96a7e19836c85c2e7a103dd0.jpg','../../Assests/gettyimages-1336994560-640x640.jpg'],
+        answers :['test','information']
+      },
+       
+      {
+        questionType:'MatchAudio' , 
+        firstRow :['frow3','frow1','frow2'],
+        secondRow :['../../Assests/mixkit-game-show-wrong-answer-buzz-950.wav','../../Assests/mixkit-correct-answer-tone-2870.wav'],
+        answers:["frow1:../../Assests/mixkit-game-show-wrong-answer-buzz-950.wav","frow2:../../Assests/mixkit-correct-answer-tone-2870.wav"]
+
+      },
+      {
+        questionType:'MatchImg' , 
+        firstRow :['frow3','frow1','frow2'],
+        secondRow :['../../Assests/422ec8ac96a7e19836c85c2e7a103dd0.jpg','../../Assests/gettyimages-1336994560-640x640.jpg'],
+        answers:["frow1:../../Assests/422ec8ac96a7e19836c85c2e7a103dd0.jpg","frow2:../../Assests/gettyimages-1336994560-640x640.jpg"]
+
+      },
+  
       {
         questionType:'Match' , 
         firstRow :['frow3','frow1','frow2'],
@@ -19,6 +53,14 @@ jQuery(document).ready(function() {
         answers:["frow1:srow1","frow2:srow2"]
 
       },  
+      {
+        questionType: 'e3raab',
+        questionHeader:' Find the expression position of underlined words',
+        paragraph : 'This is a test for a paragraph that got some missing information so you have to complete it',
+        words :['test','info'],
+        answers :['Name','added to it']
+      },
+       
       {
         questionType: 'Extract',
         questionHeader:' Extract the needed words',
@@ -292,6 +334,45 @@ jQuery(document).ready(function() {
              `)
          }
         }
+        else if(exercise[counter].questionType == 'chooseImage'){
+          $('.question-container').append(`
+         <div class="questionType chooseAudio-Question text-center">
+          <img style="max-height:300px" class=" rounded-4 overflow-hidden mx-auto" src="${exercise[counter].src}" />
+          <h4 class="QHeader my-3 mt-5 fw-bold text-center">
+              ${exercise[counter].questionHeader}
+         </h4>
+         <div class="choices-container mt-5">
+             
+         </div>
+         <div class="correctAnswer-container row mx-0 d-none">
+         <hr class="mt-3">
+         <h4 class="QHeader fw-bold text-center">
+              Correct answer
+         </h4>
+         </div>
+     </div>
+       `)
+       
+       for (let i = 0; i < exercise[counter].choices.length; i++) {
+           $('.choices-container').append(`
+
+                           <label for="choice${i+1}" class="choice card rounded-4 shadow border-0 my-4">
+                                   <input type="radio" class="d-none" name="QuestionNum${1}" id="choice${i+1}" value="${exercise[counter].choices[i]}">
+                                   <div class="card-body p-4 px-4 d-flex align-items-center">
+                                       <div class="choiceLetter position-absolute d-flex align-items-center justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                           <span>${String.fromCharCode(i+97).toUpperCase()}</span>
+                                           <i class="fa fa-check d-none"></i>
+                                           <i class="fa fa-times d-none"></i>
+                                       </div>
+                                       <p class="fs-5 m-0 fw-bold mx-auto">
+                                       ${exercise[counter].choices[i]}
+                                       </p>
+                                   </div>
+                               </label>
+                 
+           `)
+       }
+      }
         else if (exercise[counter].questionType == 'Match') {
           $('.question-container').append(`
           <div class="questionType Match-Question text-center" >
@@ -349,6 +430,140 @@ jQuery(document).ready(function() {
                                              <i class="fa fa-times d-none"></i>
                                          </div>
                         <span class="match-text">${exercise[counter].secondRow[i]}</span></div>
+                  </div>
+                </div>
+            `)
+            
+          }
+          
+        }
+        else if (exercise[counter].questionType == 'MatchImg') {
+          $('.question-container').append(`
+          <div class="questionType Match-Question-Img text-center" >
+          <h4 class="QHeader my-3 mt-5 fw-bold text-center">
+              Match The Following
+          </h4>
+          <div class="matchContainer position-relative row mx-0"  >
+            <div class="firstRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col-6 text-center" ></div>
+
+            <div class="secondRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col-6" ></div>
+
+            <div class="col-12">
+
+            <div class="correctAnswer-container row mx-0 d-none">
+            <hr class="mt-3 col-12">
+            <h4 class="QHeader my-3 col-12 mt-5 fw-bold text-center">
+              Correct answeer
+            </h4>
+            <div class="firstRowAnswer d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col-6 text-center" ></div>
+
+            <div class="secondRowAnswer d-flex flex-column align-items-center flex-wrap  my-4 col-6" ></div>
+           
+            </div>
+            <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white my-2 Submit-match mx-auto disabled" disabled style="width: 200px;">
+            Submit Match
+        </button>
+            </div>
+          </div>
+          `)
+          $('.questionType').prop('id',counter)
+          for (let i = 0; i < exercise[counter].firstRow.length; i++) {
+            $('.firstRow').append(`
+                <div class="d-flex align-items-center fw-bold px-2 match-element my-2"  id="sleader${i}">
+                  <div class="card border-0 rounded-4 shadow">
+                        <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                        <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                             <span>${String.fromCharCode(i+97).toUpperCase()}</span>
+                                             <i class="fa fa-check d-none"></i>
+                                             <i class="fa fa-times d-none"></i>
+                                         </div>
+                        <span class="match-text">${exercise[counter].firstRow[i]}</span></div>
+                  </div>
+                </div>
+            `)
+            
+          }
+          for (let i = 0; i < exercise[counter].secondRow.length; i++) {
+            $('.secondRow').append(`
+                <div class="d-flex align-items-center fw-bold px-2 match-element my-2"  id="eleader${i}">
+                  <div class="card border-0 rounded-4 shadow">
+                        <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                        <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                             <span>${i+1}</span>
+                                             <i class="fa fa-check d-none"></i>
+                                             <i class="fa fa-times d-none"></i>
+                                         </div>
+                        <span class="match-text">
+                          <img src="${exercise[counter].secondRow[i]}" style="height:50px;width:50px;" />
+                          <i class="fa fa-eye ms-2"></i>
+                        </span></div>
+                  </div>
+                </div>
+            `)
+            
+          }
+          
+        }
+        else if (exercise[counter].questionType == 'MatchAudio') {
+          $('.question-container').append(`
+          <div class="questionType Match-Question-Audio text-center" >
+          <h4 class="QHeader my-3 mt-5 fw-bold text-center">
+              Match The Following
+          </h4>
+          <div class="matchContainer position-relative row mx-0"  >
+            <div class="firstRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col-6 text-center" ></div>
+
+            <div class="secondRow d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col-6" ></div>
+
+            <div class="col-12">
+
+            <div class="correctAnswer-container row mx-0 d-none">
+            <hr class="mt-3 col-12">
+            <h4 class="QHeader my-3 col-12 mt-5 fw-bold text-center">
+              Correct answeer
+            </h4>
+            <div class="firstRowAnswer d-flex flex-column align-items-center flex-wrap justify-content-center my-4 col-6 text-center" ></div>
+
+            <div class="secondRowAnswer d-flex flex-column align-items-center flex-wrap  my-4 col-6" ></div>
+           
+            </div>
+            <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white my-2 Submit-match mx-auto disabled" disabled style="width: 200px;">
+            Submit Match
+        </button>
+            </div>
+          </div>
+          `)
+          $('.questionType').prop('id',counter)
+          for (let i = 0; i < exercise[counter].firstRow.length; i++) {
+            $('.firstRow').append(`
+                <div class="d-flex align-items-center fw-bold px-2 match-element my-2"  id="sleader${i}">
+                  <div class="card border-0 rounded-4 shadow">
+                        <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                        <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                             <span>${String.fromCharCode(i+97).toUpperCase()}</span>
+                                             <i class="fa fa-check d-none"></i>
+                                             <i class="fa fa-times d-none"></i>
+                                         </div>
+                        <span class="match-text">${exercise[counter].firstRow[i]}</span></div>
+                  </div>
+                </div>
+            `)
+            
+          }
+          for (let i = 0; i < exercise[counter].secondRow.length; i++) {
+            $('.secondRow').append(`
+                <div class="d-flex align-items-center fw-bold px-2 match-element my-2"  id="eleader${i}">
+                  <div class="card border-0 rounded-4 shadow">
+                        <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                        <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                             <span>${i+1}</span>
+                                             <i class="fa fa-check d-none"></i>
+                                             <i class="fa fa-times d-none"></i>
+                                         </div>
+                        <span class="match-text">
+                          <audio controls class="d-none"  src="${exercise[counter].secondRow[i]}" style="height:50px;width:50px;" ></audio>
+                          <i class="fa fa-microphone mx-auto"></i>
+                        </span></div>
                   </div>
                 </div>
             `)
@@ -480,6 +695,60 @@ jQuery(document).ready(function() {
          }
          
         }
+        else if(exercise[counter].questionType == 'ExtractImg'){
+          $('.question-container').append(`
+           <div class="questionType extract-Question-Img text-center">
+           <div class="paragraphContainer border-0 card shadow rounded-3 mt-5">
+               <div class="card-body ">
+                  <p class="text-center fw-bold">${exercise[counter].paragraph}</p>
+               </div>
+           </div>
+           <p class="QHeader fw-bold text-start mt-3">
+           ${exercise[counter].questionHeader} :
+            </p>
+            <div class="row mx-0 align-items-center extractionsContainer">
+              
+            </div>
+            <div class="correctAnswer-container align-items-center row mx-0 d-none">
+            <hr class="mt-3">
+            <h4 class="QHeader col-12 fw-bold text-center">
+                Correct answer
+            </h4>
+            </div>
+           <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white mt-4 my-2 Submit-extract mx-auto disabled" style="width: 200px;">
+           Submit Complete
+       </button>
+       </div>
+         `)
+
+         for (let i = 0; i < exercise[counter].words.length; i++) {
+          $('.extractionsContainer').append(`
+          <div class="col-lg-5 col-md-5 col-12 px-0 my-3">
+          <div class="card extraction-card border-3 rounded-3  shadow">
+          <div class="card-body ">
+              <img src="${exercise[counter].words[i]}" style="width:70px; height:70px;cursor:pointer" /> 
+          </div>
+          </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-1  mx-auto my-1">
+        <div class="card rounded-3 border-0 shadow">
+        <div class="card-body px-0 fw-bold">
+            :
+        </div>
+        </div>
+        </div>
+        <div class="col-lg-5 col-md-5 col-12 px-0 my-3">
+        <div class="card extraction-card-answer bg-transparent rounded-3 border-3  ">
+        <div class="card-body p-0">
+            <div contenteditable="true" class="card-body fw-bold text-muted extractAnswer" style="outline:none ">Write your answer here</div>
+        </div>
+        </div>
+        </div>
+          `)
+          
+         }
+         
+        }
         else if(exercise[counter].questionType == 'read'){
           $('.question-container').append(`
            <div class="questionType read-Question text-center">
@@ -491,6 +760,48 @@ jQuery(document).ready(function() {
                   <p class="text-center fw-bold">${exercise[counter].paragraph}</p>
                </div>
            </div>
+           <p class="fw-bold text-start my-3 answerThefollowing">Answer the following questions:</p>
+           <div class="row mx-0 align-items-center readContainer">
+              
+            </div>
+            <div class="correctAnswer-container row mx-0 d-none">
+            <hr class="mt-3">
+            <h4 class="QHeader fw-bold text-center">
+                Correct Answer
+           </h4>
+            </div>
+            <button  class="btn shadow rounded-4 rpl fs-6 rpl-dark p-3 px-4w fw-bold text-white mt-4 my-2 Submit-read mx-auto disabled" disabled style="width: 200px;">
+           Submit Answers
+       </button>
+       
+       </div>
+         `)
+
+         for (let i = 0; i < exercise[counter].questions.length; i++) {
+          $('.readContainer').append(`
+          <div class="shadow rounded-3 border-0 card my-2">
+              <div class="card-body py-1">
+              <p class="fw-bold text-start my-3 ">${i+1}- ${exercise[counter].questions[i]}</p>
+              <textarea style="border-color:#c2c2c2;outline:none;min-height:100px" class="bg-transparent p-1 border-2 w-100 rounded-3"></textarea>
+              </div>
+              </div>
+          `)
+          
+         }
+        }
+        else if(exercise[counter].questionType == "readImg"){
+          $('.question-container').append(`
+           <div class="questionType read-Question-Img text-center">
+           <h4 class="QHeader fw-bold text-center">
+                ${exercise[counter].questionHeader} then answer
+           </h4>
+
+           <div class="paragraphContainer border-0 card shadow rounded-3 mt-5">
+               <div class="card-body ">
+                  <p class="text-center fw-bold">${exercise[counter].paragraph}</p>
+               </div>
+           </div>
+           <img style="max-height:300px" class=" my-3 rounded-4 overflow-hidden mx-auto" src="${exercise[counter].img}" />
            <p class="fw-bold text-start my-3 answerThefollowing">Answer the following questions:</p>
            <div class="row mx-0 align-items-center readContainer">
               
@@ -709,23 +1020,73 @@ jQuery(document).ready(function() {
      $('body').on('click',' .secondRow .match-element', function(){
       if(!$(this).hasClass('binded')&&$('.firstRow .match-element').hasClass('Selected')){
         $(this).addClass('binded')
-        Lines[$(this).find('.match-text').text()] = new LeaderLine(
-          $('.firstRow .match-element.Selected')[0],
-            $(this)[0],
-            {
-              hide: true,
-              color:'#31947b'
-            }
-        )
-        var name = $(this).find('.match-text').text()
-        Lines[name].size =3 ; 
-        Lines[name].setOptions({startSocket: 'right', endSocket: 'left'});
-        Lines[name].position()
         
-        $('.firstRow .match-element.Selected').addClass('binded')
+        if($(this).closest('.questionType').hasClass('Match-Question')){
+          Lines[$(this).find('.match-text').text()] = new LeaderLine(
+            $('.firstRow .match-element.Selected')[0],
+              $(this)[0],
+              {
+                hide: true,
+                color:'#31947b'
+              }
+          )
+          var name = $(this).find('.match-text').text()
+          Lines[name].size =3 ; 
+          Lines[name].setOptions({startSocket: 'right', endSocket: 'left'});
+          Lines[name].position()
+        }
+        if($(this).closest('.questionType').hasClass('Match-Question-Img')){
+          Lines[$(this).find('.match-text img').attr('src')] = new LeaderLine(
+            $('.firstRow .match-element.Selected')[0],
+              $(this)[0],
+              {
+                hide: true,
+                color:'#31947b'
+              }
+          )
+          var name = $(this).find('.match-text img').attr('src')
+          Lines[name].size =3 ; 
+          Lines[name].setOptions({startSocket: 'right', endSocket: 'left'});
+          Lines[name].position()
+        }
+        if($(this).closest('.questionType').hasClass('Match-Question-Audio')){
+          Lines[$(this).find('.match-text audio').attr('src')] = new LeaderLine(
+            $('.firstRow .match-element.Selected')[0],
+              $(this)[0],
+              {
+                hide: true,
+                color:'#31947b'
+              }
+          )
+          var name = $(this).find('.match-text audio').attr('src')
+          Lines[name].size =3 ; 
+          Lines[name].setOptions({startSocket: 'right', endSocket: 'left'});
+          Lines[name].position()
+        }
+
+        
+        
+        if($(this).closest('.questionType').hasClass('Match-Question')){
+          $('.firstRow .match-element.Selected').addClass('binded')
         $('.firstRow .match-element.Selected').addClass($(this).find('.match-text').text())
         $(this).attr('value',$('.firstRow .match-element.Selected').find('.match-text').text()+':'+$(this).find('.match-text').text())
         $('.firstRow .match-element.Selected').attr('value',$('.firstRow .match-element.Selected').find('.match-text').text()+':'+$(this).find('.match-text').text())        
+        
+        }
+        else if($(this).closest('.questionType').hasClass('Match-Question-Img')){
+          $('.firstRow .match-element.Selected').addClass('binded')
+        $('.firstRow .match-element.Selected').addClass($(this).find('.match-text img').attr('src'))
+        $(this).attr('value',$('.firstRow .match-element.Selected').find('.match-text').text()+':'+$(this).find('.match-text img').attr('src'))
+        $('.firstRow .match-element.Selected').attr('value',$('.firstRow .match-element.Selected').find('.match-text').text()+':'+$(this).find('.match-text img').attr('src'))        
+        
+        }
+        else if($(this).closest('.questionType').hasClass('Match-Question-Audio')){
+          $('.firstRow .match-element.Selected').addClass('binded')
+        $('.firstRow .match-element.Selected').addClass($(this).find('.match-text audio').attr('src'))
+        $(this).attr('value',$('.firstRow .match-element.Selected').find('.match-text').text()+':'+$(this).find('.match-text audio').attr('src'))
+        $('.firstRow .match-element.Selected').attr('value',$('.firstRow .match-element.Selected').find('.match-text').text()+':'+$(this).find('.match-text audio').attr('src'))        
+        
+        }
         
         Lines[name].show('draw')
         $('.firstRow ').find('.match-element.Selected').removeClass('Selected')
@@ -748,9 +1109,19 @@ jQuery(document).ready(function() {
           
           
       }
-      else if($(this).hasClass('binded')&&$('.firstRow .match-element').hasClass('Selected')&&$('.firstRow .match-element.Selected').hasClass(''+$(this).find('.match-text').text()+'')){
+      else if($(this).hasClass('binded')&&$('.firstRow .match-element').hasClass('Selected')&& ($('.firstRow .match-element.Selected').hasClass(''+$(this).find('.match-text').text()+'') || $('.firstRow .match-element.Selected').hasClass(''+$(this).find('.match-text Img').attr('src')+'') || $('.firstRow .match-element.Selected').hasClass(''+$(this).find('.match-text audio').attr('src')+''))){
         $(this).removeClass('binded')
-        var name = $(this).find('.match-text').text()
+        var name = ''
+        if($(this).closest('.questionType').hasClass('Match-Question')){
+          name = $(this).find('.match-text').text()
+        }
+        if($(this).closest('.questionType').hasClass('Match-Question-Img')){
+          name = $(this).find('.match-text img').attr('src')
+        }
+        if($(this).closest('.questionType').hasClass('Match-Question-Audio')){
+          
+          name = $(this).find('.match-text audio').attr('src')
+        }
 
         Lines[name].hide('draw')
         var firstlength = 0
@@ -804,6 +1175,8 @@ jQuery(document).ready(function() {
     $(' .match-element').each(function(){
       var correct = 0
       var empty = true
+      console.log($(this).attr('value'));
+      
       for (let i = 0; i < exercise[counter].answers.length; i++) {
         if($(this).attr('value')!=null  && $(this).attr('value')!='' && $(this).attr('value')!=undefined){
             empty = false ;
@@ -827,36 +1200,144 @@ jQuery(document).ready(function() {
     if (!allcorrect) {
       $('.correctAnswer-container').removeClass('d-none')
       var splitAnswer = []
-      for (let i = 0; i < exercise[counter].answers.length; i++) {
-        splitAnswer = exercise[counter].answers[i].split(":")
-        $('.firstRowAnswer').append(`
-            <div class="d-flex align-items-center fw-bold px-2 match-element disabled my-2 "  id="sleader${i}">
-              <div class="card border-0 rounded-4 shadow correctChoice">
-                    <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
-                    <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
-                                         <span>${String.fromCharCode(i+97).toUpperCase()}</span>
-                                         
-                                     </div>
-                    <span class="match-text">${splitAnswer[0]}</span></div>
+      if($(this).closest('.questionType').hasClass('Match-Question')){
+        for (let i = 0; i < exercise[counter].answers.length; i++) {
+          splitAnswer = exercise[counter].answers[i].split(":")
+          $('.firstRowAnswer').append(`
+              <div class="d-flex align-items-center fw-bold px-2 match-element disabled my-2 "  id="sleader${i}">
+                <div class="card border-0 rounded-4 shadow correctChoice">
+                      <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                      <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                           <span>${String.fromCharCode(i+97).toUpperCase()}</span>
+                                           
+                                       </div>
+                      <span class="match-text">${splitAnswer[0]}</span></div>
+                </div>
               </div>
-            </div>
-        `)
-            $('.secondRowAnswer').append(`
-            <div class="d-flex align-items-center fw-bold px-2 match-element disabled  my-2"  id="eleader${i}">
-              <div class="card border-0 rounded-4 shadow correctChoice">
-                    <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
-                    <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
-                                         <span>${i+1}</span>
-                                        
-                                     </div>
-                    <span class="match-text">${splitAnswer[1]}</span></div>
+          `)
+              $('.secondRowAnswer').append(`
+              <div class="d-flex align-items-center fw-bold px-2 match-element disabled  my-2"  id="eleader${i}">
+                <div class="card border-0 rounded-4 shadow correctChoice">
+                      <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                      <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                           <span>${i+1}</span>
+                                          
+                                       </div>
+                      <span class="match-text">${splitAnswer[1]}</span></div>
+                </div>
               </div>
-            </div>
-        `)
-        
+          `)
+          
+        }
       }
+      else if($(this).closest('.questionType').hasClass('Match-Question-Img')){
+        for (let i = 0; i < exercise[counter].answers.length; i++) {
+          splitAnswer = exercise[counter].answers[i].split(":")
+          $('.firstRowAnswer').append(`
+              <div class="d-flex align-items-center fw-bold px-2 match-element disabled my-2 "  id="sleader${i}">
+                <div class="card border-0 rounded-4 shadow correctChoice">
+                      <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                      <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                           <span>${String.fromCharCode(i+97).toUpperCase()}</span>
+                                           
+                                       </div>
+                      <span class="match-text">${splitAnswer[0]}</span></div>
+                </div>
+              </div>
+          `)
+              $('.secondRowAnswer').append(`
+              <div class="d-flex align-items-center fw-bold px-2 match-element disabled  my-2"  id="eleader${i}">
+                <div class="card border-0 rounded-4 shadow correctChoice">
+                      <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                      <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                           <span>${i+1}</span>
+                                          
+                                       </div>
+                      <span class="match-text d-flex align-items-center">
+                          <img src="${splitAnswer[1]}" style="height:50px;width:50px;">
+                          <i class="fa fa-eye ms-2"></i>
+                        </span>
+                        </div>
+                </div>
+              </div>
+          `)
+          
+        }
+      }
+      else if($(this).closest('.questionType').hasClass('Match-Question-Audio')){
+        for (let i = 0; i < exercise[counter].answers.length; i++) {
+          splitAnswer = exercise[counter].answers[i].split(":")
+          $('.firstRowAnswer').append(`
+              <div class="d-flex align-items-center fw-bold px-2 match-element disabled my-2 "  id="sleader${i}">
+                <div class="card border-0 rounded-4 shadow correctChoice">
+                      <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                      <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                           <span>${String.fromCharCode(i+97).toUpperCase()}</span>
+                                           
+                                       </div>
+                      <span class="match-text">${splitAnswer[0]}</span></div>
+                </div>
+              </div>
+          `)
+              $('.secondRowAnswer').append(`
+              <div class="d-flex align-items-center fw-bold px-2 match-element disabled  my-2"  id="eleader${i}">
+                <div class="card border-0 rounded-4 shadow correctChoice">
+                      <div class="card-body d-flex align-items-center ps-1 pe-4 py-2 ">
+                      <div class="choiceLetter  d-flex align-items-center me-5 justify-content-center fs-5 rounded-circle p-1 fw-bold ">
+                                           <span>${i+1}</span>
+                                          
+                                       </div>
+                      <span class="match-text">
+                          <audio controls class="d-none"  src="${exercise[counter].secondRow[i]}" style="height:50px;width:50px;" ></audio>
+                          <i class="fa fa-microphone mx-auto"></i>
+                        </span>
+                        </div>
+                </div>
+              </div>
+          `)
+          
+        }
+      }
+
      }
    })
+
+
+   $('body').on('click', '.secondRow .fa-eye , .secondRowAnswer .fa-eye', function(e){
+    e.stopPropagation();
+
+    $('.previewDiv').addClass('show')
+    $('.previewDiv').append(`
+        <img src="${$(this).closest('.match-text').find('img').attr('src') }">  
+    `)
+
+  })
+  $('body').on('click', '.extract-Question-Img img', function(e){
+    e.stopPropagation();
+
+    $('.previewDiv').addClass('show')
+    $('.previewDiv').append(`
+        <img src="${$(this).attr('src') }">  
+    `)
+
+  })
+
+  $('body').on('click', '.secondRow .fa-microphone , .secondRowAnswer .fa-microphone', function(e){
+    e.stopPropagation();
+    
+    var audio = $(this).closest('.match-text').find('audio')[0];
+        audio.play();
+
+  })
+
+  $('.previewDiv').click(function (e) {
+    e.stopPropagation()
+    $(this).empty();
+    $(this).removeClass('show')
+ }) 
+ $('.previewDiv').on('click','*',function (e) {
+  e.stopPropagation(); 
+ })
 
 
      // Complete Function
@@ -979,37 +1460,72 @@ jQuery(document).ready(function() {
       $(this).attr('disabled',true)
       $('.correctAnswer-container').removeClass('d-none')
       var word = 0
-      $('.extractAnswer').each(function(){
-        if($(this).text() != exercise[counter].answers[word]){
-          $(this).addClass('text-danger')
-          $(this).removeClass('text-muted')
-          $(this).closest('.extraction-card-answer').addClass('border-danger')
-          $('.correctAnswer-container').append(`
+      if($(this).closest('.questionType').hasClass('extract-Question')){
+        $('.extractAnswer').each(function(){
+          if($(this).text() != exercise[counter].answers[word]){
+            $(this).addClass('text-danger')
+            $(this).removeClass('text-muted')
+            $(this).closest('.extraction-card-answer').addClass('border-danger')
+            $('.correctAnswer-container').append(`
+            <div class="col-lg-5 col-md-5 col-12 px-0 my-3">
+            <div class="card extraction-card border-3 rounded-3  shadow">
+            <div class="card-body ">
+                ${exercise[counter].words[word]}
+            </div>
+            </div>
+          </div>
+          <div class="col-lg-1 col-md-1 col-1  mx-auto my-1 my-auto">
+          <div class="card rounded-3 border-0 shadow">
+          <div class="card-body px-0 fw-bold">
+              :
+          </div>
+          </div>
+          </div>
           <div class="col-lg-5 col-md-5 col-12 px-0 my-3">
-          <div class="card extraction-card border-3 rounded-3  shadow">
-          <div class="card-body ">
-              ${exercise[counter].words[word]}
+          <div class="card extraction-card-answer bg-transparent rounded-3 border-3 border-success ">
+          <div class="card-body p-0">
+              <div  class="card-body text-success fw-bold  extractAnswer text-success" style="outline:none ">${exercise[counter].answers[word]}</div>
           </div>
           </div>
-        </div>
-        <div class="col-lg-1 col-md-1 col-1  mx-auto my-1 my-auto">
-        <div class="card rounded-3 border-0 shadow">
-        <div class="card-body px-0 fw-bold">
-            :
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-5 col-md-5 col-12 px-0 my-3">
-        <div class="card extraction-card-answer bg-transparent rounded-3 border-3 border-success ">
-        <div class="card-body p-0">
-            <div  class="card-body text-success fw-bold  extractAnswer text-success" style="outline:none ">${exercise[counter].answers[word]}</div>
-        </div>
-        </div>
-        </div>
-          `)
-        }
-        word++;
-      })
+          </div>
+            `)
+          }
+          word++;
+        })
+      }
+      else if($(this).closest('.questionType').hasClass('extract-Question-Img')){
+        $('.extractAnswer').each(function(){
+          if($(this).text() != exercise[counter].answers[word]){
+            $(this).addClass('text-danger')
+            $(this).removeClass('text-muted')
+            $(this).closest('.extraction-card-answer').addClass('border-danger')
+            $('.correctAnswer-container').append(`
+            <div class="col-lg-5 col-md-5 col-12 px-0 my-3">
+            <div class="card extraction-card border-3 rounded-3  shadow">
+            <div class="card-body ">
+                <img src="${exercise[counter].words[word]}" style="width:70px; height:70px;cursor:pointer" />
+            </div>
+            </div>
+          </div>
+          <div class="col-lg-1 col-md-1 col-1  mx-auto my-1 my-auto">
+          <div class="card rounded-3 border-0 shadow">
+          <div class="card-body px-0 fw-bold">
+              :
+          </div>
+          </div>
+          </div>
+          <div class="col-lg-5 col-md-5 col-12 px-0 my-3">
+          <div class="card extraction-card-answer bg-transparent rounded-3 border-3 border-success ">
+          <div class="card-body p-0">
+              <div  class="card-body text-success fw-bold  extractAnswer text-success" style="outline:none ">${exercise[counter].answers[word]}</div>
+          </div>
+          </div>
+          </div>
+            `)
+          }
+          word++;
+        })
+      }
       $(this).addClass('disabled')
       $(this).attr('disabled',true)
       $(this).off('click')
