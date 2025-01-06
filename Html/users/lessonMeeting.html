@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../Assests/Screenshot 2023-11-05 203303.png" type="image/x-icon">
+    <title>Levels</title>
+    <link rel="stylesheet" href="../../Css/Shared/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../Css/Shared/ripple.css">
+    <link rel="stylesheet" href="../../Css/Shared/gridJs.css">
+    <link rel="stylesheet" href="../../Css/users/shared.css">
+    <link rel="stylesheet" href="../../Css/users/lessonMeeting.css">
+</head>
+
+<body class="">
+
+    <header class="">
+    </header>
+
+    <aside class="">
+
+    </aside>
+
+    <div class="shadow-bg">
+
+    </div>
+    <main>
+        <div class="container-fluid">
+            <!-- <h3 class="page-title fw-bold my-5">
+                <span class="courseName">Course Name</span> Levels
+            </h3> -->
+            
+            <div class="container mt-4">
+                <div class="row mx-0">
+                    <div class="col-12 my-2">
+                        <!-- Lesson Details -->
+                        <div class="lessonName">
+                            <h5 class="fw-bold">Figma From A to Z</h5>
+                        </div>
+                        <div class="lessonDetails d-flex align-items-center pt-1 pb-3 main-font3 fw-bold">
+                            <div class="num pe-2">
+                                <i class="fa-regular fa-play-circle text-success me-1"></i> <span class="text-muted">34 Lessons</span>
+                            </div>
+                            <div class="duration px-2">
+                                <i class="fa-regular fa-clock text-success me-1"></i> <span class="text-muted">4h 30min</span>
+                            </div>
+                            <div class="rate px-2">
+                                <i class="fa-regular fa-star text-success me-1"></i> <span class="text-muted">4.5 (120 reviews)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-6 col-12 col-xl-8 my-2">
+                        
+                        
+                        <!-- video container -->
+                        <div class="lessonThumbnail mb-3 position-relative rounded-4 overflow-hidden">
+                            <div class="videoCover rounded-4 d-flex w-100 h-100 align-items-center justify-content-center position-absolute start-0 top-0">
+                                <div class="rounded-circle playerBtn bg-white d-flex align-items-center justify-content-center">
+                                    <h5 class="m-0"><i class="fa fa-play text-success"></i></h5>
+                                </div>
+                            </div>
+                            <video id="video" src="../../Assests/YG - Out On Bail (Official Video)(480P).mp4" controls class="w-100 rounded-4" poster="../../Assests/gettyimages-1336994560-640x640.jpg"></video>
+                        </div>
+
+                        <ul class="nav nav-tabs border-0" id="Tabs" role="tablist">
+                            <li class="nav-item mt-2" role="presentation">
+                              <button class="nav-link border-0 rounded-4 px-4 main-font2 fw-bold text-dark active" id="Overview-tab" data-bs-toggle="tab" data-bs-target="#Overview" type="button" role="tab" aria-controls="Overview" aria-selected="true">Overview</button>
+                            </li>
+                            <li class="nav-item mt-2" role="presentation">
+                              <button class="nav-link border-0 rounded-4 px-4 main-font2 fw-bold text-dark" id="Author-tab" data-bs-toggle="tab" data-bs-target="#Author" type="button" role="tab" aria-controls="Author" aria-selected="false">Author</button>
+                            </li>
+                            <li class="nav-item mt-2" role="presentation">
+                              <button class="nav-link border-0 rounded-4 px-4 main-font2 fw-bold text-dark" id="FAQ-tab" data-bs-toggle="tab" data-bs-target="#FAQ" type="button" role="tab" aria-controls="FAQ" aria-selected="false">FAQ</button>
+                            </li>
+                            <li class="nav-item mt-2" role="presentation">
+                                <button class="nav-link border-0 rounded-4 px-4 main-font2 fw-bold text-dark" id="Reviews-tab" data-bs-toggle="tab" data-bs-target="#Reviews" type="button" role="tab" aria-controls="Reviews" aria-selected="false">Reviews</button>
+                            </li>
+                            <li class="nav-item mt-2" role="presentation">
+                                <button class="nav-link border-0 rounded-4 px-4 main-font2 fw-bold text-dark" id="Attachments-tab" data-bs-toggle="tab" data-bs-target="#Attachments" type="button" role="tab" aria-controls="Attachments" aria-selected="false">Attachments</button>
+                            </li>
+                          </ul>
+                          <div class="tab-content py-3" id="myTabContent">
+                            <div class="tab-pane fade " id="Overview" role="tabpanel" aria-labelledby="Overview-tab">
+                                <div class="card rounded-4 py-3 border-0 shadow overflow-hidden">
+                                    <div class="card-body border-0">
+                                        <h5 class="fw-bold">
+                                            About Course
+                                        </h5>
+                                        <p class="main-font2 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus eveniet dolore autem id rerum ut fuga delectus ad, reiciendis veniam sequi, cupiditate molestias itaque minima enim, error non impedit recusandae!</p>
+                                    
+                                    <h5 class="fw-bold">
+                                        What You'll Learn
+                                    </h5>
+                                    <div class="row mx-0 main-font2">
+                                        <div class="col-lg-6 col-12 mt-2 ps-lg-0">
+                                            <i class="fa fa-check text-success me-1 "></i> <span class="text-muted">Setting up the Enviroment</span>
+                                        </div>
+                                        <div class="col-lg-6 col-12 mt-2 pe-lg-0">
+                                            <i class="fa fa-check text-success me-1 "></i> <span class="text-muted">Setting up the Enviroment</span>
+                                        </div>
+                                        <div class="col-lg-6 col-12 mt-2 ps-lg-0">
+                                            <i class="fa fa-check text-success me-1 "></i> <span class="text-muted">Setting up the Enviroment</span>
+                                        </div>
+                                        <div class="col-lg-6 col-12 mt-2 pe-lg-0">
+                                            <i class="fa fa-check text-success me-1 "></i> <span class="text-muted">Setting up the Enviroment</span>
+                                        </div>
+                                        <div class="col-lg-6 col-12 mt-2 ps-lg-0">
+                                            <i class="fa fa-check text-success me-1 "></i> <span class="text-muted">Setting up the Enviroment</span>
+                                        </div>
+                                        <div class="col-lg-6 col-12 mt-2 pe-lg-0">
+                                            <i class="fa fa-check text-success me-1 "></i> <span class="text-muted">Setting up the Enviroment</span>
+                                        </div>
+                                        <div class="col-lg-6 col-12 mt-2 ps-lg-0">
+                                            <i class="fa fa-check text-success me-1 "></i> <span class="text-muted">Setting up the Enviroment</span>
+                                        </div>
+                                        <div class="col-lg-6 col-12 mt-2 pe-lg-0">
+                                            <i class="fa fa-check text-success me-1 "></i> <span class="text-muted">Setting up the Enviroment</span>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade " id="Author" role="tabpanel" aria-labelledby="Author-tab">
+                                <div class="card rounded-4 py-3 border-0 shadow overflow-hidden">
+                                    <div class="card-body border-0">
+                                        <h5 class="fw-bold">
+                                            Ahemd EL hosseny
+                                        </h5>
+                                    <p class="main-font2 text-muted">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel alias delectus dolorum tempora maiores, eius blanditiis, natus aperiam quam ex qui itaque amet! Pariatur amet dolorem vero, mollitia quo fuga!
+                                    </p>
+                                    <p class="main-font2">
+                                        <i class="fa fa-star text-success me-1"></i> <span>4.5 (120 reviews)</span>
+                                    </p>                                    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade " id="FAQ" role="tabpanel" aria-labelledby="FAQ-tab">
+                                <div class="card rounded-4 py-3 border-0 shadow overflow-hidden">
+                                    <div class="card-body border-0">
+                                        <div class="my-3 border-bottom">
+                                            <h5 class="fw-bold">
+                                                Why this Teacher is so bad ?
+                                            </h5>
+                                            <p class="text-muted main-font2">
+                                                Cause his name is Ahmed el hosseny :) 
+                                            </p>
+                                        </div>
+                                        <div class="my-3 border-bottom">
+                                            <h5 class="fw-bold">
+                                                Why this Teacher is so bad ?
+                                            </h5>
+                                            <p class="text-muted main-font2">
+                                                Cause his name is Ahmed el hosseny :) 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="tab-pane fade " id="Reviews" role="tabpanel" aria-labelledby="Reviews-tab">
+                                <div class="card rounded-4 py-3 border-0 shadow overflow-hidden">
+                                    <div class="card-body border-0">
+                                        <div class="singleReview border-bottom my-3">
+                                            <div class="d-flex align-items-center">
+                                                <div class="rounded-circle me-2 avtr-md d-flex align-items-center bg-light justify-content-center">
+                                                    <i class="fa fa-user text-success"></i>
+                                                </div>
+                                                <span class="main-font2 fw-bold">Ahmed El hosseny</span>
+                                            </div>
+                                            <div class="ps-5  main-font2 text-muted pb-3">
+                                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus, quidem adipisci. Eligendi voluptas velit perferendis magnam quisquam ipsum voluptatem laudantium ratione vel error rerum, animi a voluptatum quae quaerat porro?
+                                            </div>
+                                        </div>
+                                        <div class="singleReview border-bottom my-3">
+                                            <div class="d-flex align-items-center">
+                                                <div class="rounded-circle me-2 avtr-md d-flex align-items-center bg-light justify-content-center">
+                                                    <i class="fa fa-user text-success"></i>
+                                                </div>
+                                                <span class="main-font2 fw-bold">Ahmed El hosseny</span>
+                                            </div>
+                                            <div class="ps-5  main-font2 text-muted pb-3">
+                                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus, quidem adipisci. Eligendi voluptas velit perferendis magnam quisquam ipsum voluptatem laudantium ratione vel error rerum, animi a voluptatum quae quaerat porro?
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="tab-pane fade show active" id="Attachments" role="tabpanel" aria-labelledby="Attachments-tab">
+                                <div class="card rounded-4 py-3 border-0 shadow overflow-hidden">
+                                    <div class="card-body border-0  fw-bold">
+                                        <div class="my-2 border-bottom pb-2">
+                                            <a href="" class="text-dark text-decoration-none">
+                                                <i class="fa fa-file-download me-2"></i>
+                                                <span>Attachmetns.zip</span>
+                                            </a>
+                                        </div>
+                                        <div class="my-2">
+                                            <a href="" class="text-dark text-decoration-none">
+                                                <i class="fa fa-file-download me-2"></i>
+                                                <span>Attachmetns.zip</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12 col-xl-4 my-2">
+                        <div class="card shadow rounded-4 border-0 overflow-hidden">
+                            <div class="card-body text-center">
+                                <p class="fw-bold main-font2 mb-0 mt-2">Select Meeting Form:</p>
+                                <select class="form-select text-center fw-bold main-font2 mb-3 shadow-none">
+                                    <option value="">Al-Moutoun</option>
+                                </select>
+                                <p class="main-font2 fw-bold mb-0 mt-3">Meeting ID:</p>
+                                <input type="text" name="" class="form-control text-center fw-bold main-font2 my-2 shadow-none" placeholder="Enter or generate meeting ID" id="">
+                                <h5 class="mt-4 time fw-bold">
+                                    52:23
+                                </h5>
+                                <div class="btn-group d-flex ">
+                                    <button class="btn btn-success me-1 rounded-3 shadow-none">
+                                        Join
+                                    </button>
+                                    <button class="btn btn-danger ms-1 rounded-3 shadow-none">
+                                        End
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mt-3 shadow rounded-4 border-0 overflow-hidden">
+                            <div class="card-body">
+                                <div class="activity main-font2 py-2 border-bottom">
+                                    <p class="name fw-bold d-flex aling-items-center mb-1"><span>Ahemd EL hosseny</span> <span class="ms-auto"><i class="fa fa-star text-success"></i>4.5</span></p>
+                                    <div class="d-flex align-items-center"><div class="badge bg-success text-white main-font3 ">Joined</div> <p class="my-0 fw-bold main-font3 ms-auto"><span>at :</span> 10.05AM</p></div>
+                                </div>
+                                <div class="activity main-font2 py-2 border-bottom">
+                                    <p class="name fw-bold d-flex aling-items-center mb-1"><span>Ahemd EL hosseny</span> <span class="ms-auto"><i class="fa fa-star text-success"></i>4.5</span></p>
+                                    <div class="d-flex align-items-center"><div class="badge bg-success text-white main-font3 ">Joined</div> <p class="my-0 fw-bold main-font3 ms-auto"><span>at :</span> 10.05AM</p></div>
+                                </div>
+                                <div class="activity main-font2 py-2 border-bottom">
+                                    <p class="name fw-bold d-flex aling-items-center mb-1"><span>Ahemd EL hosseny</span> <span class="ms-auto"><i class="fa fa-star text-success"></i>4.5</span></p>
+                                    <div class="d-flex align-items-center"><div class="badge bg-success text-white main-font3 ">Joined</div> <p class="my-0 fw-bold main-font3 ms-auto"><span>at :</span> 10.05AM</p></div>
+                                </div>
+                                <div class="activity main-font2 py-2 border-bottom">
+                                    <p class="name fw-bold d-flex aling-items-center mb-1"><span>Ahemd EL hosseny</span> <span class="ms-auto"><i class="fa fa-star text-success"></i>4.5</span></p>
+                                    <div class="d-flex align-items-center"><div class="badge bg-success text-white main-font3 ">Joined</div> <p class="my-0 fw-bold main-font3 ms-auto"><span>at :</span> 10.05AM</p></div>
+                                </div>
+                                <div class="activity main-font2 py-2 border-bottom">
+                                    <p class="name fw-bold d-flex aling-items-center mb-1"><span>Ahemd EL hosseny</span> <span class="ms-auto"><i class="fa fa-star text-success"></i>4.5</span></p>
+                                    <div class="d-flex align-items-center"><div class="badge bg-success text-white main-font3 ">Joined</div> <p class="my-0 fw-bold main-font3 ms-auto"><span>at :</span> 10.05AM</p></div>
+                                </div>
+                                <div class="activity main-font2 py-2 border-bottom">
+                                    <p class="name fw-bold d-flex aling-items-center mb-1"><span>Ahemd EL hosseny</span> <span class="ms-auto"><i class="fa fa-star text-success"></i>4.5</span></p>
+                                    <div class="d-flex align-items-center"><div class="badge bg-success text-white main-font3 ">Joined</div> <p class="my-0 fw-bold main-font3 ms-auto"><span>at :</span> 10.05AM</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+    <script src="../../Js/Shared/jquery-3.6.0.min.js"></script>
+    <script src="../../Js/Shared/bootstrap.min.js"></script>
+    <script src="../../Js/Shared/ripple.js"></script>
+    <script src="../../Js/Shared/gridJs.js"></script>
+    <script src="../../Js/users/shared.js"></script>
+    <script src="../../Js/users/lessonMeeting.js"></script>
+
+
+</body>
+
+</html>
