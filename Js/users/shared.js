@@ -36,6 +36,7 @@ jQuery(document).ready(function() {
             $(this).find('.switch-circle').find('.fa').removeClass('fa-moon').addClass('fa-sun') ;
             $('body').removeClass('dark')
         }
+        window.location.reload()
     })  
 
     $('.shadow-bg').click(function(){

@@ -1,0 +1,117 @@
+.apexcharts-bar-series.apexcharts-plot-series  .apexcharts-series path {
+    clip-path: inset(10% 0% 10% 0% round 8px) !important;
+}
+
+.fc .fc-col-header-cell-cushion {
+    display: inline-block;
+    padding: 10px 10px;
+    color: black !important;
+  }
+  .fc-scroller-harness{
+    box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.184) !important;;
+
+  }
+  .fc-theme-standard .fc-scrollgrid{
+    border: 0px;
+  }
+.fc-scroller{
+    overflow: hidden hidden !important;
+}
+.fc-header-toolbar {
+    display: none !important;
+}
+.fc-col-header-cell-cushion ,  .fc-daygrid-day-number{
+    text-decoration: none !important;
+}
+.fc-daygrid-day-number{
+    color: #c2c2c2;
+}
+.fc-day-today .fc-daygrid-day-number{
+    color: white !important;
+    background-color: #3164d4;
+    border-radius: 50%;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.fc-daygrid-day{
+    padding: 5px !important;
+}
+
+.fc .fc-daygrid-day.fc-day-today{
+    background-color: white;
+}
+.fc-h-event .fc-event-main{
+    color: black;
+}
+.fc-event {
+    border-radius: 20px;
+}
+.fc-theme-standard td, .fc-theme-standard th{
+    border:2px solid #c2c2c239
+}
+.Event1{
+    color: black !important;
+    background-color: #634fca4b !important;
+    border:0px solid  #634fca6c !important;
+    padding: 8px;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between !important;
+}
+.Event2{
+    color: black !important;
+    background-color: #087c6948 !important;
+    border:0px solid  #634fca6c !important;
+    padding: 8px;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between !important;
+}
+
+.Event3{
+    color: black !important;
+    background-color: #f3963970 !important;
+    border:0px solid  #634fca6c !important;
+    padding: 8px;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between !important;
+}
+.Event4{
+    color: black !important;
+    background-color: #dfe3e662 !important;
+    border:0px solid  #634fca6c !important;
+    padding: 8px;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between !important;
+}
+body.dark .Event1 ,body.dark  .Event2 ,body.dark  .Event3 ,body.dark  .Event4 {
+    color: white !important;
+}
+body.dark .fc .fc-daygrid-day.fc-day-today{
+    background-color: #1e1e1e;
+}
+.fc-daygrid-event-dot{
+    display: none !important;
+}
+body.dark .card-body{
+    background-color: #1e1e1e;
+    
+}
+body.dark .card{
+    overflow: hidden;
+    background-color: #1e1e1e !important;
+    box-shadow: none !important;
+}
+body.dark .card-body{
+    border: 0px;
+    color: white !important;
+}
+body.dark .fc .fc-col-header-cell-cushion{
+    color: white !important;
+}
