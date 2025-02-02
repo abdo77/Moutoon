@@ -484,3 +484,7 @@ body.dark .message-container:hover{
     opacity: 1 !important;
     color: rgb(51 ,65 ,85 );
 }
+.avtr-md{
+    width: 2.5rem;
+    height: 2.5rem;
+}

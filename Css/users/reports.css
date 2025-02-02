@@ -1,0 +1,55 @@
+main .nav-tabs .nav-link{
+    color: grey;
+    font-weight: bold;
+}
+main .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: black !important;
+    border: 0px !important;
+    border-bottom: 2px solid grey !important;
+    background-color: transparent;
+}
+.dots {
+    line-height: 18px;
+}
+main .tab-pane{
+    max-height: 395px !important;
+    overflow: auto;
+}
+body.dark .card-body{
+    background-color: #1e1e1e;
+    
+}
+body.dark .card{
+    overflow: hidden;
+    background-color: #1e1e1e !important;
+    box-shadow: none !important;
+}
+ body.dark main .card-body , body.dark main .card-header{
+    border: 0px;
+    color: white !important;
+    background-color: #1e1e1e !important;
+}
+body.dark .fc .fc-col-header-cell-cushion{
+    color: white !important;
+}
+body.dark .row .card-body .rounded-3:not(.bar){
+    background-color: #121212 !important;
+}
+body.dark main .nav-tabs .nav-item.show .nav-link,body.dark .nav-tabs .nav-link.active{
+    color: white !important;
+}
+body.dark .nav-tabs{
+    border-bottom:2px solid  #121212 !important;
+}
+.bar , body.dark .bar{
+    background-color: rgb(47 170 224) !important;
+}
+body.dark .apexcharts-text{
+    fill: white !important;
+}
+.dot{
+    flex-shrink: 0;
+}
+body.dark .apexcharts-legend-text{
+    color: white !important;
+}
